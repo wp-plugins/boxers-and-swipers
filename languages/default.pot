@@ -1,0 +1,32 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Boxers and Swipers\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Katsushi Kawamori <dodesyoswift312@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+
+msgid "The default value for each terminal"
+msgstr ""
+
+msgid "Terminal"
+msgstr ""
+
+msgid "Effect"
+msgstr ""
+
+msgid "User Agent"
+msgstr ""
+
+msgid "| Specify separated by. Regular expression is possible."
+msgstr ""
+
+msgid "The default value for effects."
+msgstr ""
+
+msgid "If you are using an image gallery of WordPress, please describe the short code as follows."
+msgstr ""
