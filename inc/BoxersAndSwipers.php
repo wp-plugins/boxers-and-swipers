@@ -39,50 +39,46 @@ class BoxersAndSwipers {
 			);
 		$attachments = get_posts($args);
 
-		if(preg_match_all('@.+<?\shref=[\'|"](.*?)[\'|"].*@', $link, $result) !== false){
-	    	foreach ($result[1] as $value){
-				$ext = end(explode('.', $value));
+		if(preg_match_all("/\s+href\s*=\s*([\"\']?)([^\s\"\'>]+)(\\1)/ims", $link, $result) !== false){
+	    	foreach ($result[0] as $value){
+				$ext = end(explode('.', substr($value, 0, -1)));
 				$ext2type = wp_ext2type($ext);
 				if ( $ext2type === 'image' ) {
 					if ( $this->effect === 'colorbox' ) {
 						// colorbox
-						$class_name = 'class="gallery"';
-						$titlename = '';
+						$class_name = ' class="gallery"';
+						$titlename = NULL;
 						foreach ( $attachments as $attachment ) {
-							if( $value === $attachment->guid ){
+							if( strpos($value, $attachment->guid) ){
 								$titlename = ' title="'.$attachment->post_title.'"';
 							}
 						}
-						$link = str_replace('a href="'.$value, 'a '.$class_name.$titlename.' href="'.$value, $link);
-						$link = str_replace("a href='".$value, 'a '.$class_name.$titlename." href='".$value, $link);
+						$link = str_replace($value, $class_name.$titlename.$value, $link);
 					} else if ( $this->effect === 'slimbox' ) {
 						//slimbox
-						$rel_name = 'rel="lightbox"';
-						$titlename = '';
+						$rel_name = ' rel="lightbox"';
+						$titlename = NULL;
 						foreach ( $attachments as $attachment ) {
-							if( $value === $attachment->guid ){
+							if( strpos($value, $attachment->guid) ){
 								$titlename = ' title="'.$attachment->post_title.'"';
 							}
 						}
-						$link = str_replace('a href="'.$value, 'a '.$rel_name.$titlename.' href="'.$value, $link);
-						$link = str_replace("a href='".$value, 'a '.$rel_name.$titlename." href='".$value, $link);
+						$link = str_replace($value, $rel_name.$titlename.$value, $link);
 					} else if ( $this->effect === 'photoswipe' ) {
 						//photoswipe
-						$rel_name = 'rel="external"';
-						$link = str_replace('a href="'.$value, 'a '.$rel_name.' href="'.$value, $link);
-						$link = str_replace("a href='".$value, 'a '.$rel_name." href='".$value, $link);
+						$rel_name = ' rel="external"';
+						$link = str_replace($value, $rel_name.$value, $link);
 					} else if ( $this->effect === 'swipebox' ) {
 						//swipebox
-						$rel_name = 'rel="'.get_the_ID().'"';
+						$rel_name = ' rel="'.get_the_ID().'"';
 						$class_name = ' class="swipebox"';
-						$titlename = '';
+						$titlename = NULL;
 						foreach ( $attachments as $attachment ) {
-							if( $value === $attachment->guid ){
+							if( strpos($value, $attachment->guid) ){
 								$titlename = ' title="'.$attachment->post_title.'"';
 							}
 						}
-						$link = str_replace('a href="'.$value, 'a '.$rel_name.$class_name.$titlename.' href="'.$value, $link);
-						$link = str_replace("a href='".$value, 'a '.$rel_name.$class_name.$titlename." href='".$value, $link);
+						$link = str_replace($value, $rel_name.$class_name.$titlename.$value, $link);
 					}
 				}
 	    	}
