@@ -70,7 +70,7 @@ class BoxersAndSwipers {
 						$link = str_replace($value, $rel_name.$value, $link);
 					} else if ( $this->effect === 'swipebox' ) {
 						//swipebox
-						$rel_name = ' rel="'.get_the_ID().'"';
+						$rel_name = ' rel="boxers-and-swipers"';
 						$class_name = ' class="swipebox"';
 						$titlename = NULL;
 						foreach ( $attachments as $attachment ) {
@@ -130,7 +130,7 @@ class BoxersAndSwipers {
 				    $link = str_replace( '<a', '<a '.$rel_name, $link );
 				} else if ( $this->effect === 'swipebox' ) {
 					//swipebox
-					$rel_name = 'rel="'.get_the_ID().'"';
+					$rel_name = 'rel="boxers-and-swipers"';
 					$class_name = ' class="swipebox"';
 				    $link = str_replace( '<a', '<a '.$rel_name.$class_name.$titlename, $link );
 				}
