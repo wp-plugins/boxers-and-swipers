@@ -89,6 +89,36 @@ $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 <!-- END: Boxers and Swipers -->
 
 BOXERSANDSWIPERS2;
+		} else if ( $this->effect === 'nivolightbox' ) {
+			$nivolightbox_tbl = get_option('boxersandswipers_nivolightbox');
+// JS
+$boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
+
+<!-- BEGIN: Boxers and Swipers -->
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	jQuery('a[data-lightbox-gallery="nivogallery"]').nivoLightbox({
+
+BOXERSANDSWIPERS1;
+
+			foreach( $nivolightbox_tbl as $key => $value ) {
+				if ( is_string($value) && $value <> 'true' && $value<> 'false' ) {
+					$boxersandswipers_add_js .= str_repeat(' ', 8).$key.': "'.$value.'",'."\n";
+				} else {
+					$boxersandswipers_add_js .= str_repeat(' ', 8).$key.': '.$value.','."\n";
+				}
+			}
+			$boxersandswipers_add_js = rtrim($boxersandswipers_add_js);
+			$boxersandswipers_add_js = rtrim($boxersandswipers_add_js, ",");
+
+$boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
+
+	});
+});
+</script>
+<!-- END: Boxers and Swipers -->
+
+BOXERSANDSWIPERS2;
 		} else if ( $this->effect === 'photoswipe' ) {
 			$photoswipe_tbl = get_option('boxersandswipers_photoswipe');
 // JS

@@ -1,19 +1,21 @@
 === Boxers and Swipers ===
 Contributors: Katsushi Kawamori
 Donate link: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
-Tags: colorbox, slimbox, lightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
+Tags: colorbox, slimbox, lightbox, nivolightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
 Requires at least: 3.0.1
 Tested up to: 3.4
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Integrates Colorbox and Slimbox and Photoswipe and Swipebox into WordPress.
+Integrates Colorbox and Slimbox and Nivo Lightbox and Photoswipe and Swipebox into WordPress.
 
 == Description ==
 
-* Integrates Colorbox and Slimbox and Photoswipe and Swipebox into WordPress.
+* Integrates Colorbox and Slimbox and Nivo Lightbox and Photoswipe and Swipebox into WordPress.
 * Can switch the effect to each user agent.
+
+*   Japanese (ja) - [Katsushi Kawamori](http://gallerylink.nyanko.org/medialink/boxers-and-swipers/)
 
 == Installation ==
 
@@ -21,8 +23,6 @@ Integrates Colorbox and Slimbox and Photoswipe and Swipebox into WordPress.
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 * If you are using an image gallery of WordPress, please describe the short code as follows. : [gallery link="file"]
-
-*   Japanese (ja) - [Katsushi Kawamori](http://gallerylink.nyanko.org/medialink/boxers-and-swipers/)
 
 == Frequently Asked Questions ==
 
@@ -40,6 +40,9 @@ none
 
 == Changelog ==
 
+= 1.3 =
+Add effect Nivo Lightbox.
+
 = 1.2 =
 Fixed problem swipebox.
 
@@ -50,6 +53,7 @@ Fixed problem in the display of the Pages and Posts.
 
 == Upgrade Notice ==
 
+= 1.3 =
 = 1.2 =
 = 1.1 =
 = 1.0 =

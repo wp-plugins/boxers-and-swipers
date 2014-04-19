@@ -68,6 +68,7 @@ class BoxersAndSwipersAdmin {
 		$boxersandswipers_useragent = get_option('boxersandswipers_useragent');
 		$boxersandswipers_colorbox = get_option('boxersandswipers_colorbox');
 		$boxersandswipers_slimbox = get_option('boxersandswipers_slimbox');
+		$boxersandswipers_nivolightbox = get_option('boxersandswipers_nivolightbox');
 		$boxersandswipers_photoswipe = get_option('boxersandswipers_photoswipe');
 		$boxersandswipers_slideshow = get_option('boxersandswipers_slideshow');
 		$boxersandswipers_swipebox = get_option('boxersandswipers_swipebox');
@@ -112,6 +113,7 @@ class BoxersAndSwipersAdmin {
 					<select id="boxersandswipers_effect_pc" name="boxersandswipers_effect_pc">
 						<option <?php if ('colorbox' == $target_effect_pc)echo 'selected="selected"'; ?>>colorbox</option>
 						<option <?php if ('slimbox' == $target_effect_pc)echo 'selected="selected"'; ?>>slimbox</option>
+						<option <?php if ('nivolightbox' == $target_effect_pc)echo 'selected="selected"'; ?>>nivolightbox</option>
 						<option <?php if ('photoswipe' == $target_effect_pc)echo 'selected="selected"'; ?>>photoswipe</option>
 						<option <?php if ('swipebox' == $target_effect_pc)echo 'selected="selected"'; ?>>swipebox</option>
 					</select>
@@ -125,6 +127,7 @@ class BoxersAndSwipersAdmin {
 					<select id="boxersandswipers_effect_tb" name="boxersandswipers_effect_tb">
 						<option <?php if ('colorbox' == $target_effect_tb)echo 'selected="selected"'; ?>>colorbox</option>
 						<option <?php if ('slimbox' == $target_effect_tb)echo 'selected="selected"'; ?>>slimbox</option>
+						<option <?php if ('nivolightbox' == $target_effect_tb)echo 'selected="selected"'; ?>>nivolightbox</option>
 						<option <?php if ('photoswipe' == $target_effect_tb)echo 'selected="selected"'; ?>>photoswipe</option>
 						<option <?php if ('swipebox' == $target_effect_tb)echo 'selected="selected"'; ?>>swipebox</option>
 					</select>
@@ -142,6 +145,7 @@ class BoxersAndSwipersAdmin {
 					<select id="boxersandswipers_effect_sp" name="boxersandswipers_effect_sp">
 						<option <?php if ('colorbox' == $target_effect_sp)echo 'selected="selected"'; ?>>colorbox</option>
 						<option <?php if ('slimbox' == $target_effect_sp)echo 'selected="selected"'; ?>>slimbox</option>
+						<option <?php if ('nivolightbox' == $target_effect_sp)echo 'selected="selected"'; ?>>nivolightbox</option>
 						<option <?php if ('photoswipe' == $target_effect_sp)echo 'selected="selected"'; ?>>photoswipe</option>
 						<option <?php if ('swipebox' == $target_effect_sp)echo 'selected="selected"'; ?>>swipebox</option>
 					</select>
@@ -174,6 +178,7 @@ class BoxersAndSwipersAdmin {
 				<tr>
 					<td align="center" valign="middle" colspan="2">colorbox(<a href="http://www.jacklmoore.com/colorbox/" target="_blank"><font color="red"><?php _e('Description'); ?></font></a>)</td>
 					<td align="center" valign="middle" colspan="2">slimbox(<a href="http://www.digitalia.be/software/slimbox2" target="_blank"><font color="red"><?php _e('Description'); ?></font></a>)</td>
+					<td align="center" valign="middle" colspan="2">nivolightbox(<a href="http://docs.dev7studios.com/jquery-plugins/nivo-lightbox" target="_blank"><font color="red"><?php _e('Description'); ?></font></a>)</td>
 					<td align="center" valign="middle" colspan="2">photoswipe(<a href="https://github.com/dimsemenov/PhotoSwipe/blob/master/README.md" target="_blank"><font color="red"><?php _e('Description'); ?></font></a>)</td>
 					<td align="center" valign="middle" colspan="2">swipebox(<a href="http://brutaldesign.github.io/swipebox/" target="_blank"><font color="red"><?php _e('Description'); ?></font></a>)</td>
 				</tr>
@@ -195,6 +200,19 @@ class BoxersAndSwipersAdmin {
 						<option <?php if ('false' == $target_slimbox_loop)echo 'selected="selected"'; ?>>false</option>
 					</select>
 					</td>
+					<td align="center" valign="middle">effect</td>
+					<td align="center" valign="middle">
+					<?php $target_nivolightbox_effect = $boxersandswipers_nivolightbox[effect]; ?>
+					<select id="boxersandswipers_nivolightbox_effect" name="boxersandswipers_nivolightbox_effect">
+						<option <?php if ('fade' == $target_nivolightbox_effect)echo 'selected="selected"'; ?>>fade</option>
+						<option <?php if ('fadeScale' == $target_nivolightbox_effect)echo 'selected="selected"'; ?>>fadeScale</option>
+						<option <?php if ('slideLeft' == $target_nivolightbox_effect)echo 'selected="selected"'; ?>>slideLeft</option>
+						<option <?php if ('slideRight' == $target_nivolightbox_effect)echo 'selected="selected"'; ?>>slideRight</option>
+						<option <?php if ('slideUp' == $target_nivolightbox_effect)echo 'selected="selected"'; ?>>slideUp</option>
+						<option <?php if ('slideDown' == $target_nivolightbox_effect)echo 'selected="selected"'; ?>>slideDown</option>
+						<option <?php if ('fall' == $target_nivolightbox_effect)echo 'selected="selected"'; ?>>fall</option>
+					</select>
+					</td>
 					<td align="center" valign="middle">fadeInSpeed</td>
 					<td align="center" valign="middle">
 						<input type="text" id="boxersandswipers_photoswipe_fadeInSpeed" name="boxersandswipers_photoswipe_fadeInSpeed" value="<?php echo $boxersandswipers_photoswipe[fadeInSpeed] ?>" size="10" />
@@ -213,6 +231,14 @@ class BoxersAndSwipersAdmin {
 					<td align="center" valign="middle">
 						<input type="text" id="boxersandswipers_slimbox_overlayOpacity" name="boxersandswipers_slimbox_overlayOpacity" value="<?php echo $boxersandswipers_slimbox[overlayOpacity] ?>" size="10" />
 					</td>
+					<td align="center" valign="middle">keyboardNav</td>
+					<td align="center" valign="middle">
+					<?php $target_nivolightbox_keyboardNav = $boxersandswipers_nivolightbox[keyboardNav]; ?>
+					<select id="boxersandswipers_nivolightbox_keyboardNav" name="boxersandswipers_nivolightbox_keyboardNav">
+						<option <?php if ('true' == $target_nivolightbox_keyboardNav)echo 'selected="selected"'; ?>>true</option>
+						<option <?php if ('false' == $target_nivolightbox_keyboardNav)echo 'selected="selected"'; ?>>false</option>
+					</select>
+					</td>
 					<td align="center" valign="middle">fadeOutSpeed</td>
 					<td align="center" valign="middle">
 						<input type="text" id="boxersandswipers_photoswipe_fadeOutSpeed" name="boxersandswipers_photoswipe_fadeOutSpeed" value="<?php echo $boxersandswipers_photoswipe[fadeOutSpeed] ?>" size="10" />
@@ -227,6 +253,14 @@ class BoxersAndSwipersAdmin {
 					<td align="center" valign="middle">overlayFadeDuration</td>
 					<td align="center" valign="middle">
 						<input type="text" id="boxersandswipers_slimbox_overlayFadeDuration" name="boxersandswipers_slimbox_overlayFadeDuration" value="<?php echo $boxersandswipers_slimbox[overlayFadeDuration] ?>" size="10" />
+					</td>
+					<td align="center" valign="middle">clickOverlayToClose</td>
+					<td align="center" valign="middle">
+					<?php $target_nivolightbox_clickOverlayToClose = $boxersandswipers_nivolightbox[clickOverlayToClose]; ?>
+					<select id="boxersandswipers_nivolightbox_clickOverlayToClose" name="boxersandswipers_nivolightbox_clickOverlayToClose">
+						<option <?php if ('true' == $target_nivolightbox_clickOverlayToClose)echo 'selected="selected"'; ?>>true</option>
+						<option <?php if ('false' == $target_nivolightbox_clickOverlayToClose)echo 'selected="selected"'; ?>>false</option>
+					</select>
 					</td>
 					<td align="center" valign="middle">slideSpeed</td>
 					<td align="center" valign="middle">
@@ -246,6 +280,7 @@ class BoxersAndSwipersAdmin {
 					<td align="center" valign="middle">
 						<input type="text" id="boxersandswipers_slimbox_resizeDuration" name="boxersandswipers_slimbox_resizeDuration" value="<?php echo $boxersandswipers_slimbox[resizeDuration] ?>" size="10" />
 					</td>
+					<td colspan="2" rowspan="38"></td>
 					<td align="center" valign="middle">swipeThreshold</td>
 					<td align="center" valign="middle">
 						<input type="text" id="boxersandswipers_photoswipe_swipeThreshold" name="boxersandswipers_photoswipe_swipeThreshold" value="<?php echo $boxersandswipers_photoswipe[swipeThreshold] ?>" size="10" />
@@ -766,8 +801,15 @@ class BoxersAndSwipersAdmin {
 						'closeKeys' => $_POST['boxersandswipers_slimbox_closeKeys'],
 						'previousKeys' => $_POST['boxersandswipers_slimbox_previousKeys'],
 						'nextKeys' => $_POST['boxersandswipers_slimbox_nextKeys']
-							);
+						);
 		update_option( 'boxersandswipers_slimbox', $slimbox_tbl );
+
+		$nivolightbox_tbl = array(
+						'effect' => $_POST['boxersandswipers_nivolightbox_effect'],
+						'keyboardNav' => $_POST['boxersandswipers_nivolightbox_keyboardNav'],
+						'clickOverlayToClose' => $_POST['boxersandswipers_nivolightbox_clickOverlayToClose']
+						);
+		update_option( 'boxersandswipers_nivolightbox', $nivolightbox_tbl );
 
 		$photoswipe_tbl = array(
 						'fadeInSpeed' => $_POST['boxersandswipers_photoswipe_fadeInSpeed'],

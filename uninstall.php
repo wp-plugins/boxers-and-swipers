@@ -7,6 +7,7 @@
 	$option_names = array(
 						'boxersandswipers_colorbox',
 						'boxersandswipers_effect',
+						'boxersandswipers_nivolightbox',
 						'boxersandswipers_photoswipe',
 						'boxersandswipers_slimbox',
 						'boxersandswipers_swipebox',

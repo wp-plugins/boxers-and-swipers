@@ -64,6 +64,16 @@ class BoxersAndSwipers {
 							}
 						}
 						$link = str_replace($value, $rel_name.$titlename.$value, $link);
+					} else if ( $this->effect === 'nivolightbox' ) {
+						//nivolightbox
+						$rel_name = ' data-lightbox-gallery="nivogallery"';
+						$titlename = NULL;
+						foreach ( $attachments as $attachment ) {
+							if( strpos($value, $attachment->guid) ){
+								$titlename = ' title="'.$attachment->post_title.'"';
+							}
+						}
+						$link = str_replace($value, $rel_name.$titlename.$value, $link);
 					} else if ( $this->effect === 'photoswipe' ) {
 						//photoswipe
 						$rel_name = ' rel="external"';
@@ -123,6 +133,10 @@ class BoxersAndSwipers {
 				} else if ( $this->effect === 'slimbox' ) {
 					//slimbox
 					$rel_name = 'rel="lightbox"';
+				    $link = str_replace( '<a', '<a '.$rel_name.$titlename, $link );
+				} else if ( $this->effect === 'nivolightbox' ) {
+					//nivolightbox
+					$rel_name = ' data-lightbox-gallery="nivogallery"';
 				    $link = str_replace( '<a', '<a '.$rel_name.$titlename, $link );
 				} else if ( $this->effect === 'photoswipe' ) {
 					//photoswipe

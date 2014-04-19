@@ -30,7 +30,7 @@ class BoxersAndSwipersRegist {
 		if ( !get_option('boxersandswipers_effect') ) {
 			$effect_tbl = array(
 							'pc' => 'colorbox',
-							'tb' => 'slimbox',
+							'tb' => 'nivolightbox',
 							'sp' => 'swipebox'
 							);
 			update_option( 'boxersandswipers_effect', $effect_tbl );
@@ -109,6 +109,15 @@ class BoxersAndSwipersRegist {
 								'nextKeys' => '[39, 78]'
 							);
 			update_option( 'boxersandswipers_slimbox', $slimbox_tbl );
+		}
+
+		if ( !get_option('boxersandswipers_nivolightbox') ) {
+			$nivolightbox_tbl = array(
+								'effect' => 'fade',
+								'keyboardNav' => 'true',
+								'clickOverlayToClose' => 'true'
+							);
+			update_option( 'boxersandswipers_nivolightbox', $nivolightbox_tbl );
 		}
 
 		if ( !get_option('boxersandswipers_photoswipe') ) {
