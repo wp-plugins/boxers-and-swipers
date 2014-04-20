@@ -31,7 +31,7 @@ class BoxersAndSwipersRegist {
 			$effect_tbl = array(
 							'pc' => 'colorbox',
 							'tb' => 'nivolightbox',
-							'sp' => 'swipebox'
+							'sp' => 'photoswipe'
 							);
 			update_option( 'boxersandswipers_effect', $effect_tbl );
 		}

@@ -4,7 +4,7 @@ Donate link: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
 Tags: colorbox, slimbox, lightbox, nivolightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
 Requires at least: 3.0.1
 Tested up to: 3.4
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,9 +36,14 @@ none
 4. `/assets/screenshot-4.png`
 5. `/assets/screenshot-5.png`
 6. `/assets/screenshot-6.png`
+7. `/assets/screenshot-7.png`
 
 
 == Changelog ==
+
+= 1.4 =
+Fixed problem Photoswipe.
+Change css for Nivo Lightbox.
 
 = 1.3 =
 Add effect Nivo Lightbox.
@@ -53,6 +58,7 @@ Fixed problem in the display of the Pages and Posts.
 
 == Upgrade Notice ==
 
+= 1.4 =
 = 1.3 =
 = 1.2 =
 = 1.1 =

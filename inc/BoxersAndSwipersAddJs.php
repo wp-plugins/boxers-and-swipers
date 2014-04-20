@@ -37,7 +37,7 @@ $boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
 <!-- BEGIN: Boxers and Swipers -->
 <script type="text/javascript">
 jQuery(function(){
-	jQuery("a.gallery").colorbox({
+	jQuery("a.boxersandswipers").colorbox({
 
 BOXERSANDSWIPERS1;
 
@@ -67,7 +67,7 @@ $boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
 <!-- BEGIN: Boxers and Swipers -->
 <script type="text/javascript">
 jQuery(document).ready(function() {
-	jQuery('a[rel*=lightbox]').slimbox({
+	jQuery('a[rel*=boxersandswipers]').slimbox({
 
 BOXERSANDSWIPERS1;
 
@@ -97,7 +97,7 @@ $boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
 <!-- BEGIN: Boxers and Swipers -->
 <script type="text/javascript">
 jQuery(document).ready(function() {
-	jQuery('a[data-lightbox-gallery="nivogallery"]').nivoLightbox({
+	jQuery('a[data-lightbox-gallery*="boxersandswipers"]').nivoLightbox({
 
 BOXERSANDSWIPERS1;
 
@@ -127,7 +127,7 @@ $boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
 <!-- BEGIN: Boxers and Swipers -->
 <script type="text/javascript">
 	document.addEventListener('DOMContentLoaded', function(){
-		Code.photoSwipe('a', '#PhotoswipeGallery');
+		Code.photoSwipe('a.boxersandswipers');
 		Code.PhotoSwipe.Current.setOptions({
 
 BOXERSANDSWIPERS1;
@@ -158,7 +158,7 @@ $boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
 <!-- BEGIN: Boxers and Swipers -->
 <script type="text/javascript">
 jQuery(function() {
-	jQuery(".swipebox").swipebox({
+	jQuery(".boxersandswipers").swipebox({
 
 BOXERSANDSWIPERS1;
 
