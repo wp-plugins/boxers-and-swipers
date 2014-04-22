@@ -2,7 +2,7 @@
 /*
 Plugin Name: Boxers and Swipers
 Plugin URI: http://wordpress.org/plugins/boxers-and-swipers/
-Version: 1.4
+Version: 1.5
 Description: Integrates Colorbox and Slimbox and Nivo Lightbox and Photoswipe and Swipebox into WordPress.
 Author: Katsushi Kawamori
 Author URI: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
@@ -28,6 +28,7 @@ Domain Path: /languages
 
 	define("BOXERSANDSWIPERS_PLUGIN_BASE_FILE", plugin_basename(__FILE__));
 	define("BOXERSANDSWIPERS_PLUGIN_BASE_DIR", dirname(__FILE__));
+	define("BOXERSANDSWIPERS_PLUGIN_URL", plugins_url($path='',$scheme=null));
 
 	require_once( dirname( __FILE__ ) . '/req/BoxersAndSwipersRegist.php' );
 	$boxersandswipersregistandheader = new BoxersAndSwipersRegist();
@@ -47,41 +48,29 @@ Domain Path: /languages
 	$mode = $boxersandswipers->agent_check();
 
 	$boxersandswipers_effect = get_option('boxersandswipers_effect');
+	$boxersandswipers_apply_home = get_option('boxersandswipers_apply_home');
+	$boxersandswipers_apply_posts = get_option('boxersandswipers_apply_posts');
+	$boxersandswipers_apply_pages = get_option('boxersandswipers_apply_pages');
+	$boxersandswipers_apply_gallery = get_option('boxersandswipers_apply_gallery');
+
 	$effect = $boxersandswipers_effect[$mode];
+	$apply_home = $boxersandswipers_apply_home[$mode];
+	$apply_posts = $boxersandswipers_apply_posts[$mode];
+	$apply_pages = $boxersandswipers_apply_pages[$mode];
+	$apply_gallery = $boxersandswipers_apply_gallery[$mode];
 
 	$boxersandswipers->effect = $effect;
-	add_filter( 'the_content', array($boxersandswipers, 'add_anchor_tag') );
-	add_filter( 'post_gallery', array($boxersandswipers, 'gallery_filter') );
-	unset($boxersandswipers);
+	$boxersandswipers->apply_home = $apply_home;
+	$boxersandswipers->apply_posts = $apply_posts;
+	$boxersandswipers->apply_pages = $apply_pages;
 
-	$pluginurl = plugins_url($path='',$scheme=null);
-	if ($effect === 'colorbox'){
-		// for COLORBOX
-		wp_enqueue_style( 'colorbox',  $pluginurl.'/boxers-and-swipers/colorbox/colorbox.css' );
-		wp_enqueue_script( 'colorbox', $pluginurl.'/boxers-and-swipers/colorbox/jquery.colorbox-min.js', null, '1.4.37');
-	} else if ($effect === 'slimbox'){
-		// for slimbox
-		wp_enqueue_style( 'slimbox',  $pluginurl.'/boxers-and-swipers/slimbox/css/slimbox2.css' );
-		wp_enqueue_script( 'slimbox', $pluginurl.'/boxers-and-swipers/slimbox/js/slimbox2.js', null, '2.05');
-	} else if ($effect === 'nivolightbox'){
-		// for nivolightbox
-		wp_enqueue_style( 'nivolightbox',  $pluginurl.'/boxers-and-swipers/nivolightbox/nivo-lightbox.css' );
-		wp_enqueue_style( 'nivolightbox-themes',  $pluginurl.'/boxers-and-swipers/nivolightbox/themes/default/default.css' );
-		wp_enqueue_script( 'nivolightbox', $pluginurl.'/boxers-and-swipers/nivolightbox/nivo-lightbox.min.js', null, '1.1');
-	} else if ($effect === 'photoswipe'){
-		// for PhotoSwipe
-		wp_enqueue_style( 'photoswipe',  $pluginurl.'/boxers-and-swipers/photoswipe/photoswipe.css' );
-		wp_enqueue_script( 'sji' , $pluginurl.'/boxers-and-swipers/photoswipe/lib/simple-inheritance.min.js', null );
-		wp_enqueue_script( 'photoswipe' , $pluginurl.'/boxers-and-swipers/photoswipe/code-photoswipe-1.0.11.min.js', null, '1.0.11' );
-	} else if ($effect === 'swipebox'){
-		// for Swipebox
-		wp_enqueue_style( 'swipebox',  $pluginurl.'/boxers-and-swipers/swipebox/source/swipebox.css' );
-		wp_enqueue_script( 'swipebox' , $pluginurl.'/boxers-and-swipers/swipebox/source/jquery.swipebox.min.js', null, '1.2.1' );
+	if ( $apply_home || $apply_posts || $apply_pages ) {
+		add_filter( 'the_content', array($boxersandswipers, 'add_anchor_tag') );
 	}
-
-	include_once dirname(__FILE__).'/inc/BoxersAndSwipersAddJs.php';
-	$boxersandswipersaddjs = new BoxersAndSwipersAddJs();
-	$boxersandswipersaddjs->effect = $effect;
-	add_action('wp_footer', array($boxersandswipersaddjs, 'add_js'));
+	if ( $apply_gallery ) {
+		add_shortcode( 'gallery', array($boxersandswipers, 'file_gallery_shortcode') );
+		add_filter( 'post_gallery', array($boxersandswipers, 'gallery_filter') );
+	}
+	unset($boxersandswipers);
 
 ?>

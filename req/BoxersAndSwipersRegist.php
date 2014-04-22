@@ -27,6 +27,42 @@ class BoxersAndSwipersRegist {
 	 */
 	function register_settings(){
 
+		if ( !get_option('boxersandswipers_apply_home') ) {
+			$apply_home_tbl = array(
+							'pc' => 'true',
+							'tb' => 'true',
+							'sp' => 'true'
+							);
+			update_option( 'boxersandswipers_apply_home', $apply_home_tbl );
+		}
+
+		if ( !get_option('boxersandswipers_apply_posts') ) {
+			$apply_posts_tbl = array(
+							'pc' => 'true',
+							'tb' => 'true',
+							'sp' => 'true'
+							);
+			update_option( 'boxersandswipers_apply_posts', $apply_posts_tbl );
+		}
+
+		if ( !get_option('boxersandswipers_apply_pages') ) {
+			$apply_pages_tbl = array(
+							'pc' => 'true',
+							'tb' => 'true',
+							'sp' => 'true'
+							);
+			update_option( 'boxersandswipers_apply_pages', $apply_pages_tbl );
+		}
+
+		if ( !get_option('boxersandswipers_apply_gallery') ) {
+			$apply_gallery_tbl = array(
+							'pc' => 'true',
+							'tb' => 'true',
+							'sp' => 'true'
+							);
+			update_option( 'boxersandswipers_apply_gallery', $apply_gallery_tbl );
+		}
+
 		if ( !get_option('boxersandswipers_effect') ) {
 			$effect_tbl = array(
 							'pc' => 'colorbox',

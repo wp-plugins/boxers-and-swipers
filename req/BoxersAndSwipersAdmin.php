@@ -55,15 +55,17 @@ class BoxersAndSwipersAdmin {
 			wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 		}
 
-		$pluginurl = plugins_url($path='',$scheme=null);
-
-		wp_enqueue_style( 'jquery-ui-tabs', $pluginurl.'/boxers-and-swipers/css/jquery-ui.css' );
+		wp_enqueue_style( 'jquery-ui-tabs', BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/css/jquery-ui.css' );
 		wp_enqueue_script( 'jquery-ui-tabs' );
-		wp_enqueue_script( 'jquery-ui-tabs-in', $pluginurl.'/boxers-and-swipers/js/jquery-ui-tabs-in.js' );
+		wp_enqueue_script( 'jquery-ui-tabs-in', BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/js/jquery-ui-tabs-in.js' );
 
 		if( !empty($_POST) ) { $this->options_updated(); }
 		$scriptname = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH).'?page=boxersandswipers';
 
+		$boxersandswipers_apply_home = get_option('boxersandswipers_apply_home');
+		$boxersandswipers_apply_posts = get_option('boxersandswipers_apply_posts');
+		$boxersandswipers_apply_pages = get_option('boxersandswipers_apply_pages');
+		$boxersandswipers_apply_gallery = get_option('boxersandswipers_apply_gallery');
 		$boxersandswipers_effect = get_option('boxersandswipers_effect');
 		$boxersandswipers_useragent = get_option('boxersandswipers_useragent');
 		$boxersandswipers_colorbox = get_option('boxersandswipers_colorbox');
@@ -82,9 +84,8 @@ class BoxersAndSwipersAdmin {
 	  <ul>
 	    <li><a href="#tabs-1"><?php _e('The default value for each terminal', 'boxersandswipers') ?></a></li>
 		<li><a href="#tabs-2"><?php _e('The default value for effects.', 'boxersandswipers') ?></a></li>
-		<li><a href="#tabs-3"><?php _e('Caution:'); ?></a></li>
 	<!--
-		<li><a href="#tabs-4">FAQ</a></li>
+		<li><a href="#tabs-3">FAQ</a></li>
 	 -->
 	  </ul>
 
@@ -101,10 +102,11 @@ class BoxersAndSwipersAdmin {
 			<table border="1">
 			<tbody>
 				<tr>
-					<td align="center" valign="middle"><b><?php _e('Terminal', 'boxersandswipers') ?></b></td>
-					<td align="center" valign="middle"><b><?php _e('Effect', 'boxersandswipers') ?></b></td>
-					<td align="center" valign="middle"><b><?php _e('User Agent', 'boxersandswipers') ?></b></td>
-					<td align="center" valign="middle"><b><?php _e('Description') ?></b></td>
+					<td align="center" valign="middle"><?php _e('Terminal', 'boxersandswipers') ?></td>
+					<td align="center" valign="middle"><?php _e('Effect', 'boxersandswipers') ?></td>
+					<td align="center" valign="middle"><?php _e('Apply') ?></td>
+					<td align="center" valign="middle"><?php _e('User Agent', 'boxersandswipers') ?></td>
+					<td align="center" valign="middle"><?php _e('Description') ?></td>
 				</tr>
 				<tr>
 					<td align="center" valign="middle"><b>pc</b></td>
@@ -117,6 +119,12 @@ class BoxersAndSwipersAdmin {
 						<option <?php if ('photoswipe' == $target_effect_pc)echo 'selected="selected"'; ?>>photoswipe</option>
 						<option <?php if ('swipebox' == $target_effect_pc)echo 'selected="selected"'; ?>>swipebox</option>
 					</select>
+					</td>
+					<td>
+						 <input name="boxersandswipers_apply_home_pc" type="checkbox" value="true" <?php if ($boxersandswipers_apply_home[pc] === 'true') echo 'checked'; ?>><?php _e('Home'); ?>&nbsp;&nbsp;
+						 <input name="boxersandswipers_apply_posts_pc" type="checkbox" value="true" <?php if ($boxersandswipers_apply_posts[pc] === 'true') echo 'checked'; ?>><?php _e('Posts'); ?>&nbsp;&nbsp;
+						 <input name="boxersandswipers_apply_pages_pc" type="checkbox" value="true" <?php if ($boxersandswipers_apply_pages[pc] === 'true') echo 'checked'; ?>><?php _e('Pages'); ?>&nbsp;&nbsp;
+						 <input name="boxersandswipers_apply_gallery_pc" type="checkbox" value="true" <?php if ($boxersandswipers_apply_gallery[pc] === 'true') echo 'checked'; ?>><?php _e('Gallery'); ?>
 					</td>
 					<td colspan="2"></td>
 				</tr>
@@ -132,8 +140,14 @@ class BoxersAndSwipersAdmin {
 						<option <?php if ('swipebox' == $target_effect_tb)echo 'selected="selected"'; ?>>swipebox</option>
 					</select>
 					</td>
+					<td>
+						 <input name="boxersandswipers_apply_home_tb" type="checkbox" value="true" <?php if ($boxersandswipers_apply_home[tb] === 'true') echo 'checked'; ?>><?php _e('Home'); ?>&nbsp;&nbsp;
+						 <input name="boxersandswipers_apply_posts_tb" type="checkbox" value="true" <?php if ($boxersandswipers_apply_posts[tb] === 'true') echo 'checked'; ?>><?php _e('Posts'); ?>&nbsp;&nbsp;
+						 <input name="boxersandswipers_apply_pages_tb" type="checkbox" value="true" <?php if ($boxersandswipers_apply_pages[tb] === 'true') echo 'checked'; ?>><?php _e('Pages'); ?>&nbsp;&nbsp;
+						 <input name="boxersandswipers_apply_gallery_tb" type="checkbox" value="true" <?php if ($boxersandswipers_apply_gallery[tb] === 'true') echo 'checked'; ?>><?php _e('Gallery'); ?>
+					</td>
 					<td align="center" valign="middle">
-						<textarea id="boxersandswipers_useragent_tb" name="boxersandswipers_useragent_tb" rows="4" cols="120"><?php echo $boxersandswipers_useragent[tb] ?></textarea>
+						<textarea id="boxersandswipers_useragent_tb" name="boxersandswipers_useragent_tb" rows="4" cols="80"><?php echo $boxersandswipers_useragent[tb] ?></textarea>
 
 					</td>
 					<td align="left" valign="middle" rowspan="2"><?php _e('| Specify separated by. Regular expression is possible.', 'boxersandswipers'); ?></td>
@@ -150,8 +164,14 @@ class BoxersAndSwipersAdmin {
 						<option <?php if ('swipebox' == $target_effect_sp)echo 'selected="selected"'; ?>>swipebox</option>
 					</select>
 					</td>
+					<td>
+						 <input name="boxersandswipers_apply_home_sp" type="checkbox" value="true" <?php if ($boxersandswipers_apply_home[sp] === 'true') echo 'checked'; ?>><?php _e('Home'); ?>&nbsp;&nbsp;
+						 <input name="boxersandswipers_apply_posts_sp" type="checkbox" value="true" <?php if ($boxersandswipers_apply_posts[sp] === 'true') echo 'checked'; ?>><?php _e('Posts'); ?>&nbsp;&nbsp;
+						 <input name="boxersandswipers_apply_pages_sp" type="checkbox" value="true" <?php if ($boxersandswipers_apply_pages[sp] === 'true') echo 'checked'; ?>><?php _e('Pages'); ?>&nbsp;&nbsp;
+						 <input name="boxersandswipers_apply_gallery_sp" type="checkbox" value="true" <?php if ($boxersandswipers_apply_gallery[sp] === 'true') echo 'checked'; ?>><?php _e('Gallery'); ?>
+					</td>
 					<td align="center" valign="middle">
-						<textarea id="boxersandswipers_useragent_sp" name="boxersandswipers_useragent_sp" rows="4" cols="120"><?php echo $boxersandswipers_useragent[sp] ?></textarea>
+						<textarea id="boxersandswipers_useragent_sp" name="boxersandswipers_useragent_sp" rows="4" cols="80"><?php echo $boxersandswipers_useragent[sp] ?></textarea>
 
 					</td>
 				</tr>
@@ -697,17 +717,8 @@ class BoxersAndSwipersAdmin {
 		</div>
 	  </div>
 
-	  <div id="tabs-3">
-		<div class="wrap">
-			<h2><?php _e('Caution:'); ?></h2>
-
-			<li><?php _e('If you are using an image gallery of WordPress, please describe the short code as follows.', boxersandswipers);?> : <a href="http://codex.wordpress.org/Gallery_Shortcode" target="_blank"><code>[gallery link="file"]</code></a></li>
-
-		</div>
-	  </div>
-
 	<!--
-	  <div id="tabs-4">
+	  <div id="tabs-3">
 		<div class="wrap">
 		<h2>FAQ</h2>
 
@@ -727,6 +738,34 @@ class BoxersAndSwipersAdmin {
 	 * @since	1.0
 	 */
 	function options_updated(){
+
+		$apply_home_tbl = array(
+						'pc' => $_POST['boxersandswipers_apply_home_pc'],
+						'tb' => $_POST['boxersandswipers_apply_home_tb'],
+						'sp' => $_POST['boxersandswipers_apply_home_sp']
+						);
+		update_option( 'boxersandswipers_apply_home', $apply_home_tbl );
+
+		$apply_posts_tbl = array(
+						'pc' => $_POST['boxersandswipers_apply_posts_pc'],
+						'tb' => $_POST['boxersandswipers_apply_posts_tb'],
+						'sp' => $_POST['boxersandswipers_apply_posts_sp']
+						);
+		update_option( 'boxersandswipers_apply_posts', $apply_posts_tbl );
+
+		$apply_pages_tbl = array(
+						'pc' => $_POST['boxersandswipers_apply_pages_pc'],
+						'tb' => $_POST['boxersandswipers_apply_pages_tb'],
+						'sp' => $_POST['boxersandswipers_apply_pages_sp']
+						);
+		update_option( 'boxersandswipers_apply_pages', $apply_pages_tbl );
+
+		$apply_gallery_tbl = array(
+						'pc' => $_POST['boxersandswipers_apply_gallery_pc'],
+						'tb' => $_POST['boxersandswipers_apply_gallery_tb'],
+						'sp' => $_POST['boxersandswipers_apply_gallery_sp']
+						);
+		update_option( 'boxersandswipers_apply_gallery', $apply_gallery_tbl );
 
 		$effect_tbl = array(
 						'pc' => $_POST['boxersandswipers_effect_pc'],
