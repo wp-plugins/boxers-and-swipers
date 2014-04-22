@@ -4,7 +4,7 @@ Donate link: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
 Tags: colorbox, slimbox, lightbox, nivolightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
 Requires at least: 3.0.1
 Tested up to: 3.4
-Stable tag: 1.5
+Stable tag: 1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,8 +22,6 @@ Integrates Colorbox and Slimbox and Nivo Lightbox and Photoswipe and Swipebox in
 1. Upload `boxers-and-swipers` directory to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
-* If you are using an image gallery of WordPress, please describe the short code as follows. : [gallery link="file"]
-
 == Frequently Asked Questions ==
 
 none
@@ -40,6 +38,10 @@ none
 
 
 == Changelog ==
+
+= 1.6 =
+Fixed the problem that generates the header and footer duplicate code.
+Be able to limit the use each of category and archive.
 
 = 1.5 =
 Be able to be operated without having to put a link = "file" to the short code when you use the gallery.
@@ -62,6 +64,7 @@ Fixed problem in the display of the Pages and Posts.
 
 == Upgrade Notice ==
 
+= 1.6 =
 = 1.5 =
 = 1.4 =
 = 1.3 =

@@ -27,6 +27,24 @@ class BoxersAndSwipersRegist {
 	 */
 	function register_settings(){
 
+		if ( !get_option('boxersandswipers_apply_archive') ) {
+			$apply_archive_tbl = array(
+							'pc' => 'true',
+							'tb' => 'true',
+							'sp' => 'true'
+							);
+			update_option( 'boxersandswipers_apply_archive', $apply_archive_tbl );
+		}
+
+		if ( !get_option('boxersandswipers_apply_category') ) {
+			$apply_category_tbl = array(
+							'pc' => 'true',
+							'tb' => 'true',
+							'sp' => 'true'
+							);
+			update_option( 'boxersandswipers_apply_category', $apply_category_tbl );
+		}
+
 		if ( !get_option('boxersandswipers_apply_home') ) {
 			$apply_home_tbl = array(
 							'pc' => 'true',

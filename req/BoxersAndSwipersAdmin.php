@@ -62,6 +62,8 @@ class BoxersAndSwipersAdmin {
 		if( !empty($_POST) ) { $this->options_updated(); }
 		$scriptname = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH).'?page=boxersandswipers';
 
+		$boxersandswipers_apply_archive = get_option('boxersandswipers_apply_archive');
+		$boxersandswipers_apply_category = get_option('boxersandswipers_apply_category');
 		$boxersandswipers_apply_home = get_option('boxersandswipers_apply_home');
 		$boxersandswipers_apply_posts = get_option('boxersandswipers_apply_posts');
 		$boxersandswipers_apply_pages = get_option('boxersandswipers_apply_pages');
@@ -121,10 +123,16 @@ class BoxersAndSwipersAdmin {
 					</select>
 					</td>
 					<td>
-						 <input name="boxersandswipers_apply_home_pc" type="checkbox" value="true" <?php if ($boxersandswipers_apply_home[pc] === 'true') echo 'checked'; ?>><?php _e('Home'); ?>&nbsp;&nbsp;
-						 <input name="boxersandswipers_apply_posts_pc" type="checkbox" value="true" <?php if ($boxersandswipers_apply_posts[pc] === 'true') echo 'checked'; ?>><?php _e('Posts'); ?>&nbsp;&nbsp;
-						 <input name="boxersandswipers_apply_pages_pc" type="checkbox" value="true" <?php if ($boxersandswipers_apply_pages[pc] === 'true') echo 'checked'; ?>><?php _e('Pages'); ?>&nbsp;&nbsp;
-						 <input name="boxersandswipers_apply_gallery_pc" type="checkbox" value="true" <?php if ($boxersandswipers_apply_gallery[pc] === 'true') echo 'checked'; ?>><?php _e('Gallery'); ?>
+						<div>
+						<input name="boxersandswipers_apply_home_pc" type="checkbox" value="true" <?php if ($boxersandswipers_apply_home[pc] === 'true') echo 'checked'; ?>><?php _e('Home'); ?>&nbsp;&nbsp;
+						<input name="boxersandswipers_apply_posts_pc" type="checkbox" value="true" <?php if ($boxersandswipers_apply_posts[pc] === 'true') echo 'checked'; ?>><?php _e('Posts'); ?>&nbsp;&nbsp;
+						<input name="boxersandswipers_apply_pages_pc" type="checkbox" value="true" <?php if ($boxersandswipers_apply_pages[pc] === 'true') echo 'checked'; ?>><?php _e('Pages'); ?>
+						</div>
+						<div>
+						<input name="boxersandswipers_apply_gallery_pc" type="checkbox" value="true" <?php if ($boxersandswipers_apply_gallery[pc] === 'true') echo 'checked'; ?>><?php _e('Gallery'); ?>&nbsp;&nbsp;
+						<input name="boxersandswipers_apply_category_pc" type="checkbox" value="true" <?php if ($boxersandswipers_apply_category[pc] === 'true') echo 'checked'; ?>><?php _e('Categories'); ?>&nbsp;&nbsp;
+						<input name="boxersandswipers_apply_archive_pc" type="checkbox" value="true" <?php if ($boxersandswipers_apply_archive[pc] === 'true') echo 'checked'; ?>><?php _e('Archives'); ?>
+						</div>
 					</td>
 					<td colspan="2"></td>
 				</tr>
@@ -141,10 +149,16 @@ class BoxersAndSwipersAdmin {
 					</select>
 					</td>
 					<td>
-						 <input name="boxersandswipers_apply_home_tb" type="checkbox" value="true" <?php if ($boxersandswipers_apply_home[tb] === 'true') echo 'checked'; ?>><?php _e('Home'); ?>&nbsp;&nbsp;
-						 <input name="boxersandswipers_apply_posts_tb" type="checkbox" value="true" <?php if ($boxersandswipers_apply_posts[tb] === 'true') echo 'checked'; ?>><?php _e('Posts'); ?>&nbsp;&nbsp;
-						 <input name="boxersandswipers_apply_pages_tb" type="checkbox" value="true" <?php if ($boxersandswipers_apply_pages[tb] === 'true') echo 'checked'; ?>><?php _e('Pages'); ?>&nbsp;&nbsp;
-						 <input name="boxersandswipers_apply_gallery_tb" type="checkbox" value="true" <?php if ($boxersandswipers_apply_gallery[tb] === 'true') echo 'checked'; ?>><?php _e('Gallery'); ?>
+						<div>
+						<input name="boxersandswipers_apply_home_tb" type="checkbox" value="true" <?php if ($boxersandswipers_apply_home[tb] === 'true') echo 'checked'; ?>><?php _e('Home'); ?>&nbsp;&nbsp;
+						<input name="boxersandswipers_apply_posts_tb" type="checkbox" value="true" <?php if ($boxersandswipers_apply_posts[tb] === 'true') echo 'checked'; ?>><?php _e('Posts'); ?>&nbsp;&nbsp;
+						<input name="boxersandswipers_apply_pages_tb" type="checkbox" value="true" <?php if ($boxersandswipers_apply_pages[tb] === 'true') echo 'checked'; ?>><?php _e('Pages'); ?>
+						</div>
+						<div>
+						<input name="boxersandswipers_apply_gallery_tb" type="checkbox" value="true" <?php if ($boxersandswipers_apply_gallery[tb] === 'true') echo 'checked'; ?>><?php _e('Gallery'); ?>&nbsp;&nbsp;
+						<input name="boxersandswipers_apply_category_tb" type="checkbox" value="true" <?php if ($boxersandswipers_apply_category[tb] === 'true') echo 'checked'; ?>><?php _e('Categories'); ?>&nbsp;&nbsp;
+						<input name="boxersandswipers_apply_archive_tb" type="checkbox" value="true" <?php if ($boxersandswipers_apply_archive[tb] === 'true') echo 'checked'; ?>><?php _e('Archives'); ?>
+						</div>
 					</td>
 					<td align="center" valign="middle">
 						<textarea id="boxersandswipers_useragent_tb" name="boxersandswipers_useragent_tb" rows="4" cols="80"><?php echo $boxersandswipers_useragent[tb] ?></textarea>
@@ -165,10 +179,16 @@ class BoxersAndSwipersAdmin {
 					</select>
 					</td>
 					<td>
-						 <input name="boxersandswipers_apply_home_sp" type="checkbox" value="true" <?php if ($boxersandswipers_apply_home[sp] === 'true') echo 'checked'; ?>><?php _e('Home'); ?>&nbsp;&nbsp;
-						 <input name="boxersandswipers_apply_posts_sp" type="checkbox" value="true" <?php if ($boxersandswipers_apply_posts[sp] === 'true') echo 'checked'; ?>><?php _e('Posts'); ?>&nbsp;&nbsp;
-						 <input name="boxersandswipers_apply_pages_sp" type="checkbox" value="true" <?php if ($boxersandswipers_apply_pages[sp] === 'true') echo 'checked'; ?>><?php _e('Pages'); ?>&nbsp;&nbsp;
-						 <input name="boxersandswipers_apply_gallery_sp" type="checkbox" value="true" <?php if ($boxersandswipers_apply_gallery[sp] === 'true') echo 'checked'; ?>><?php _e('Gallery'); ?>
+						<div>
+						<input name="boxersandswipers_apply_home_sp" type="checkbox" value="true" <?php if ($boxersandswipers_apply_home[sp] === 'true') echo 'checked'; ?>><?php _e('Home'); ?>&nbsp;&nbsp;
+						<input name="boxersandswipers_apply_posts_sp" type="checkbox" value="true" <?php if ($boxersandswipers_apply_posts[sp] === 'true') echo 'checked'; ?>><?php _e('Posts'); ?>&nbsp;&nbsp;
+						<input name="boxersandswipers_apply_pages_sp" type="checkbox" value="true" <?php if ($boxersandswipers_apply_pages[sp] === 'true') echo 'checked'; ?>><?php _e('Pages'); ?>
+						</div>
+						<div>
+						<input name="boxersandswipers_apply_gallery_sp" type="checkbox" value="true" <?php if ($boxersandswipers_apply_gallery[sp] === 'true') echo 'checked'; ?>><?php _e('Gallery'); ?>&nbsp;&nbsp;
+						<input name="boxersandswipers_apply_category_sp" type="checkbox" value="true" <?php if ($boxersandswipers_apply_category[sp] === 'true') echo 'checked'; ?>><?php _e('Categories'); ?>&nbsp;&nbsp;
+						<input name="boxersandswipers_apply_archive_sp" type="checkbox" value="true" <?php if ($boxersandswipers_apply_archive[sp] === 'true') echo 'checked'; ?>><?php _e('Archives'); ?>
+						</div>
 					</td>
 					<td align="center" valign="middle">
 						<textarea id="boxersandswipers_useragent_sp" name="boxersandswipers_useragent_sp" rows="4" cols="80"><?php echo $boxersandswipers_useragent[sp] ?></textarea>
@@ -738,6 +758,20 @@ class BoxersAndSwipersAdmin {
 	 * @since	1.0
 	 */
 	function options_updated(){
+
+		$apply_archive_tbl = array(
+						'pc' => $_POST['boxersandswipers_apply_archive_pc'],
+						'tb' => $_POST['boxersandswipers_apply_archive_tb'],
+						'sp' => $_POST['boxersandswipers_apply_archive_sp']
+						);
+		update_option( 'boxersandswipers_apply_archive', $apply_archive_tbl );
+
+		$apply_category_tbl = array(
+						'pc' => $_POST['boxersandswipers_apply_category_pc'],
+						'tb' => $_POST['boxersandswipers_apply_category_tb'],
+						'sp' => $_POST['boxersandswipers_apply_category_sp']
+						);
+		update_option( 'boxersandswipers_apply_category', $apply_category_tbl );
 
 		$apply_home_tbl = array(
 						'pc' => $_POST['boxersandswipers_apply_home_pc'],

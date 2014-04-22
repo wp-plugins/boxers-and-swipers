@@ -33,7 +33,7 @@ class BoxersAndSwipers {
 	*/
 	function add_anchor_tag($link) {
 
-		if ( (is_home() && $this->apply_home) || (is_single() && $this->apply_posts) || (is_page() && $this->apply_pages) ){
+		if ( (is_home() && $this->apply_home) || (is_single() && $this->apply_posts) || (is_page() && $this->apply_pages) || (is_archive() && $this->apply_archive) || (is_category() && $this->apply_category) ){
 
 			$args = array(
 				'post_type' => 'attachment',
@@ -59,7 +59,6 @@ class BoxersAndSwipers {
 								}
 							}
 							$link = str_replace($value, $class_name.$titlename.$value, $link);
-							$this->add_header();
 						} else if ( $this->effect === 'slimbox' ) {
 							//slimbox
 							$rel_name = ' rel="boxersandswipers"';
@@ -70,7 +69,6 @@ class BoxersAndSwipers {
 								}
 							}
 							$link = str_replace($value, $rel_name.$titlename.$value, $link);
-							$this->add_header();
 						} else if ( $this->effect === 'nivolightbox' ) {
 							//nivolightbox
 							$rel_name = ' data-lightbox-gallery="boxersandswipers"';
@@ -81,12 +79,10 @@ class BoxersAndSwipers {
 								}
 							}
 							$link = str_replace($value, $rel_name.$titlename.$value, $link);
-							$this->add_header();
 						} else if ( $this->effect === 'photoswipe' ) {
 							//photoswipe
 							$class_name = ' class="boxersandswipers"';
 							$link = str_replace($value, $class_name.$value, $link);
-							$this->add_header();
 						} else if ( $this->effect === 'swipebox' ) {
 							//swipebox
 							$rel_name = ' rel="boxers-and-swipers"';
@@ -98,9 +94,7 @@ class BoxersAndSwipers {
 								}
 							}
 							$link = str_replace($value, $rel_name.$class_name.$titlename.$value, $link);
-							$this->add_header();
 						}
-						$this->add_footer();
 					}
 		    	}
 			}
@@ -142,30 +136,24 @@ class BoxersAndSwipers {
 					// colorbox
 					$class_name = 'class="boxersandswipers"';
 				    $link = str_replace( '<a', '<a '.$class_name.$titlename, $link );
-					$this->add_header();
 				} else if ( $this->effect === 'slimbox' ) {
 					//slimbox
 					$rel_name = 'rel="boxersandswipers"';
 				    $link = str_replace( '<a', '<a '.$rel_name.$titlename, $link );
-					$this->add_header();
 				} else if ( $this->effect === 'nivolightbox' ) {
 					//nivolightbox
 					$rel_name = ' data-lightbox-gallery="boxersandswipers"';
 				    $link = str_replace( '<a', '<a '.$rel_name.$titlename, $link );
-					$this->add_header();
 				} else if ( $this->effect === 'photoswipe' ) {
 					//photoswipe
 					$class_name = 'class="boxersandswipers" ';
 				    $link = str_replace( '<a', '<a '.$class_name, $link );
-					$this->add_header();
 				} else if ( $this->effect === 'swipebox' ) {
 					//swipebox
 					$rel_name = 'rel="boxers-and-swipers"';
 					$class_name = ' class="boxersandswipers"';
 				    $link = str_replace( '<a', '<a '.$rel_name.$class_name.$titlename, $link );
-					$this->add_header();
 				}
-				$this->add_footer();
 			}
 		}
 
