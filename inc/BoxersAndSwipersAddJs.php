@@ -119,6 +119,36 @@ $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 <!-- END: Boxers and Swipers -->
 
 BOXERSANDSWIPERS2;
+		} else if ( $this->effect === 'imagelightbox' ) {
+			$imagelightbox_tbl = get_option('boxersandswipers_imagelightbox');
+// JS
+$boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
+
+<!-- BEGIN: Boxers and Swipers -->
+<script type="text/javascript">
+jQuery(function() {
+	jQuery('a[data-imagelightbox*="boxersandswipers"]').imageLightbox({
+
+BOXERSANDSWIPERS1;
+
+			foreach( $imagelightbox_tbl as $key => $value ) {
+				if ( is_string($value) && $value <> 'true' && $value<> 'false' ) {
+					$boxersandswipers_add_js .= str_repeat(' ', 8).$key.': "'.$value.'",'."\n";
+				} else {
+					$boxersandswipers_add_js .= str_repeat(' ', 8).$key.': '.$value.','."\n";
+				}
+			}
+			$boxersandswipers_add_js = rtrim($boxersandswipers_add_js);
+			$boxersandswipers_add_js = rtrim($boxersandswipers_add_js, ",");
+
+$boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
+
+	});
+});
+</script>
+<!-- END: Boxers and Swipers -->
+
+BOXERSANDSWIPERS2;
 		} else if ( $this->effect === 'photoswipe' ) {
 			$photoswipe_tbl = get_option('boxersandswipers_photoswipe');
 // JS

@@ -4,11 +4,11 @@ Donate link: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
 Tags: colorbox, slimbox, lightbox, nivolightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
 Requires at least: 3.0.1
 Tested up to: 3.4
-Stable tag: 1.6
+Stable tag: 1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Integrates Colorbox and Slimbox and Nivo Lightbox and Photoswipe and Swipebox into WordPress.
+Integrates Colorbox and Slimbox and Nivo Lightbox and ImageLightbox and Photoswipe and Swipebox into WordPress.
 
 == Description ==
 
@@ -35,9 +35,19 @@ none
 5. `/assets/screenshot-5.png`
 6. `/assets/screenshot-6.png`
 7. `/assets/screenshot-7.png`
+8. `/assets/screenshot-8.png`
+9. `/assets/screenshot-9.png`
+10. `/assets/screenshot-10.png`
+11. `/assets/screenshot-11.png`
+12. `/assets/screenshot-12.png`
+13. `/assets/screenshot-13.png`
 
 
 == Changelog ==
+
+= 1.7 =
+Easy to see the management screen.
+Add ImageLightbox.
 
 = 1.6 =
 Fixed the problem that generates the header and footer duplicate code.
@@ -64,6 +74,7 @@ Fixed problem in the display of the Pages and Posts.
 
 == Upgrade Notice ==
 
+= 1.7 =
 = 1.6 =
 = 1.5 =
 = 1.4 =

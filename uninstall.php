@@ -13,6 +13,7 @@
 						'boxersandswipers_apply_posts',
 						'boxersandswipers_colorbox',
 						'boxersandswipers_effect',
+						'boxersandswipers_imagelightbox',
 						'boxersandswipers_nivolightbox',
 						'boxersandswipers_photoswipe',
 						'boxersandswipers_slimbox',

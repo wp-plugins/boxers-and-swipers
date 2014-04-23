@@ -149,14 +149,14 @@ class BoxersAndSwipersRegist {
 		if ( !get_option('boxersandswipers_slimbox') ) {
 			$slimbox_tbl = array(
 								'loop' => 'false',
-								'overlayOpacity' => '0.8',
-								'overlayFadeDuration' => '400',
-								'resizeDuration' => '400',
+								'overlayOpacity' => 0.8,
+								'overlayFadeDuration' => 400,
+								'resizeDuration' => 400,
 								'resizeEasing' => 'swing',
-								'initialWidth' => '250',
-								'initialHeight' => '250',
-								'imageFadeDuration' => '400',
-								'captionAnimationDuration' => '400',
+								'initialWidth' => 250,
+								'initialHeight' => 250,
+								'imageFadeDuration' => 400,
+								'captionAnimationDuration' => 400,
 								'counterText' => 'Image {x} of {y}',
 								'closeKeys' => '[27, 88, 67]',
 								'previousKeys' => '[37, 80]',
@@ -172,6 +172,18 @@ class BoxersAndSwipersRegist {
 								'clickOverlayToClose' => 'true'
 							);
 			update_option( 'boxersandswipers_nivolightbox', $nivolightbox_tbl );
+		}
+
+		if ( !get_option('boxersandswipers_imagelightbox') ) {
+			$imagelightbox_tbl = array(
+								'animationSpeed' => 250,
+								'preloadNext' => 'true',
+								'enableKeyboard' => 'true',
+								'quitOnEnd' => 'false',
+								'quitOnImgClick' => 'false',
+								'quitOnDocClick' => 'true'
+							);
+			update_option( 'boxersandswipers_imagelightbox', $imagelightbox_tbl );
 		}
 
 		if ( !get_option('boxersandswipers_photoswipe') ) {

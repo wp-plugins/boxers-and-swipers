@@ -79,6 +79,16 @@ class BoxersAndSwipers {
 								}
 							}
 							$link = str_replace($value, $rel_name.$titlename.$value, $link);
+						} else if ( $this->effect === 'imagelightbox' ) {
+							//imagelightbox
+							$rel_name = ' data-imagelightbox="boxersandswipers"';
+							$titlename = NULL;
+							foreach ( $attachments as $attachment ) {
+								if( strpos($value, $attachment->guid) ){
+									$titlename = ' title="'.$attachment->post_title.'"';
+								}
+							}
+							$link = str_replace($value, $rel_name.$titlename.$value, $link);
 						} else if ( $this->effect === 'photoswipe' ) {
 							//photoswipe
 							$class_name = ' class="boxersandswipers"';
@@ -142,7 +152,11 @@ class BoxersAndSwipers {
 				    $link = str_replace( '<a', '<a '.$rel_name.$titlename, $link );
 				} else if ( $this->effect === 'nivolightbox' ) {
 					//nivolightbox
-					$rel_name = ' data-lightbox-gallery="boxersandswipers"';
+					$rel_name = 'data-lightbox-gallery="boxersandswipers"';
+				    $link = str_replace( '<a', '<a '.$rel_name.$titlename, $link );
+				} else if ( $this->effect === 'imagelightbox' ) {
+					//imagelightbox
+					$rel_name = 'data-imagelightbox="boxersandswipers"';
 				    $link = str_replace( '<a', '<a '.$rel_name.$titlename, $link );
 				} else if ( $this->effect === 'photoswipe' ) {
 					//photoswipe
@@ -180,6 +194,10 @@ class BoxersAndSwipers {
 			wp_enqueue_style( 'nivolightbox',  BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/nivolightbox/nivo-lightbox.css' );
 			wp_enqueue_style( 'nivolightbox-themes',  BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/nivolightbox/themes/default/default.css' );
 			wp_enqueue_script( 'nivolightbox', BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/nivolightbox/nivo-lightbox.min.js', null, '1.1');
+		} else if ($this->effect === 'imagelightbox'){
+			// for imagelightbox
+			wp_enqueue_style( 'imagelightbox',  BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/imagelightbox/imagelightbox.css' );
+			wp_enqueue_script( 'imagelightbox', BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/imagelightbox/imagelightbox.min.js');
 		} else if ($this->effect === 'photoswipe'){
 			// for PhotoSwipe
 			wp_enqueue_style( 'photoswipe',  BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/photoswipe/photoswipe.css' );
