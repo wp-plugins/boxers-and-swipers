@@ -127,6 +127,40 @@ $boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
 <!-- BEGIN: Boxers and Swipers -->
 <script type="text/javascript">
 jQuery(function() {
+	var activityIndicatorOn = function()
+	{
+		jQuery( '<div id="imagelightbox-loading"><div></div></div>' ).appendTo( 'body' );
+	},
+	activityIndicatorOff = function()
+	{
+		jQuery( '#imagelightbox-loading' ).remove();
+	},
+	overlayOn = function()
+	{
+		jQuery( '<div id="imagelightbox-overlay"></div>' ).appendTo( 'body' );
+	},
+	overlayOff = function()
+	{
+		jQuery( '#imagelightbox-overlay' ).remove();
+	},
+	closeButtonOn = function( instance )
+	{
+		jQuery( '<a href="#" id="imagelightbox-close">Close</a>' ).appendTo( 'body' ).on( 'click touchend', function(){ jQuery( this ).remove(); instance.quitImageLightbox(); return false; });
+	},
+	closeButtonOff = function()
+	{
+		jQuery( '#imagelightbox-close' ).remove();
+	},
+	captionOn = function()
+	{
+		var description = jQuery( 'a[href="' + jQuery( '#imagelightbox' ).attr( 'src' ) + '"] img' ).attr( 'alt' );
+		if( description.length > 0 )
+			jQuery( '<div id="imagelightbox-caption">' + description + '</div>' ).appendTo( 'body' );
+	},
+	captionOff = function()
+	{
+		jQuery( '#imagelightbox-caption' ).remove();
+	};
 	jQuery('a[data-imagelightbox*="boxersandswipers"]').imageLightbox({
 
 BOXERSANDSWIPERS1;
@@ -139,10 +173,13 @@ BOXERSANDSWIPERS1;
 				}
 			}
 			$boxersandswipers_add_js = rtrim($boxersandswipers_add_js);
-			$boxersandswipers_add_js = rtrim($boxersandswipers_add_js, ",");
 
 $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 
+		onStart:	 function() { overlayOn(); closeButtonOn();},
+		onEnd:		 function() { overlayOff(); captionOff(); closeButtonOff(); activityIndicatorOff(); },
+		onLoadStart: function() { captionOff(); activityIndicatorOn(); },
+		onLoadEnd:	 function() { captionOn(); activityIndicatorOff(); }
 	});
 });
 </script>
