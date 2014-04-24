@@ -108,6 +108,18 @@ class BoxersAndSwipers {
 					}
 		    	}
 			}
+			if(preg_match_all("/<img(.+?)>/i", $link, $result) !== false){
+		    	foreach ($result[1] as $value){
+					preg_match('/src=\"(.[^\"]*)\"/',$value,$src);
+					$explode = explode("/" , $src[1]);
+					$file_name = $explode[count($explode) - 1];
+					$alt_name = preg_replace("/(.+)(\.[^.]+$)/", "$1", $file_name);
+					if( !strpos($value, 'alt=') ) {
+						$alt_name = ' alt="'.$alt_name.'" ';
+						$link = str_replace($value, $alt_name.$value, $link);
+					}
+				}
+			}
 		}
 
 		return $link;

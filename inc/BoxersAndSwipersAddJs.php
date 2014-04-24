@@ -160,8 +160,45 @@ jQuery(function() {
 	captionOff = function()
 	{
 		jQuery( '#imagelightbox-caption' ).remove();
+	},
+	navigationOn = function( instance, selector )
+	{
+		var images = jQuery( selector );
+		if( images.length )
+		{
+			var nav = jQuery( '<div id="imagelightbox-nav"></div>' );
+			for( var i = 0; i < images.length; i++ )
+				nav.append( '<a href="#"></a>' );
+
+			nav.appendTo( 'body' );
+			nav.on( 'click touchend', function(){ return false; });
+
+			var navItems = nav.find( 'a' );
+			navItems.on( 'click touchend', function()
+			{
+				var jQuerythis = jQuery( this );
+				if( images.eq( jQuerythis.index() ).attr( 'href' ) != jQuery( '#imagelightbox' ).attr( 'src' ) )
+					instance.switchImageLightbox( jQuerythis.index() );
+
+				navItems.removeClass( 'active' );
+				navItems.eq( jQuerythis.index() ).addClass( 'active' );
+
+				return false;
+			})
+			.on( 'touchend', function(){ return false; });
+		}
+	},
+	navigationUpdate = function( selector )
+	{
+		var items = jQuery( '#imagelightbox-nav a' );
+		items.removeClass( 'active' );
+		items.eq( jQuery( selector ).filter( '[href="' + jQuery( '#imagelightbox' ).attr( 'src' ) + '"]' ).index( selector ) ).addClass( 'active' );
+	},
+	navigationOff = function()
+	{
+		jQuery( '#imagelightbox-nav' ).remove();
 	};
-	jQuery('a[data-imagelightbox*="boxersandswipers"]').imageLightbox({
+	var instanceBoxersAndSwipers = jQuery( 'a[data-imagelightbox="boxersandswipers"]' ).imageLightbox({
 
 BOXERSANDSWIPERS1;
 
@@ -176,7 +213,7 @@ BOXERSANDSWIPERS1;
 
 $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 
-		onStart:	 function() { overlayOn(); closeButtonOn();},
+		onStart:	 function() { overlayOn(); closeButtonOn( instanceBoxersAndSwipers );},
 		onEnd:		 function() { overlayOff(); captionOff(); closeButtonOff(); activityIndicatorOff(); },
 		onLoadStart: function() { captionOff(); activityIndicatorOn(); },
 		onLoadEnd:	 function() { captionOn(); activityIndicatorOff(); }
