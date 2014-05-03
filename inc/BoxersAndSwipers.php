@@ -25,6 +25,8 @@ class BoxersAndSwipers {
 	public $apply_home;
 	public $apply_posts;
 	public $apply_pages;
+	public $apply_archive;
+	public $apply_category;
 
 	/* ==================================================
 	* @param	string	$link
