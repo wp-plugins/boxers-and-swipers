@@ -4,7 +4,7 @@ Donate link: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
 Tags: colorbox, slimbox, lightbox, nivolightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
 Requires at least: 3.0.1
 Tested up to: 3.4
-Stable tag: 1.11
+Stable tag: 1.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,6 +14,7 @@ Integrates Colorbox and Slimbox and Nivo Lightbox and ImageLightbox and Photoswi
 
 * Integrates Colorbox and Slimbox and Nivo Lightbox and Photoswipe and Swipebox into WordPress.
 * Can switch the effect to each user agent.
+* Can be cooperation with [MediaLibrary Feeder](http://wordpress.org/plugins/medialibrary-feeder/).
 
 *   Japanese (ja) - [Katsushi Kawamori](http://gallerylink.nyanko.org/medialink/boxers-and-swipers/)
 
@@ -44,6 +45,9 @@ none
 
 
 == Changelog ==
+
+= 1.12 =
+Can be cooperation with MediaLibrary Feeder.
 
 = 1.11 =
 Fixed problem of category and archive.
@@ -87,6 +91,7 @@ Fixed problem in the display of the Pages and Posts.
 
 == Upgrade Notice ==
 
+= 1.12 =
 = 1.11 =
 = 1.10 =
 = 1.9 =
