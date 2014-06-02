@@ -2,7 +2,7 @@
 /*
 Plugin Name: Boxers and Swipers
 Plugin URI: http://wordpress.org/plugins/boxers-and-swipers/
-Version: 1.12
+Version: 1.13
 Description: Integrates Colorbox and Slimbox and Nivo Lightbox and ImageLightbox and Photoswipe and Swipebox into WordPress.
 Author: Katsushi Kawamori
 Author URI: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
@@ -80,6 +80,10 @@ Domain Path: /languages
 
 	// for MediaLibrary Feeder http://wordpress.org/plugins/medialibrary-feeder/
 	add_filter( 'post_medialibraryfeed', array($boxersandswipers, 'gallery_filter') );
+	// for GalleryLink http://wordpress.org/plugins/gallerylink/
+	add_filter( 'post_gallerylink', array($boxersandswipers, 'add_anchor_tag') );
+	// for MediaLink http://wordpress.org/plugins/medialink/
+	add_filter( 'post_medialink', array($boxersandswipers, 'add_anchor_tag') );
 
 	$boxersandswipers->add_header();
 	$boxersandswipers->add_footer();

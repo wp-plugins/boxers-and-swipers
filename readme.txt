@@ -4,17 +4,19 @@ Donate link: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
 Tags: colorbox, slimbox, lightbox, nivolightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
 Requires at least: 3.0.1
 Tested up to: 3.4
-Stable tag: 1.12
+Stable tag: 1.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Integrates Colorbox and Slimbox and Nivo Lightbox and ImageLightbox and Photoswipe and Swipebox into WordPress.
+Integrates Colorbox and Slimbox and Nivo Lightbox and Image Lightbox and Photoswipe and Swipebox into WordPress.
 
 == Description ==
 
-* Integrates Colorbox and Slimbox and Nivo Lightbox and Photoswipe and Swipebox into WordPress.
+* Integrates Colorbox and Slimbox and Nivo Lightbox and Image LIghtbox and Photoswipe and Swipebox into WordPress.
 * Can switch the effect to each user agent.
 * Can be cooperation with [MediaLibrary Feeder](http://wordpress.org/plugins/medialibrary-feeder/).
+* Can be cooperation with [GalleryLink](http://wordpress.org/plugins/gallerylink/).
+* Can be cooperation with [MediaLink](http://wordpress.org/plugins/medialink/).
 
 *   Japanese (ja) - [Katsushi Kawamori](http://gallerylink.nyanko.org/medialink/boxers-and-swipers/)
 
@@ -29,22 +31,26 @@ none
 
 == Screenshots ==
 
-1. `/assets/screenshot-1.png`
-2. `/assets/screenshot-2.png`
-3. `/assets/screenshot-3.png`
-4. `/assets/screenshot-4.png`
-5. `/assets/screenshot-5.png`
-6. `/assets/screenshot-6.png`
-7. `/assets/screenshot-7.png`
-8. `/assets/screenshot-8.png`
-9. `/assets/screenshot-9.png`
-10. `/assets/screenshot-10.png`
-11. `/assets/screenshot-11.png`
-12. `/assets/screenshot-12.png`
-13. `/assets/screenshot-13.png`
+1. Example of Colorbox
+2. Example of Slimbox
+3. Example of Nivo Lightbox
+4. Example of Image LIghtbox
+5. Example of Photoswipe
+6. Example of Swipebox
+7. The default value for each terminal
+8. Settings of Colorbox
+9. Settings of Slimbox
+10. Settings of Nivo Lightbox
+11. Settings of imagelightbox
+12. Settings of photoswipe
+13. Settings of swipebox
 
 
 == Changelog ==
+
+= 1.13 =
+Can be cooperation with GalleryLink.
+Can be cooperation with MediaLink.
 
 = 1.12 =
 Can be cooperation with MediaLibrary Feeder.
@@ -91,6 +97,7 @@ Fixed problem in the display of the Pages and Posts.
 
 == Upgrade Notice ==
 
+= 1.13 =
 = 1.12 =
 = 1.11 =
 = 1.10 =
