@@ -27,58 +27,15 @@ class BoxersAndSwipersRegist {
 	 */
 	function register_settings(){
 
-		if ( !get_option('boxersandswipers_apply_archive') ) {
-			$apply_archive_tbl = array(
-							'pc' => 'true',
-							'tb' => 'true',
-							'sp' => 'true'
-							);
-			update_option( 'boxersandswipers_apply_archive', $apply_archive_tbl );
-		}
-
-		if ( !get_option('boxersandswipers_apply_category') ) {
-			$apply_category_tbl = array(
-							'pc' => 'true',
-							'tb' => 'true',
-							'sp' => 'true'
-							);
-			update_option( 'boxersandswipers_apply_category', $apply_category_tbl );
-		}
-
-		if ( !get_option('boxersandswipers_apply_home') ) {
-			$apply_home_tbl = array(
-							'pc' => 'true',
-							'tb' => 'true',
-							'sp' => 'true'
-							);
-			update_option( 'boxersandswipers_apply_home', $apply_home_tbl );
-		}
-
-		if ( !get_option('boxersandswipers_apply_posts') ) {
-			$apply_posts_tbl = array(
-							'pc' => 'true',
-							'tb' => 'true',
-							'sp' => 'true'
-							);
-			update_option( 'boxersandswipers_apply_posts', $apply_posts_tbl );
-		}
-
-		if ( !get_option('boxersandswipers_apply_pages') ) {
-			$apply_pages_tbl = array(
-							'pc' => 'true',
-							'tb' => 'true',
-							'sp' => 'true'
-							);
-			update_option( 'boxersandswipers_apply_pages', $apply_pages_tbl );
-		}
-
-		if ( !get_option('boxersandswipers_apply_gallery') ) {
-			$apply_gallery_tbl = array(
-							'pc' => 'true',
-							'tb' => 'true',
-							'sp' => 'true'
-							);
-			update_option( 'boxersandswipers_apply_gallery', $apply_gallery_tbl );
+		if ( !get_option('boxersandswipers_apply') ) {
+			$posttypes = BoxersAndSwipersAdmin::search_posttype();
+			$apply_tbl = array();
+			foreach ( $posttypes as $key => $value ) {
+				$apply_tbl[$key][pc] = 'true';
+				$apply_tbl[$key][tb] = 'true';
+				$apply_tbl[$key][sp] = 'true';
+			}
+			update_option( 'boxersandswipers_apply', $apply_tbl );
 		}
 
 		if ( !get_option('boxersandswipers_effect') ) {

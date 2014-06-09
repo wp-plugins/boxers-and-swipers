@@ -5,6 +5,7 @@
 	    exit();
 
 	$option_names = array(
+						'boxersandswipers_apply',
 						'boxersandswipers_apply_archive',
 						'boxersandswipers_apply_category',
 						'boxersandswipers_apply_gallery',

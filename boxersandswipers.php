@@ -2,7 +2,7 @@
 /*
 Plugin Name: Boxers and Swipers
 Plugin URI: http://wordpress.org/plugins/boxers-and-swipers/
-Version: 1.13
+Version: 1.14
 Description: Integrates Colorbox and Slimbox and Nivo Lightbox and ImageLightbox and Photoswipe and Swipebox into WordPress.
 Author: Katsushi Kawamori
 Author URI: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
@@ -45,38 +45,15 @@ Domain Path: /languages
 
 	include_once( BOXERSANDSWIPERS_PLUGIN_BASE_DIR.'/inc/BoxersAndSwipers.php' );
 	$boxersandswipers = new BoxersAndSwipers();
-	$mode = $boxersandswipers->agent_check();
+	$device = $boxersandswipers->agent_check();
 
 	$boxersandswipers_effect = get_option('boxersandswipers_effect');
-	$boxersandswipers_apply_home = get_option('boxersandswipers_apply_home');
-	$boxersandswipers_apply_posts = get_option('boxersandswipers_apply_posts');
-	$boxersandswipers_apply_pages = get_option('boxersandswipers_apply_pages');
-	$boxersandswipers_apply_gallery = get_option('boxersandswipers_apply_gallery');
-	$boxersandswipers_apply_archive = get_option('boxersandswipers_apply_archive');
-	$boxersandswipers_apply_category = get_option('boxersandswipers_apply_category');
+	$boxersandswipers_apply = get_option('boxersandswipers_apply');
 
-	$effect = $boxersandswipers_effect[$mode];
-	$apply_home = $boxersandswipers_apply_home[$mode];
-	$apply_posts = $boxersandswipers_apply_posts[$mode];
-	$apply_pages = $boxersandswipers_apply_pages[$mode];
-	$apply_gallery = $boxersandswipers_apply_gallery[$mode];
-	$apply_archive = $boxersandswipers_apply_archive[$mode];
-	$apply_category = $boxersandswipers_apply_category[$mode];
-
+	$effect = $boxersandswipers_effect[$device];
 	$boxersandswipers->effect = $effect;
-	$boxersandswipers->apply_home = $apply_home;
-	$boxersandswipers->apply_posts = $apply_posts;
-	$boxersandswipers->apply_pages = $apply_pages;
-	$boxersandswipers->apply_archive = $apply_archive;
-	$boxersandswipers->apply_category = $apply_category;
 
-	if ( $apply_home || $apply_posts || $apply_pages || $apply_archive || $apply_category ) {
-		add_filter( 'the_content', array($boxersandswipers, 'add_anchor_tag') );
-	}
-	if ( $apply_gallery ) {
-		add_shortcode( 'gallery', array($boxersandswipers, 'file_gallery_shortcode') );
-		add_filter( 'post_gallery', array($boxersandswipers, 'gallery_filter') );
-	}
+	add_filter( 'the_content', array($boxersandswipers, 'add_anchor_tag') );
 
 	// for MediaLibrary Feeder http://wordpress.org/plugins/medialibrary-feeder/
 	add_filter( 'post_medialibraryfeed', array($boxersandswipers, 'gallery_filter') );
