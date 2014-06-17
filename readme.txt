@@ -4,7 +4,7 @@ Donate link: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
 Tags: colorbox, slimbox, lightbox, nivolightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
 Requires at least: 3.0.1
 Tested up to: 3.4
-Stable tag: 1.14
+Stable tag: 1.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,9 @@ none
 
 
 == Changelog ==
+
+= 1.15 =
+Fixed a problem of memory capacity in the management screen.
 
 = 1.14 =
 Support to custom post types.
@@ -100,6 +103,7 @@ Fixed problem in the display of the Pages and Posts.
 
 == Upgrade Notice ==
 
+= 1.15 =
 = 1.14 =
 = 1.13 =
 = 1.12 =

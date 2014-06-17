@@ -128,6 +128,7 @@ class BoxersAndSwipersAdmin {
 					</td>
 					<td>
 					<?php
+					$posttypes = $this->search_posttype();
 					foreach ( $posttypes as $key => $value ) {
 						?>
 						<input name="boxersandswipers_apply_pc[<?php echo $key; ?>]" type="checkbox" value="true" <?php if ($boxersandswipers_apply[$key][pc] === 'true') echo 'checked'; ?>><?php echo $value; ?>&nbsp;&nbsp;
@@ -180,8 +181,9 @@ class BoxersAndSwipersAdmin {
 					</td>
 					<td>
 					<?php
+					$posttypes = $this->search_posttype();
 					foreach ( $posttypes as $key => $value ) {
-						?>
+	?>
 						<input name="boxersandswipers_apply_sp[<?php echo $key; ?>]" type="checkbox" value="true" <?php if ($boxersandswipers_apply[$key][sp] === 'true') echo 'checked'; ?>><?php echo $value; ?>&nbsp;&nbsp;
 						<?php
 					}
@@ -930,6 +932,7 @@ class BoxersAndSwipersAdmin {
 			$apply_tbl[$key][pc] = $_POST['boxersandswipers_apply_pc'][$key];
 			$apply_tbl[$key][tb] = $_POST['boxersandswipers_apply_tb'][$key];
 			$apply_tbl[$key][sp] = $_POST['boxersandswipers_apply_sp'][$key];
+			unset($posttypes[$key]);
 		}
 		update_option( 'boxersandswipers_apply', $apply_tbl );
 
@@ -1060,21 +1063,16 @@ class BoxersAndSwipersAdmin {
 	function search_posttype(){
 
 		$args = array(
-			'post_type' => 'any',
-			'numberposts' => -1,
-			'post_status' => null,
-			'post_parent' => $post->ID
-			); 
-		$postpages = get_posts($args);
-
-		foreach ( $postpages as $postpage ) {
-			$posttypeall[$postpage->ID] = $postpage->post_type;
+		   'public'   => true,
+		   '_builtin' => false
+		);
+		$custom_post_types = get_post_types( $args, 'objects', 'and' ); 
+		foreach ( $custom_post_types as $post_type ) {
+			$posttypes[$post_type->name] = $post_type->label;
 		}
-		$posttypes_org = array_unique($posttypeall);
 
-		foreach ( $posttypes_org as $key => $value ) {
-			$posttypes[$value] = get_post_type_object(get_post_type($key))->labels->name;
-		}
+		$posttypes[post] = __('Posts');
+		$posttypes[page] = __('Pages');
 		$posttypes[home] = __('Home');
 		$posttypes[gallery] = __('Gallery');
 		$posttypes[category] = __('Categories');
