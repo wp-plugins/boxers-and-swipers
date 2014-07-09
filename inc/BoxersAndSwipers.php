@@ -36,28 +36,31 @@ class BoxersAndSwipers {
 		if ( get_post_gallery( get_the_ID() ) ) {
 			// for Simple Masonry Gallery http://wordpress.org/plugins/simple-masonry-gallery/
 			$simplemasonry_apply = get_post_meta( get_the_ID(), 'simplemasonry_apply' );
-			if (!$simplemasonry_apply[0]){
+			if ( empty($simplemasonry_apply) ) {
 				add_shortcode( 'gallery', array(&$this, 'file_gallery_shortcode') );
+			} else {
+				if ( !$simplemasonry_apply[0] ){
+					add_shortcode( 'gallery', array(&$this, 'file_gallery_shortcode') );
+				}
 			}
-			// gor Gallery
-			if ( $boxersandswipers_apply[gallery][$device] ) {
+			// for Gallery
+			if ( $boxersandswipers_apply['gallery'][$device] ) {
 				add_filter( 'post_gallery', array(&$this, 'gallery_filter') );
 			}
 		} else {
-			if ( (is_single() && $boxersandswipers_apply[get_post_type(get_the_ID())][$device]) || (is_home() && $boxersandswipers_apply[home][$device]) || (is_single() && $boxersandswipers_apply[post][$device]) || (is_page() && $boxersandswipers_apply[page][$device]) || (is_archive() && $boxersandswipers_apply[archive][$device]) || (is_category() && $boxersandswipers_apply[category][$device]) ){
+			if ( (is_single() && $boxersandswipers_apply[get_post_type(get_the_ID())][$device]) || (is_home() && $boxersandswipers_apply['home'][$device]) || (is_single() && $boxersandswipers_apply['post'][$device]) || (is_page() && $boxersandswipers_apply['page'][$device]) || (is_archive() && $boxersandswipers_apply['archive'][$device]) || (is_category() && $boxersandswipers_apply['category'][$device]) ){
 
 				$args = array(
 					'post_type' => 'attachment',
 					'post_mime_type' => 'image',
-					'numberposts' => -1,
-					'post_status' => null,
-					'post_parent' => $post->ID
+					'numberposts' => -1
 					);
 				$attachments = get_posts($args);
 
 				if(preg_match_all("/\s+href\s*=\s*([\"\']?)([^\s\"\'>]+)(\\1)/ims", $link, $result) !== false){
 			    	foreach ($result[0] as $value){
-						$ext = end(explode('.', substr($value, 0, -1)));
+						$exts = explode('.', substr($value, 0, -1));
+						$ext = end($exts);
 						$ext2type = wp_ext2type($ext);
 						if ( $ext2type === 'image' ) {
 							if ( $this->effect === 'colorbox' ) {
@@ -157,9 +160,7 @@ class BoxersAndSwipers {
 		$args = array(
 			'post_type' => 'attachment',
 			'post_mime_type' => 'image',
-			'numberposts' => -1,
-			'post_status' => null,
-			'post_parent' => $post->ID
+			'numberposts' => -1
 			);
 		$attachments = get_posts($args);
 
@@ -208,6 +209,7 @@ class BoxersAndSwipers {
 		if ($this->effect === 'colorbox'){
 			// for COLORBOX
 			wp_enqueue_style( 'colorbox',  BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/colorbox/colorbox.css' );
+			wp_enqueue_script('jquery');
 			wp_enqueue_script( 'colorbox', BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/colorbox/jquery.colorbox-min.js', null, '1.4.37');
 		} else if ($this->effect === 'slimbox'){
 			// for slimbox
@@ -259,10 +261,10 @@ class BoxersAndSwipers {
 
 		$boxersandswipers_useragent = get_option('boxersandswipers_useragent');
 
-		if(preg_match("{".$boxersandswipers_useragent[tb]."}",$user_agent)){
+		if(preg_match("{".$boxersandswipers_useragent['tb']."}",$user_agent)){
 			//Tablet
 			$device = "tb"; 
-		}else if(preg_match("{".$boxersandswipers_useragent[sp]."}",$user_agent)){
+		}else if(preg_match("{".$boxersandswipers_useragent['sp']."}",$user_agent)){
 			//Smartphone
 			$device = "sp";
 		}else{

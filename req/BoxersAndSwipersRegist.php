@@ -31,9 +31,9 @@ class BoxersAndSwipersRegist {
 			$posttypes = BoxersAndSwipersAdmin::search_posttype();
 			$apply_tbl = array();
 			foreach ( $posttypes as $key => $value ) {
-				$apply_tbl[$key][pc] = 'true';
-				$apply_tbl[$key][tb] = 'true';
-				$apply_tbl[$key][sp] = 'true';
+				$apply_tbl[$key]['pc'] = 'true';
+				$apply_tbl[$key]['tb'] = 'true';
+				$apply_tbl[$key]['sp'] = 'true';
 				unset($posttypes[$key]);
 			}
 			update_option( 'boxersandswipers_apply', $apply_tbl );
