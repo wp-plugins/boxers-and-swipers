@@ -48,89 +48,91 @@ class BoxersAndSwipers {
 				add_filter( 'post_gallery', array(&$this, 'gallery_filter') );
 			}
 		} else {
-			if ( (is_single() && $boxersandswipers_apply[get_post_type(get_the_ID())][$device]) || (is_home() && $boxersandswipers_apply['home'][$device]) || (is_single() && $boxersandswipers_apply['post'][$device]) || (is_page() && $boxersandswipers_apply['page'][$device]) || (is_archive() && $boxersandswipers_apply['archive'][$device]) || (is_category() && $boxersandswipers_apply['category'][$device]) ){
+			if ( !is_attachment() ) {
+				if ( (is_single() && $boxersandswipers_apply[get_post_type(get_the_ID())][$device]) || (is_home() && $boxersandswipers_apply['home'][$device]) || (is_single() && $boxersandswipers_apply['post'][$device]) || (is_page() && $boxersandswipers_apply['page'][$device]) || (is_archive() && $boxersandswipers_apply['archive'][$device]) || (is_category() && $boxersandswipers_apply['category'][$device]) ){
 
-				$args = array(
-					'post_type' => 'attachment',
-					'post_mime_type' => 'image',
-					'numberposts' => -1
-					);
-				$attachments = get_posts($args);
+					$args = array(
+						'post_type' => 'attachment',
+						'post_mime_type' => 'image',
+						'numberposts' => -1
+						);
+					$attachments = get_posts($args);
 
-				if(preg_match_all("/\s+href\s*=\s*([\"\']?)([^\s\"\'>]+)(\\1)/ims", $link, $result) !== false){
-			    	foreach ($result[0] as $value){
-						$exts = explode('.', substr($value, 0, -1));
-						$ext = end($exts);
-						$ext2type = wp_ext2type($ext);
-						if ( $ext2type === 'image' ) {
-							if ( $this->effect === 'colorbox' ) {
-								// colorbox
-								$class_name = ' class="boxersandswipers"';
-								$titlename = NULL;
-								foreach ( $attachments as $attachment ) {
-									if( strpos($value, $attachment->guid) ){
-										$titlename = ' title="'.$attachment->post_title.'"';
+					if(preg_match_all("/\s+href\s*=\s*([\"\']?)([^\s\"\'>]+)(\\1)/ims", $link, $result) !== false){
+				    	foreach ($result[0] as $value){
+							$exts = explode('.', substr($value, 0, -1));
+							$ext = end($exts);
+							$ext2type = wp_ext2type($ext);
+							if ( $ext2type === 'image' ) {
+								if ( $this->effect === 'colorbox' ) {
+									// colorbox
+									$class_name = ' class="boxersandswipers"';
+									$titlename = NULL;
+									foreach ( $attachments as $attachment ) {
+										if( strpos($value, $attachment->guid) ){
+											$titlename = ' title="'.$attachment->post_title.'"';
+										}
 									}
-								}
-								$link = str_replace($value, $class_name.$titlename.$value, $link);
-							} else if ( $this->effect === 'slimbox' ) {
-								//slimbox
-								$rel_name = ' rel="boxersandswipers"';
-								$titlename = NULL;
-								foreach ( $attachments as $attachment ) {
-									if( strpos($value, $attachment->guid) ){
-										$titlename = ' title="'.$attachment->post_title.'"';
+									$link = str_replace($value, $class_name.$titlename.$value, $link);
+								} else if ( $this->effect === 'slimbox' ) {
+									//slimbox
+									$rel_name = ' rel="boxersandswipers"';
+									$titlename = NULL;
+									foreach ( $attachments as $attachment ) {
+										if( strpos($value, $attachment->guid) ){
+											$titlename = ' title="'.$attachment->post_title.'"';
+										}
 									}
-								}
-								$link = str_replace($value, $rel_name.$titlename.$value, $link);
-							} else if ( $this->effect === 'nivolightbox' ) {
-								//nivolightbox
-								$rel_name = ' data-lightbox-gallery="boxersandswipers"';
-								$titlename = NULL;
-								foreach ( $attachments as $attachment ) {
-									if( strpos($value, $attachment->guid) ){
-										$titlename = ' title="'.$attachment->post_title.'"';
+									$link = str_replace($value, $rel_name.$titlename.$value, $link);
+								} else if ( $this->effect === 'nivolightbox' ) {
+									//nivolightbox
+									$rel_name = ' data-lightbox-gallery="boxersandswipers"';
+									$titlename = NULL;
+									foreach ( $attachments as $attachment ) {
+										if( strpos($value, $attachment->guid) ){
+											$titlename = ' title="'.$attachment->post_title.'"';
+										}
 									}
-								}
-								$link = str_replace($value, $rel_name.$titlename.$value, $link);
-							} else if ( $this->effect === 'imagelightbox' ) {
-								//imagelightbox
-								$rel_name = ' data-imagelightbox="boxersandswipers"';
-								$titlename = NULL;
-								foreach ( $attachments as $attachment ) {
-									if( strpos($value, $attachment->guid) ){
-										$titlename = ' title="'.$attachment->post_title.'"';
+									$link = str_replace($value, $rel_name.$titlename.$value, $link);
+								} else if ( $this->effect === 'imagelightbox' ) {
+									//imagelightbox
+									$rel_name = ' data-imagelightbox="boxersandswipers"';
+									$titlename = NULL;
+									foreach ( $attachments as $attachment ) {
+										if( strpos($value, $attachment->guid) ){
+											$titlename = ' title="'.$attachment->post_title.'"';
+										}
 									}
-								}
-								$link = str_replace($value, $rel_name.$titlename.$value, $link);
-							} else if ( $this->effect === 'photoswipe' ) {
-								//photoswipe
-								$class_name = ' class="boxersandswipers"';
-								$link = str_replace($value, $class_name.$value, $link);
-							} else if ( $this->effect === 'swipebox' ) {
-								//swipebox
-								$rel_name = ' rel="boxers-and-swipers"';
-								$class_name = ' class="boxersandswipers"';
-								$titlename = NULL;
-								foreach ( $attachments as $attachment ) {
-									if( strpos($value, $attachment->guid) ){
-										$titlename = ' title="'.$attachment->post_title.'"';
+									$link = str_replace($value, $rel_name.$titlename.$value, $link);
+								} else if ( $this->effect === 'photoswipe' ) {
+									//photoswipe
+									$class_name = ' class="boxersandswipers"';
+									$link = str_replace($value, $class_name.$value, $link);
+								} else if ( $this->effect === 'swipebox' ) {
+									//swipebox
+									$rel_name = ' rel="boxers-and-swipers"';
+									$class_name = ' class="boxersandswipers"';
+									$titlename = NULL;
+									foreach ( $attachments as $attachment ) {
+										if( strpos($value, $attachment->guid) ){
+											$titlename = ' title="'.$attachment->post_title.'"';
+										}
 									}
+									$link = str_replace($value, $rel_name.$class_name.$titlename.$value, $link);
 								}
-								$link = str_replace($value, $rel_name.$class_name.$titlename.$value, $link);
 							}
-						}
-			    	}
-				}
-				if(preg_match_all("/<img(.+?)>/i", $link, $result) !== false){
-			    	foreach ($result[1] as $value){
-						preg_match('/src=\"(.[^\"]*)\"/',$value,$src);
-						$explode = explode("/" , $src[1]);
-						$file_name = $explode[count($explode) - 1];
-						$alt_name = preg_replace("/(.+)(\.[^.]+$)/", "$1", $file_name);
-						if( !strpos($value, 'alt=') ) {
-							$alt_name = ' alt="'.$alt_name.'" ';
-							$link = str_replace($value, $alt_name.$value, $link);
+				    	}
+					}
+					if(preg_match_all("/<img(.+?)>/i", $link, $result) !== false){
+				    	foreach ($result[1] as $value){
+							preg_match('/src=\"(.[^\"]*)\"/',$value,$src);
+							$explode = explode("/" , $src[1]);
+							$file_name = $explode[count($explode) - 1];
+							$alt_name = preg_replace("/(.+)(\.[^.]+$)/", "$1", $file_name);
+							if( !strpos($value, 'alt=') ) {
+								$alt_name = ' alt="'.$alt_name.'" ';
+								$link = str_replace($value, $alt_name.$value, $link);
+							}
 						}
 					}
 				}
