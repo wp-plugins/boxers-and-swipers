@@ -33,20 +33,18 @@ class BoxersAndSwipers {
 		$device = $this->agent_check();
 		$boxersandswipers_apply = get_option('boxersandswipers_apply');
 
-		if ( get_post_gallery( get_the_ID() ) ) {
+		$simplemasonry_apply = get_post_meta( get_the_ID(), 'simplemasonry_apply' );
+		$simplenivoslider_apply = get_post_meta( get_the_ID(), 'simplenivoslider_apply' );
+
+		if ( get_post_gallery( get_the_ID() ) && !empty($simplemasonry_apply) && $simplemasonry_apply[0] ) {
 			// for Simple Masonry Gallery http://wordpress.org/plugins/simple-masonry-gallery/
-			$simplemasonry_apply = get_post_meta( get_the_ID(), 'simplemasonry_apply' );
-			if ( empty($simplemasonry_apply) ) {
-				add_shortcode( 'gallery', array(&$this, 'file_gallery_shortcode') );
-			} else {
-				if ( !$simplemasonry_apply[0] ){
-					add_shortcode( 'gallery', array(&$this, 'file_gallery_shortcode') );
-				}
-			}
 			// for Gallery
 			if ( $boxersandswipers_apply['gallery'][$device] ) {
 				add_filter( 'post_gallery', array(&$this, 'gallery_filter') );
 			}
+		} else if ( get_post_gallery( get_the_ID() ) && !empty($simplenivoslider_apply) && $simplenivoslider_apply[0] ) {
+			// for Simple Nivo Slider http://wordpress.org/plugins/simple-nivoslider/
+			// Through
 		} else {
 			if ( !is_attachment() ) {
 				if ( (is_single() && $boxersandswipers_apply[get_post_type(get_the_ID())][$device]) || (is_home() && $boxersandswipers_apply['home'][$device]) || (is_single() && $boxersandswipers_apply['post'][$device]) || (is_page() && $boxersandswipers_apply['page'][$device]) || (is_archive() && $boxersandswipers_apply['archive'][$device]) || (is_category() && $boxersandswipers_apply['category'][$device]) ){
@@ -137,6 +135,13 @@ class BoxersAndSwipers {
 							}
 						}
 					}
+
+					// for Gallery
+					if ( $boxersandswipers_apply['gallery'][$device] ) {
+						add_shortcode( 'gallery', array(&$this, 'file_gallery_shortcode') );
+						add_filter( 'post_gallery', array(&$this, 'gallery_filter') );
+					}
+
 				}
 			}
 		}
