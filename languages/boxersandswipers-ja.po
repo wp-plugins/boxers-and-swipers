@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.6.7\n"
 "Language: ja\n"
 
 msgid "The default value for each terminal"
@@ -20,11 +20,8 @@ msgstr "端末"
 msgid "Effect"
 msgstr "エフェクト"
 
-msgid "User Agent"
-msgstr "ユーザーエージェント"
-
-msgid "| Specify separated by. Regular expression is possible."
-msgstr "| で区切って指定します。正規表現が可能です。"
+msgid "User Agent[| Specify separated by. Regular expression is possible.]"
+msgstr "ユーザーエージェント[|で区切って指定します。正規表現が可能です。]"
 
 msgid "The default value for effects."
 msgstr "エフェクトのデフォルト値"

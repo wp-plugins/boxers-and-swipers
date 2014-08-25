@@ -60,7 +60,10 @@ class BoxersAndSwipersAdmin {
 		wp_enqueue_script( 'jquery-ui-tabs' );
 		wp_enqueue_script( 'jquery-ui-tabs-in', BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/js/jquery-ui-tabs-in.js' );
 
-		if( !empty($_POST) ) { $this->options_updated(); }
+		if( !empty($_POST) ) {
+			$this->options_updated(intval($_POST['tabs']));
+		}
+
 		$scriptname = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH).'?page=boxersandswipers';
 
 		$boxersandswipers_apply = get_option('boxersandswipers_apply');
@@ -98,21 +101,22 @@ class BoxersAndSwipersAdmin {
 	  <div id="tabs-1">
 		<div class="wrap">
 
-	<form method="post" action="<?php echo $scriptname; ?>">
+			<form method="post" action="<?php echo $scriptname; ?>">
+
 			<h2><?php _e('The default value for each terminal', 'boxersandswipers') ?></h2>	
 
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
+			  <input type="submit" name="Default" value="<?php _e('Default') ?>" />
 			</p>
 
-			<table border="1">
+			<table class="wp-list-table widefat">
 			<tbody>
 				<tr>
 					<td align="center" valign="middle"><?php _e('Terminal', 'boxersandswipers') ?></td>
 					<td align="center" valign="middle"><?php _e('Effect', 'boxersandswipers') ?></td>
 					<td align="center" valign="middle"><?php _e('Apply') ?></td>
-					<td align="center" valign="middle"><?php _e('User Agent', 'boxersandswipers') ?></td>
-					<td align="center" valign="middle"><?php _e('Description') ?></td>
+					<td align="center" valign="middle"><?php _e('User Agent[| Specify separated by. Regular expression is possible.]', 'boxersandswipers'); ?></td>
 				</tr>
 				<tr>
 					<td align="center" valign="middle"><b>pc</b></td>
@@ -137,7 +141,7 @@ class BoxersAndSwipersAdmin {
 					}
 					?>
 					</td>
-					<td colspan="2"></td>
+					<td></td>
 				</tr>
 				<tr>
 					<td align="center" valign="middle"><b>tablet</b></td>
@@ -165,7 +169,6 @@ class BoxersAndSwipersAdmin {
 						<textarea id="boxersandswipers_useragent_tb" name="boxersandswipers_useragent_tb" rows="4" cols="80"><?php echo $boxersandswipers_useragent['tb'] ?></textarea>
 
 					</td>
-					<td align="left" valign="middle" rowspan="2"><?php _e('| Specify separated by. Regular expression is possible.', 'boxersandswipers'); ?></td>
 				</tr>
 				<tr>
 					<td align="center" valign="middle"><b>smartphone</b></td>
@@ -201,10 +204,12 @@ class BoxersAndSwipersAdmin {
 			<?php
 
 			?>
-
+			<input type="hidden" name="tabs" value="1" />
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
 			</p>
+
+			</form>
 
 		</div>
 	  </div>
@@ -213,11 +218,13 @@ class BoxersAndSwipersAdmin {
 		<div class="wrap">
 			<h2>colorbox&nbsp<?php _e('Settings'); ?>(<a href="http://www.jacklmoore.com/colorbox/" target="_blank"><font color="red"><?php _e('Description'); ?></font></a>)</h2>	
 
+			<form method="post" action="<?php echo $scriptname.'#tabs-2'; ?>">
+
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
+			  <input type="submit" name="Default" value="<?php _e('Default') ?>" />
 			</p>
 
-			</table>
 			<table>
 			<tbody>
 				<tr>
@@ -490,9 +497,12 @@ class BoxersAndSwipersAdmin {
 			</tbody>
 			</table>
 
+			<input type="hidden" name="tabs" value="2" />
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
 			</p>
+
+			</form>
 
 		</div>
 	  </div>
@@ -501,8 +511,11 @@ class BoxersAndSwipersAdmin {
 		<div class="wrap">
 			<h2>slimbox&nbsp<?php _e('Settings'); ?>(<a href="http://www.digitalia.be/software/slimbox2" target="_blank"><font color="red"><?php _e('Description'); ?></font></a>)</h2>	
 
+			<form method="post" action="<?php echo $scriptname.'#tabs-3'; ?>">
+
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
+			  <input type="submit" name="Default" value="<?php _e('Default') ?>" />
 			</p>
 
 			<table>
@@ -596,9 +609,12 @@ class BoxersAndSwipersAdmin {
 			</tbody>
 			</table>
 
+			<input type="hidden" name="tabs" value="3" />
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
 			</p>
+
+			</form>
 
 		</div>
 	  </div>
@@ -606,8 +622,11 @@ class BoxersAndSwipersAdmin {
 		<div class="wrap">
 			<h2>nivolightbox&nbsp<?php _e('Settings'); ?>(<a href="http://docs.dev7studios.com/jquery-plugins/nivo-lightbox" target="_blank"><font color="red"><?php _e('Description'); ?></font></a>)</h2>	
 
+			<form method="post" action="<?php echo $scriptname.'#tabs-4'; ?>">
+
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
+			  <input type="submit" name="Default" value="<?php _e('Default') ?>" />
 			</p>
 
 			<table>
@@ -650,9 +669,12 @@ class BoxersAndSwipersAdmin {
 			</tbody>
 			</table>
 
+			<input type="hidden" name="tabs" value="4" />
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
 			</p>
+
+			</form>
 
 		</div>
 	  </div>
@@ -660,8 +682,11 @@ class BoxersAndSwipersAdmin {
 		<div class="wrap">
 			<h2>imagelightbox&nbsp<?php _e('Settings'); ?>(<a href="http://osvaldas.info/image-lightbox-responsive-touch-friendly" target="_blank"><font color="red"><?php _e('Description'); ?></font></a>)</h2>	
 
+			<form method="post" action="<?php echo $scriptname.'#tabs-5'; ?>">
+
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
+			  <input type="submit" name="Default" value="<?php _e('Default') ?>" />
 			</p>
 
 			<table>
@@ -725,9 +750,12 @@ class BoxersAndSwipersAdmin {
 			</tbody>
 			</table>
 
+			<input type="hidden" name="tabs" value="5" />
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
 			</p>
+
+			</form>
 
 		</div>
 	  </div>
@@ -735,8 +763,11 @@ class BoxersAndSwipersAdmin {
 		<div class="wrap">
 			<h2>photoswipe&nbsp<?php _e('Settings'); ?>(<a href="https://github.com/dimsemenov/PhotoSwipe/blob/master/README.md" target="_blank"><font color="red"><?php _e('Description'); ?></font></a>)</h2>	
 
+			<form method="post" action="<?php echo $scriptname.'#tabs-6'; ?>">
+
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
+			  <input type="submit" name="Default" value="<?php _e('Default') ?>" />
 			</p>
 
 			<table>
@@ -867,14 +898,18 @@ class BoxersAndSwipersAdmin {
 					<select id="boxersandswipers_photoswipe_captionAndToolbarShowEmptyCaptions" name="boxersandswipers_photoswipe_captionAndToolbarShowEmptyCaptions">
 						<option <?php if ('true' == $target_photoswipe_captionAndToolbarShowEmptyCaptions)echo 'selected="selected"'; ?>>true</option>
 						<option <?php if ('false' == $target_photoswipe_captionAndToolbarShowEmptyCaptions)echo 'selected="selected"'; ?>>false</option>
+					</select>
 					</td>
 				</tr>
 			</tbody>
 			</table>
 
+			<input type="hidden" name="tabs" value="6" />
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
 			</p>
+
+			</form>
 
 		</div>
 	  </div>
@@ -882,8 +917,11 @@ class BoxersAndSwipersAdmin {
 		<div class="wrap">
 			<h2>swipebox&nbsp<?php _e('Settings'); ?>(<a href="http://brutaldesign.github.io/swipebox/" target="_blank"><font color="red"><?php _e('Description'); ?></font></a>)</h2>	
 
+			<form method="post" action="<?php echo $scriptname.'#tabs-7'; ?>">
+
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
+			  <input type="submit" name="Default" value="<?php _e('Default') ?>" />
 			</p>
 
 			<table>
@@ -897,9 +935,12 @@ class BoxersAndSwipersAdmin {
 			</tbody>
 			</table>
 
+			<input type="hidden" name="tabs" value="7" />
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
 			</p>
+
+			</form>
 
 		</div>
 	  </div>
@@ -913,7 +954,6 @@ class BoxersAndSwipersAdmin {
 	  </div>
 	-->
 
-	</form>
 	</div>
 
 		</div>
@@ -922,138 +962,287 @@ class BoxersAndSwipersAdmin {
 
 	/* ==================================================
 	 * Update wp_options table.
+	 * @param	string	$tabs
 	 * @since	1.0
 	 */
-	function options_updated(){
+	function options_updated($tabs){
 
-		$posttypes = $this->search_posttype();
-
-		$apply_tbl = array();
-		foreach ( $posttypes as $key => $value ) {
-			$apply_tbl[$key]['pc'] = $_POST['boxersandswipers_apply_pc'][$key];
-			$apply_tbl[$key]['tb'] = $_POST['boxersandswipers_apply_tb'][$key];
-			$apply_tbl[$key]['sp'] = $_POST['boxersandswipers_apply_sp'][$key];
-			unset($posttypes[$key]);
+		switch ($tabs) {
+			case 1:
+				$posttypes = $this->search_posttype();
+				$apply_tbl = array();
+				if ( !empty($_POST['Default']) ) {
+					foreach ( $posttypes as $key => $value ) {
+						$apply_tbl[$key]['pc'] = 'true';
+						$apply_tbl[$key]['tb'] = 'true';
+						$apply_tbl[$key]['sp'] = 'true';
+						unset($posttypes[$key]);
+					}
+					$effect_tbl = array(
+									'pc' => 'colorbox',
+									'tb' => 'nivolightbox',
+									'sp' => 'photoswipe'
+									);
+					$useragent_tbl = array(
+										'tb' => 'iPad|^.*Android.*Nexus(((?:(?!Mobile))|(?:(\s(7|10).+))).)*$|Kindle|Silk.*Accelerated|Sony.*Tablet|Xperia Tablet|Sony Tablet S|SAMSUNG.*Tablet|Galaxy.*Tab|SC-01C|SC-01D|SC-01E|SC-02D',
+										'sp' => 'iPhone|iPod|Android.*Mobile|BlackBerry|IEMobile'
+									);
+				} else {
+					foreach ( $posttypes as $key => $value ) {
+						if ( !empty($_POST['boxersandswipers_apply_pc'][$key]) ) {
+							$apply_tbl[$key]['pc'] = $_POST['boxersandswipers_apply_pc'][$key];
+						} else {
+							$apply_tbl[$key]['pc'] = NULL;
+						}
+						if ( !empty($_POST['boxersandswipers_apply_tb'][$key]) ) {
+							$apply_tbl[$key]['tb'] = $_POST['boxersandswipers_apply_tb'][$key];
+						} else {
+							$apply_tbl[$key]['tb'] = NULL;
+						}
+						if ( !empty($_POST['boxersandswipers_apply_sp'][$key]) ) {
+							$apply_tbl[$key]['sp'] = $_POST['boxersandswipers_apply_sp'][$key];
+						} else {
+							$apply_tbl[$key]['sp'] = NULL;
+						}
+						unset($posttypes[$key]);
+					}
+					$effect_tbl = array(
+									'pc' => $_POST['boxersandswipers_effect_pc'],
+									'tb' => $_POST['boxersandswipers_effect_tb'],
+									'sp' => $_POST['boxersandswipers_effect_sp'],
+									);
+					$useragent_tbl = array(
+									'tb' => stripslashes($_POST['boxersandswipers_useragent_tb']),
+									'sp' => stripslashes($_POST['boxersandswipers_useragent_sp'])
+									);
+				}
+				update_option( 'boxersandswipers_apply', $apply_tbl );
+				update_option( 'boxersandswipers_effect', $effect_tbl );
+				update_option( 'boxersandswipers_useragent', $useragent_tbl );
+				break;
+			case 2:
+				if ( !empty($_POST['Default']) ) {
+					$colorbox_tbl = array(
+										'transition' => 'elastic',
+										'speed' => 350,
+										'title' => 'false',
+										'rel' => 'grouped',
+										'scalePhotos' => 'true',
+										'scrolling' => 'true',
+										'opacity' => 0.85,
+										'open' => 'false',
+										'returnFocus' => 'true',
+										'trapFocus' => 'true',
+										'fastIframe' => 'true',
+										'preloading' => 'true',
+										'overlayClose' => 'true',
+										'escKey' => 'true',
+										'arrowKey' => 'true',
+										'loop' => 'true',
+										'fadeOut' => 300,
+										'closeButton' => 'true',
+										'current' => 'image {current} of {total}',
+										'previous' => 'previous',
+										'next' => 'next',
+										'close' => 'close',
+										'width' => 'false',
+										'height' => 'false',
+										'innerWidth' => 'false',
+										'innerHeight' => 'false',
+										'initialWidth' => 300,
+										'initialHeight' => 100,
+										'maxWidth' => 'false',
+										'maxHeight' => 'false',
+										'slideshow' => 'true',
+										'slideshowSpeed' => 2500,
+										'slideshowAuto' => 'false',
+										'slideshowStart' => 'start slideshow',
+										'slideshowStop' => 'stop slideshow',
+										'fixed' => 'false',
+										'top' => 'false',
+										'bottom' => 'false',
+										'left' => 'false',
+										'right' => 'false',
+										'reposition' => 'true',
+										'retinaImage' => 'false'
+									);
+				} else {
+					$colorbox_tbl = array(
+									'transition' => $_POST['boxersandswipers_colorbox_transition'],
+									'speed' => intval($_POST['boxersandswipers_colorbox_speed']),
+									'title' => $_POST['boxersandswipers_colorbox_title'],
+									'rel' => 'grouped',
+									'scalePhotos' => $_POST['boxersandswipers_colorbox_scalePhotos'],
+									'scrolling' => $_POST['boxersandswipers_colorbox_scrolling'],
+									'opacity' => floatval($_POST['boxersandswipers_colorbox_opacity']),
+									'open' => $_POST['boxersandswipers_colorbox_open'],
+									'returnFocus' => $_POST['boxersandswipers_colorbox_returnFocus'],
+									'trapFocus' => $_POST['boxersandswipers_colorbox_trapFocus'],
+									'fastIframe' => $_POST['boxersandswipers_colorbox_fastIframe'],
+									'preloading' => $_POST['boxersandswipers_colorbox_preloading'],
+									'overlayClose' => $_POST['boxersandswipers_colorbox_overlayClose'],
+									'escKey' => $_POST['boxersandswipers_colorbox_escKey'],
+									'arrowKey' => $_POST['boxersandswipers_colorbox_arrowKey'],
+									'loop' => $_POST['boxersandswipers_colorbox_loop'],
+									'fadeOut' => intval($_POST['boxersandswipers_colorbox_fadeOut']),
+									'closeButton' => $_POST['boxersandswipers_colorbox_closeButton'],
+									'current' => $_POST['boxersandswipers_colorbox_current'],
+									'previous' => $_POST['boxersandswipers_colorbox_previous'],
+									'next' => $_POST['boxersandswipers_colorbox_next'],
+									'close' => $_POST['boxersandswipers_colorbox_close'],
+									'width' => $_POST['boxersandswipers_colorbox_width'],
+									'height' => $_POST['boxersandswipers_colorbox_height'],
+									'innerWidth' => $_POST['boxersandswipers_colorbox_innerWidth'],
+									'innerHeight' => $_POST['boxersandswipers_colorbox_innerHeight'],
+									'initialWidth' => intval($_POST['boxersandswipers_colorbox_initialWidth']),
+									'initialHeight' => intval($_POST['boxersandswipers_colorbox_initialHeight']),
+									'maxWidth' => $_POST['boxersandswipers_colorbox_maxWidth'],
+									'maxHeight' => $_POST['boxersandswipers_colorbox_maxHeight'],
+									'slideshow' => $_POST['boxersandswipers_colorbox_slideshow'],
+									'slideshowSpeed' => intval($_POST['boxersandswipers_colorbox_slideshowSpeed']),
+									'slideshowAuto' => $_POST['boxersandswipers_colorbox_slideshowAuto'],
+									'slideshowStart' => $_POST['boxersandswipers_colorbox_slideshowStart'],
+									'slideshowStop' => $_POST['boxersandswipers_colorbox_slideshowStop'],
+									'fixed' => $_POST['boxersandswipers_colorbox_fixed'],
+									'top' => $_POST['boxersandswipers_colorbox_top'],
+									'bottom' => $_POST['boxersandswipers_colorbox_bottom'],
+									'left' => $_POST['boxersandswipers_colorbox_left'],
+									'right' => $_POST['boxersandswipers_colorbox_right'],
+									'reposition' => $_POST['boxersandswipers_colorbox_reposition'],
+									'retinaImage' => $_POST['boxersandswipers_colorbox_retinaImage']
+									);
+				}
+				update_option( 'boxersandswipers_colorbox', $colorbox_tbl );
+				break;
+			case 3:
+				if ( !empty($_POST['Default']) ) {
+					$slimbox_tbl = array(
+										'loop' => 'false',
+										'overlayOpacity' => 0.8,
+										'overlayFadeDuration' => 400,
+										'resizeDuration' => 400,
+										'resizeEasing' => 'swing',
+										'initialWidth' => 250,
+										'initialHeight' => 250,
+										'imageFadeDuration' => 400,
+										'captionAnimationDuration' => 400,
+										'counterText' => 'Image {x} of {y}',
+										'closeKeys' => '[27, 88, 67]',
+										'previousKeys' => '[37, 80]',
+										'nextKeys' => '[39, 78]'
+									);
+				} else {
+					$slimbox_tbl = array(
+									'loop' => $_POST['boxersandswipers_slimbox_loop'],
+									'overlayOpacity' => floatval($_POST['boxersandswipers_slimbox_overlayOpacity']),
+									'overlayFadeDuration' => intval($_POST['boxersandswipers_slimbox_overlayFadeDuration']),
+									'resizeDuration' => intval($_POST['boxersandswipers_slimbox_resizeDuration']),
+									'resizeEasing' => $_POST['boxersandswipers_slimbox_resizeEasing'],
+									'initialWidth' => intval($_POST['boxersandswipers_slimbox_initialWidth']),
+									'initialHeight' => intval($_POST['boxersandswipers_slimbox_initialHeight']),
+									'imageFadeDuration' => intval($_POST['boxersandswipers_slimbox_imageFadeDuration']),
+									'captionAnimationDuration' => intval($_POST['boxersandswipers_slimbox_captionAnimationDuration']),
+									'counterText' => $_POST['boxersandswipers_slimbox_counterText'],
+									'closeKeys' => $_POST['boxersandswipers_slimbox_closeKeys'],
+									'previousKeys' => $_POST['boxersandswipers_slimbox_previousKeys'],
+									'nextKeys' => $_POST['boxersandswipers_slimbox_nextKeys']
+									);
+				}
+				update_option( 'boxersandswipers_slimbox', $slimbox_tbl );
+				break;
+			case 4:
+				if ( !empty($_POST['Default']) ) {
+					$nivolightbox_tbl = array(
+										'effect' => 'fade',
+										'keyboardNav' => 'true',
+										'clickOverlayToClose' => 'true'
+									);
+				} else {
+					$nivolightbox_tbl = array(
+									'effect' => $_POST['boxersandswipers_nivolightbox_effect'],
+									'keyboardNav' => $_POST['boxersandswipers_nivolightbox_keyboardNav'],
+									'clickOverlayToClose' => $_POST['boxersandswipers_nivolightbox_clickOverlayToClose']
+									);
+				}
+				update_option( 'boxersandswipers_nivolightbox', $nivolightbox_tbl );
+				break;
+			case 5:
+				if ( !empty($_POST['Default']) ) {
+					$imagelightbox_tbl = array(
+										'animationSpeed' => 250,
+										'preloadNext' => 'true',
+										'enableKeyboard' => 'true',
+										'quitOnEnd' => 'false',
+										'quitOnImgClick' => 'false',
+										'quitOnDocClick' => 'true'
+									);
+				} else {
+					$imagelightbox_tbl = array(
+										'animationSpeed' => intval($_POST['boxersandswipers_imagelightbox_animationSpeed']),
+										'preloadNext' => $_POST['boxersandswipers_imagelightbox_preloadNext'],
+										'enableKeyboard' => $_POST['boxersandswipers_imagelightbox_enableKeyboard'],
+										'quitOnEnd' => $_POST['boxersandswipers_imagelightbox_quitOnEnd'],
+										'quitOnImgClick' => $_POST['boxersandswipers_imagelightbox_quitOnImgClick'],
+										'quitOnDocClick' => $_POST['boxersandswipers_imagelightbox_quitOnDocClick']
+									);
+				}
+				update_option( 'boxersandswipers_imagelightbox', $imagelightbox_tbl );
+				break;
+			case 6:
+				if ( !empty($_POST['Default']) ) {
+					$photoswipe_tbl = array(
+										'fadeInSpeed' => 250,
+										'fadeOutSpeed' => 500,
+										'slideSpeed' => 250,
+										'swipeThreshold' => 50,
+										'swipeTimeThreshold' => 250,
+										'loop' => 'true',
+										'slideshowDelay' => 3000,
+										'imageScaleMethod' => 'fit',
+										'preventHide' => 'false',
+										'backButtonHideEnabled' => 'true',
+										'captionAndToolbarHide' => 'false',
+										'captionAndToolbarHideOnSwipe' => 'true',
+										'captionAndToolbarFlipPosition' => 'false',
+										'captionAndToolbarAutoHideDelay' => 5000,
+										'captionAndToolbarOpacity' => 0.8,
+										'captionAndToolbarShowEmptyCaptions' => 'false'
+									);
+				} else {
+					$photoswipe_tbl = array(
+									'fadeInSpeed' => intval($_POST['boxersandswipers_photoswipe_fadeInSpeed']),
+									'fadeOutSpeed' => intval($_POST['boxersandswipers_photoswipe_fadeOutSpeed']),
+									'slideSpeed' => intval($_POST['boxersandswipers_photoswipe_slideSpeed']),
+									'swipeThreshold' => intval($_POST['boxersandswipers_photoswipe_swipeThreshold']),
+									'swipeTimeThreshold' => intval($_POST['boxersandswipers_photoswipe_swipeTimeThreshold']),
+									'loop' => $_POST['boxersandswipers_photoswipe_loop'],
+									'slideshowDelay' => intval($_POST['boxersandswipers_photoswipe_slideshowDelay']),
+									'imageScaleMethod' => $_POST['boxersandswipers_photoswipe_imageScaleMethod'],
+									'preventHide' => $_POST['boxersandswipers_photoswipe_preventHide'],
+									'backButtonHideEnabled' => $_POST['boxersandswipers_photoswipe_backButtonHideEnabled'],
+									'captionAndToolbarHide' => $_POST['boxersandswipers_photoswipe_captionAndToolbarHide'],
+									'captionAndToolbarHideOnSwipe' => $_POST['boxersandswipers_photoswipe_captionAndToolbarHideOnSwipe'],
+									'captionAndToolbarFlipPosition' => $_POST['boxersandswipers_photoswipe_captionAndToolbarFlipPosition'],
+									'captionAndToolbarAutoHideDelay' => intval($_POST['boxersandswipers_photoswipe_captionAndToolbarAutoHideDelay']),
+									'captionAndToolbarOpacity' => floatval($_POST['boxersandswipers_photoswipe_captionAndToolbarOpacity']),
+									'captionAndToolbarShowEmptyCaptions' => $_POST['boxersandswipers_photoswipe_captionAndToolbarShowEmptyCaptions']
+									);
+				}
+				update_option( 'boxersandswipers_photoswipe', $photoswipe_tbl );
+				break;
+			case 7:
+				if ( !empty($_POST['Default']) ) {
+					$swipebox_tbl = array(
+										'hideBarsDelay' => 3000
+									);
+				} else {
+					$swipebox_tbl = array(
+									'hideBarsDelay' => intval($_POST['boxersandswipers_swipebox_hideBarsDelay'])
+									);
+				}
+				update_option( 'boxersandswipers_swipebox', $swipebox_tbl );
+				break;
 		}
-		update_option( 'boxersandswipers_apply', $apply_tbl );
-
-		$effect_tbl = array(
-						'pc' => $_POST['boxersandswipers_effect_pc'],
-						'tb' => $_POST['boxersandswipers_effect_tb'],
-						'sp' => $_POST['boxersandswipers_effect_sp'],
-						);
-		update_option( 'boxersandswipers_effect', $effect_tbl );
-
-		$useragent_tbl = array(
-						'tb' => stripslashes($_POST['boxersandswipers_useragent_tb']),
-						'sp' => stripslashes($_POST['boxersandswipers_useragent_sp'])
-						);
-		update_option( 'boxersandswipers_useragent', $useragent_tbl );
-
-		$colorbox_tbl = array(
-						'transition' => $_POST['boxersandswipers_colorbox_transition'],
-						'speed' => intval($_POST['boxersandswipers_colorbox_speed']),
-						'title' => $_POST['boxersandswipers_colorbox_title'],
-						'rel' => 'grouped',
-						'scalePhotos' => $_POST['boxersandswipers_colorbox_scalePhotos'],
-						'scrolling' => $_POST['boxersandswipers_colorbox_scrolling'],
-						'opacity' => floatval($_POST['boxersandswipers_colorbox_opacity']),
-						'open' => $_POST['boxersandswipers_colorbox_open'],
-						'returnFocus' => $_POST['boxersandswipers_colorbox_returnFocus'],
-						'trapFocus' => $_POST['boxersandswipers_colorbox_trapFocus'],
-						'fastIframe' => $_POST['boxersandswipers_colorbox_fastIframe'],
-						'preloading' => $_POST['boxersandswipers_colorbox_preloading'],
-						'overlayClose' => $_POST['boxersandswipers_colorbox_overlayClose'],
-						'escKey' => $_POST['boxersandswipers_colorbox_escKey'],
-						'arrowKey' => $_POST['boxersandswipers_colorbox_arrowKey'],
-						'loop' => $_POST['boxersandswipers_colorbox_loop'],
-						'fadeOut' => intval($_POST['boxersandswipers_colorbox_fadeOut']),
-						'closeButton' => $_POST['boxersandswipers_colorbox_closeButton'],
-						'current' => $_POST['boxersandswipers_colorbox_current'],
-						'previous' => $_POST['boxersandswipers_colorbox_previous'],
-						'next' => $_POST['boxersandswipers_colorbox_next'],
-						'close' => $_POST['boxersandswipers_colorbox_close'],
-						'width' => $_POST['boxersandswipers_colorbox_width'],
-						'height' => $_POST['boxersandswipers_colorbox_height'],
-						'innerWidth' => $_POST['boxersandswipers_colorbox_innerWidth'],
-						'innerHeight' => $_POST['boxersandswipers_colorbox_innerHeight'],
-						'initialWidth' => intval($_POST['boxersandswipers_colorbox_initialWidth']),
-						'initialHeight' => intval($_POST['boxersandswipers_colorbox_initialHeight']),
-						'maxWidth' => $_POST['boxersandswipers_colorbox_maxWidth'],
-						'maxHeight' => $_POST['boxersandswipers_colorbox_maxHeight'],
-						'slideshow' => $_POST['boxersandswipers_colorbox_slideshow'],
-						'slideshowSpeed' => intval($_POST['boxersandswipers_colorbox_slideshowSpeed']),
-						'slideshowAuto' => $_POST['boxersandswipers_colorbox_slideshowAuto'],
-						'slideshowStart' => $_POST['boxersandswipers_colorbox_slideshowStart'],
-						'slideshowStop' => $_POST['boxersandswipers_colorbox_slideshowStop'],
-						'fixed' => $_POST['boxersandswipers_colorbox_fixed'],
-						'top' => $_POST['boxersandswipers_colorbox_top'],
-						'bottom' => $_POST['boxersandswipers_colorbox_bottom'],
-						'left' => $_POST['boxersandswipers_colorbox_left'],
-						'right' => $_POST['boxersandswipers_colorbox_right'],
-						'reposition' => $_POST['boxersandswipers_colorbox_reposition'],
-						'retinaImage' => $_POST['boxersandswipers_colorbox_retinaImage']
-						);
-		update_option( 'boxersandswipers_colorbox', $colorbox_tbl );
-
-		$slimbox_tbl = array(
-						'loop' => $_POST['boxersandswipers_slimbox_loop'],
-						'overlayOpacity' => floatval($_POST['boxersandswipers_slimbox_overlayOpacity']),
-						'overlayFadeDuration' => intval($_POST['boxersandswipers_slimbox_overlayFadeDuration']),
-						'resizeDuration' => intval($_POST['boxersandswipers_slimbox_resizeDuration']),
-						'resizeEasing' => $_POST['boxersandswipers_slimbox_resizeEasing'],
-						'initialWidth' => intval($_POST['boxersandswipers_slimbox_initialWidth']),
-						'initialHeight' => intval($_POST['boxersandswipers_slimbox_initialHeight']),
-						'imageFadeDuration' => intval($_POST['boxersandswipers_slimbox_imageFadeDuration']),
-						'captionAnimationDuration' => intval($_POST['boxersandswipers_slimbox_captionAnimationDuration']),
-						'counterText' => $_POST['boxersandswipers_slimbox_counterText'],
-						'closeKeys' => $_POST['boxersandswipers_slimbox_closeKeys'],
-						'previousKeys' => $_POST['boxersandswipers_slimbox_previousKeys'],
-						'nextKeys' => $_POST['boxersandswipers_slimbox_nextKeys']
-						);
-		update_option( 'boxersandswipers_slimbox', $slimbox_tbl );
-
-		$nivolightbox_tbl = array(
-						'effect' => $_POST['boxersandswipers_nivolightbox_effect'],
-						'keyboardNav' => $_POST['boxersandswipers_nivolightbox_keyboardNav'],
-						'clickOverlayToClose' => $_POST['boxersandswipers_nivolightbox_clickOverlayToClose']
-						);
-		update_option( 'boxersandswipers_nivolightbox', $nivolightbox_tbl );
-
-		$imagelightbox_tbl = array(
-							'animationSpeed' => intval($_POST['boxersandswipers_imagelightbox_animationSpeed']),
-							'preloadNext' => $_POST['boxersandswipers_imagelightbox_preloadNext'],
-							'enableKeyboard' => $_POST['boxersandswipers_imagelightbox_enableKeyboard'],
-							'quitOnEnd' => $_POST['boxersandswipers_imagelightbox_quitOnEnd'],
-							'quitOnImgClick' => $_POST['boxersandswipers_imagelightbox_quitOnImgClick'],
-							'quitOnDocClick' => $_POST['boxersandswipers_imagelightbox_quitOnDocClick']
-						);
-		update_option( 'boxersandswipers_imagelightbox', $imagelightbox_tbl );
-
-		$photoswipe_tbl = array(
-						'fadeInSpeed' => intval($_POST['boxersandswipers_photoswipe_fadeInSpeed']),
-						'fadeOutSpeed' => intval($_POST['boxersandswipers_photoswipe_fadeOutSpeed']),
-						'slideSpeed' => intval($_POST['boxersandswipers_photoswipe_slideSpeed']),
-						'swipeThreshold' => intval($_POST['boxersandswipers_photoswipe_swipeThreshold']),
-						'swipeTimeThreshold' => intval($_POST['boxersandswipers_photoswipe_swipeTimeThreshold']),
-						'loop' => $_POST['boxersandswipers_photoswipe_loop'],
-						'slideshowDelay' => intval($_POST['boxersandswipers_photoswipe_slideshowDelay']),
-						'imageScaleMethod' => $_POST['boxersandswipers_photoswipe_imageScaleMethod'],
-						'preventHide' => $_POST['boxersandswipers_photoswipe_preventHide'],
-						'backButtonHideEnabled' => $_POST['boxersandswipers_photoswipe_backButtonHideEnabled'],
-						'captionAndToolbarHide' => $_POST['boxersandswipers_photoswipe_captionAndToolbarHide'],
-						'captionAndToolbarHideOnSwipe' => $_POST['boxersandswipers_photoswipe_captionAndToolbarHideOnSwipe'],
-						'captionAndToolbarFlipPosition' => $_POST['boxersandswipers_photoswipe_captionAndToolbarFlipPosition'],
-						'captionAndToolbarAutoHideDelay' => intval($_POST['boxersandswipers_photoswipe_captionAndToolbarAutoHideDelay']),
-						'captionAndToolbarOpacity' => floatval($_POST['boxersandswipers_photoswipe_captionAndToolbarOpacity']),
-						'captionAndToolbarShowEmptyCaptions' => $_POST['boxersandswipers_photoswipe_captionAndToolbarShowEmptyCaptions']
-						);
-		update_option( 'boxersandswipers_photoswipe', $photoswipe_tbl );
-
-		$swipebox_tbl = array(
-						'hideBarsDelay' => intval($_POST['boxersandswipers_swipebox_hideBarsDelay'])
-						);
-		update_option( 'boxersandswipers_swipebox', $swipebox_tbl );
 
 	}
 
