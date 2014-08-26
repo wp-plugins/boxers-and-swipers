@@ -110,17 +110,11 @@ class BoxersAndSwipersAdmin {
 			  <input type="submit" name="Default" value="<?php _e('Default') ?>" />
 			</p>
 
-			<table class="wp-list-table widefat">
-			<tbody>
-				<tr>
-					<td align="center" valign="middle"><?php _e('Terminal', 'boxersandswipers') ?></td>
-					<td align="center" valign="middle"><?php _e('Effect', 'boxersandswipers') ?></td>
-					<td align="center" valign="middle"><?php _e('Apply') ?></td>
-					<td align="center" valign="middle"><?php _e('User Agent[| Specify separated by. Regular expression is possible.]', 'boxersandswipers'); ?></td>
-				</tr>
-				<tr>
-					<td align="center" valign="middle"><b>pc</b></td>
-					<td align="center" valign="middle">
+			<div class="wp-list-table widefat">
+
+				<div style="padding:10px;border:#CCC 2px solid; margin:0 0 20px 0">
+					<div style="display:block"><b>PC</b></div>
+					<div style="display:block;padding:20px 0">
 					<?php $target_effect_pc = $boxersandswipers_effect['pc']; ?>
 					<select id="boxersandswipers_effect_pc" name="boxersandswipers_effect_pc">
 						<option <?php if ('colorbox' == $target_effect_pc)echo 'selected="selected"'; ?>>colorbox</option>
@@ -130,8 +124,8 @@ class BoxersAndSwipersAdmin {
 						<option <?php if ('photoswipe' == $target_effect_pc)echo 'selected="selected"'; ?>>photoswipe</option>
 						<option <?php if ('swipebox' == $target_effect_pc)echo 'selected="selected"'; ?>>swipebox</option>
 					</select>
-					</td>
-					<td>
+					</div>
+					<div>
 					<?php
 					$posttypes = $this->search_posttype();
 					foreach ( $posttypes as $key => $value ) {
@@ -140,12 +134,12 @@ class BoxersAndSwipersAdmin {
 						<?php
 					}
 					?>
-					</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td align="center" valign="middle"><b>tablet</b></td>
-					<td align="center" valign="middle">
+					</div>
+				</div>
+
+				<div style="padding:10px; border:#CCC 2px solid">
+					<div style="display:block"><b>Tablet</b></div>
+					<div style="display:block;padding:20px 0">
 					<?php $target_effect_tb = $boxersandswipers_effect['tb']; ?>
 					<select id="boxersandswipers_effect_tb" name="boxersandswipers_effect_tb">
 						<option <?php if ('colorbox' == $target_effect_tb)echo 'selected="selected"'; ?>>colorbox</option>
@@ -155,8 +149,8 @@ class BoxersAndSwipersAdmin {
 						<option <?php if ('photoswipe' == $target_effect_tb)echo 'selected="selected"'; ?>>photoswipe</option>
 						<option <?php if ('swipebox' == $target_effect_tb)echo 'selected="selected"'; ?>>swipebox</option>
 					</select>
-					</td>
-					<td>
+					</div>
+					<div style="padding:0 0 20px">
 					<?php
 					foreach ( $posttypes as $key => $value ) {
 						?>
@@ -164,15 +158,21 @@ class BoxersAndSwipersAdmin {
 						<?php
 					}
 					?>
-					</td>
-					<td align="center" valign="middle">
-						<textarea id="boxersandswipers_useragent_tb" name="boxersandswipers_useragent_tb" rows="4" cols="80"><?php echo $boxersandswipers_useragent['tb'] ?></textarea>
+					</div>
+					<div style="display:box">
+						<p>
+						<?php _e('User Agent[| Specify separated by. Regular expression is possible.]', 'boxersandswipers'); ?>
+						</p>
+						<p>
+						<textarea id="boxersandswipers_useragent_tb" name="boxersandswipers_useragent_tb" rows="5" style="width: 100%;"><?php echo $boxersandswipers_useragent['tb'] ?></textarea>
+						</p>
+					</div>
+					<div style="clear:both"></div>
+				</div>
 
-					</td>
-				</tr>
-				<tr>
-					<td align="center" valign="middle"><b>smartphone</b></td>
-					<td align="center" valign="middle">
+				<div style="margin:20px 0; padding:10px; border:#CCC 2px solid">
+					<div style="display:block"><b>Smartphone</b></div>
+					<div style="display:block;margin:20px 0">
 					<?php $target_effect_sp = $boxersandswipers_effect['sp']; ?>
 					<select id="boxersandswipers_effect_sp" name="boxersandswipers_effect_sp">
 						<option <?php if ('colorbox' == $target_effect_sp)echo 'selected="selected"'; ?>>colorbox</option>
@@ -182,34 +182,39 @@ class BoxersAndSwipersAdmin {
 						<option <?php if ('photoswipe' == $target_effect_sp)echo 'selected="selected"'; ?>>photoswipe</option>
 						<option <?php if ('swipebox' == $target_effect_sp)echo 'selected="selected"'; ?>>swipebox</option>
 					</select>
-					</td>
-					<td>
+					</div>
+					<div style="padding:0 0 20px">
 					<?php
 					$posttypes = $this->search_posttype();
 					foreach ( $posttypes as $key => $value ) {
-	?>
+						?>
 						<input name="boxersandswipers_apply_sp[<?php echo $key; ?>]" type="checkbox" value="true" <?php if ($boxersandswipers_apply[$key]['sp'] === 'true') echo 'checked'; ?>><?php echo $value; ?>&nbsp;&nbsp;
 						<?php
 					}
 					?>
-					</td>
-					<td align="center" valign="middle">
-						<textarea id="boxersandswipers_useragent_sp" name="boxersandswipers_useragent_sp" rows="4" cols="80"><?php echo $boxersandswipers_useragent['sp'] ?></textarea>
+					</div>
+					<div style="display:block">
+						<p>
+						<?php _e('User Agent[| Specify separated by. Regular expression is possible.]', 'boxersandswipers'); ?>
+						</p>
+						<p>
+						<textarea id="boxersandswipers_useragent_sp" name="boxersandswipers_useragent_sp" rows="5" style="width: 100%;"><?php echo $boxersandswipers_useragent['sp'] ?></textarea>
+						</p>
+					</div>
+					<div style="clear:both"></div>
+				</div>
 
-					</td>
-				</tr>
-			</tbody>
-			</table>
+			</div>
+			<div style="clear:both"></div>
 
-			<?php
-
-			?>
 			<input type="hidden" name="tabs" value="1" />
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
 			</p>
 
 			</form>
+
+			<div align="right"><a href="http://a4jp.com" target="_blank">Mr. Glen Charles Rowell. Thank you for a nice design.</a></div>
 
 		</div>
 	  </div>
