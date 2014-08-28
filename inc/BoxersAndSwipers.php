@@ -47,7 +47,7 @@ class BoxersAndSwipers {
 			// Through
 		} else {
 			if ( !is_attachment() ) {
-				if ( (is_single() && $boxersandswipers_apply[get_post_type(get_the_ID())][$device]) || (is_home() && $boxersandswipers_apply['home'][$device]) || (is_single() && $boxersandswipers_apply['post'][$device]) || (is_page() && $boxersandswipers_apply['page'][$device]) || (is_archive() && $boxersandswipers_apply['archive'][$device]) || (is_category() && $boxersandswipers_apply['category'][$device]) ){
+				if ( (is_single() && $boxersandswipers_apply[get_post_type(get_the_ID())][$device]) || (is_home() && $boxersandswipers_apply['home'][$device]) || (is_single() && $boxersandswipers_apply['post'][$device]) || (is_page() && $boxersandswipers_apply['page'][$device]) || (is_page() && $boxersandswipers_apply['gallery'][$device]) || (is_archive() && $boxersandswipers_apply['archive'][$device]) || (is_category() && $boxersandswipers_apply['category'][$device]) ){
 
 					$args = array(
 						'post_type' => 'attachment',

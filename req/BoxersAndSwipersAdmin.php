@@ -1357,32 +1357,32 @@ $boxersandswipers_add_jscss = <<<BOXERSANDSWIPERS
 jQuery(window).load(function(){
 	jQuery('#container-colorbox').masonry({
 		itemSelector : '.item-boxersandswipers-settings',
-		columnWidth: 200px
+		columnWidth: 250px
 	});
 	jQuery('#container-slimbox').masonry({
 		itemSelector : '.item-boxersandswipers-settings',
-		columnWidth: 200px
+		columnWidth: 250px
 	});
 	jQuery('#container-nivolightbox').masonry({
 		itemSelector : '.item-boxersandswipers-settings',
-		columnWidth: 200px
+		columnWidth: 250px
 	});
 	jQuery('#container-imagelightbox').masonry({
 		itemSelector : '.item-boxersandswipers-settings',
-		columnWidth: 200px
+		columnWidth: 250px
 	});
 	jQuery('#container-photoswipe').masonry({
 		itemSelector : '.item-boxersandswipers-settings',
-		columnWidth: 200px
+		columnWidth: 250px
 	});
 	jQuery('#container-swipebox').masonry({
 		itemSelector : '.item-boxersandswipers-settings',
-		columnWidth: 200px
+		columnWidth: 250px
 	});
 });
 </script>
 <style type="text/css">
-.item-boxersandswipers-settings { width: 200px; height: 65px; float:left; margin:5px; padding:5px; }
+.item-boxersandswipers-settings { width: 250px; height: 60px; float:left; margin:5px; padding:5px; }
 </style>
 <!-- END: Boxers And Swipers -->
 

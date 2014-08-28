@@ -4,19 +4,19 @@ Donate link: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
 Tags: colorbox, slimbox, lightbox, nivolightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
 Requires at least: 3.0.1
 Tested up to: 3.4
-Stable tag: 1.22
+Stable tag: 1.23
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Integrates Colorbox and Slimbox and Nivo Lightbox and Image Lightbox and Photoswipe and Swipebox into WordPress.
+Integrates Colorbox, Slimbox, Nivo Lightbox, Image Lightbox, Photoswipe and Swipebox into WordPress.
 
 == Description ==
 
-* Integrates Colorbox and Slimbox and Nivo Lightbox and Image LIghtbox and Photoswipe and Swipebox into WordPress.
+* Integrates Colorbox, Slimbox, Nivo Lightbox, Image Lightbox, Photoswipe and Swipebox into WordPress.
 * Can switch the effect to each user agent.
-* Can be cooperation with [MediaLibrary Feeder](http://wordpress.org/plugins/medialibrary-feeder/).
-* Can be cooperation with [GalleryLink](http://wordpress.org/plugins/gallerylink/).
-* Can be cooperation with [MediaLink](http://wordpress.org/plugins/medialink/).
+* Works with [MediaLibrary Feeder](http://wordpress.org/plugins/medialibrary-feeder/).
+* Works with [GalleryLink](http://wordpress.org/plugins/gallerylink/).
+* Works with [MediaLink](http://wordpress.org/plugins/medialink/).
 
 *   Japanese (ja) - [Katsushi Kawamori](http://gallerylink.nyanko.org/medialink/boxers-and-swipers/)
 
@@ -48,6 +48,10 @@ none
 
 == Changelog ==
 
+= 1.23 =
+Fixed problem of when the gallery and links to media files usually are mixed within a page.
+Fixed problem of management screen.
+
 = 1.22 =
 Change management screen to responsive design.
 
@@ -76,11 +80,11 @@ Fixed a problem of memory capacity in the management screen.
 Support to custom post types.
 
 = 1.13 =
-Can be cooperation with GalleryLink.
-Can be cooperation with MediaLink.
+Works with GalleryLink.
+Works with MediaLink.
 
 = 1.12 =
-Can be cooperation with MediaLibrary Feeder.
+Works with MediaLibrary Feeder.
 
 = 1.11 =
 Fixed problem of category and archive.
@@ -124,6 +128,7 @@ Fixed problem in the display of the Pages and Posts.
 
 == Upgrade Notice ==
 
+= 1.23 =
 = 1.22 =
 = 1.21 =
 = 1.20 =
