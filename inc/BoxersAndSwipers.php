@@ -32,6 +32,16 @@ class BoxersAndSwipers {
 
 		$device = $this->agent_check();
 		$boxersandswipers_apply = get_option('boxersandswipers_apply');
+		$is_singular_boxersandswipers_apply = $boxersandswipers_apply[get_post_type(get_the_ID())][$device];
+		$is_home_boxersandswipers_apply = $boxersandswipers_apply['home'][$device];
+		$is_archive_boxersandswipers_apply = $boxersandswipers_apply['archive'][$device];
+		$is_category_boxersandswipers_apply = $boxersandswipers_apply['category'][$device];
+		$is_gallery_boxersandswipers_apply = $boxersandswipers_apply['gallery'][$device];
+		settype($is_singular_boxersandswipers_apply, "boolean");
+		settype($is_home_boxersandswipers_apply, "boolean");
+		settype($is_archive_boxersandswipers_apply, "boolean");
+		settype($is_category_boxersandswipers_apply, "boolean");
+		settype($is_gallery_boxersandswipers_apply, "boolean");
 
 		$simplemasonry_apply = get_post_meta( get_the_ID(), 'simplemasonry_apply' );
 		$simplenivoslider_apply = get_post_meta( get_the_ID(), 'simplenivoslider_apply' );
@@ -39,7 +49,7 @@ class BoxersAndSwipers {
 		if ( get_post_gallery( get_the_ID() ) && !empty($simplemasonry_apply) && $simplemasonry_apply[0] ) {
 			// for Simple Masonry Gallery http://wordpress.org/plugins/simple-masonry-gallery/
 			// for Gallery
-			if ( $boxersandswipers_apply['gallery'][$device] ) {
+			if ( $is_gallery_boxersandswipers_apply ) {
 				add_filter( 'post_gallery', array(&$this, 'gallery_filter') );
 			}
 		} else if ( get_post_gallery( get_the_ID() ) && !empty($simplenivoslider_apply) && $simplenivoslider_apply[0] ) {
@@ -48,7 +58,7 @@ class BoxersAndSwipers {
 		} else {
 			if ( !is_attachment() ) {
 				// for Insert Attachement
-				if ( (is_singular() && $boxersandswipers_apply[get_post_type(get_the_ID())][$device]) || (is_home() && $boxersandswipers_apply['home'][$device]) || (is_archive() && $boxersandswipers_apply['archive'][$device]) || (is_category() && $boxersandswipers_apply['category'][$device]) ){
+				if ( (is_singular() && $is_singular_boxersandswipers_apply) || (is_home() && $is_home_boxersandswipers_apply) || (is_archive() && $is_archive_boxersandswipers_apply) || (is_category() && $is_category_boxersandswipers_apply) ){
 
 					$args = array(
 						'post_type' => 'attachment',
@@ -138,7 +148,7 @@ class BoxersAndSwipers {
 					}
 				}
 				// for Gallery
-				if ( $boxersandswipers_apply['gallery'][$device] ) {
+				if ( $is_gallery_boxersandswipers_apply ) {
 					add_shortcode( 'gallery', array(&$this, 'file_gallery_shortcode') );
 					add_filter( 'post_gallery', array(&$this, 'gallery_filter') );
 				}
