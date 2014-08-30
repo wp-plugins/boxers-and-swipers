@@ -2,7 +2,7 @@
 /*
 Plugin Name: Boxers and Swipers
 Plugin URI: http://wordpress.org/plugins/boxers-and-swipers/
-Version: 1.25
+Version: 1.26
 Description: Integrates Colorbox, Slimbox, Nivo Lightbox, Image Lightbox, Photoswipe and Swipebox into WordPress.
 Author: Katsushi Kawamori
 Author URI: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
@@ -28,7 +28,7 @@ Domain Path: /languages
 
 	define("BOXERSANDSWIPERS_PLUGIN_BASE_FILE", plugin_basename(__FILE__));
 	define("BOXERSANDSWIPERS_PLUGIN_BASE_DIR", dirname(__FILE__));
-	define("BOXERSANDSWIPERS_PLUGIN_URL", plugins_url($path='',$scheme=null));
+	define("BOXERSANDSWIPERS_PLUGIN_URL", plugins_url($path='boxers-and-swipers',$scheme=null));
 
 	require_once( dirname( __FILE__ ) . '/req/BoxersAndSwipersRegist.php' );
 	$boxersandswipersregistandheader = new BoxersAndSwipersRegist();
@@ -49,8 +49,13 @@ Domain Path: /languages
 	$boxersandswipers_effect = get_option('boxersandswipers_effect');
 	$boxersandswipers_apply = get_option('boxersandswipers_apply');
 
-	$effect = $boxersandswipers_effect[$device];
-	$boxersandswipers->effect = $effect;
+	$boxersandswipers->effect = $boxersandswipers_effect[$device];
+	$boxersandswipers_attachment_args = array(
+		'post_type' => 'attachment',
+		'post_mime_type' => 'image',
+		'numberposts' => -1
+		);
+	$boxersandswipers->attachments = get_posts($boxersandswipers_attachment_args);
 
 	add_filter( 'the_content', array($boxersandswipers, 'add_anchor_tag') );
 

@@ -45,6 +45,18 @@ class BoxersAndSwipersAdmin {
 	}
 
 	/* ==================================================
+	 * Add Css and Script
+	 * @since	1.26
+	 */
+	function load_custom_wp_admin_style() {
+		wp_enqueue_style( 'jquery-ui-tabs', BOXERSANDSWIPERS_PLUGIN_URL.'/css/jquery-ui.css' );
+		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( 'jquery-ui-tabs' );
+		wp_enqueue_script( 'jquery-ui-tabs-in', BOXERSANDSWIPERS_PLUGIN_URL.'/js/jquery-ui-tabs-in.js' );
+		wp_enqueue_script('masonry' , get_template_directory_uri() . '/js/masonry.pkgd.min.js' , array('jquery') , false, true);
+	}
+
+	/* ==================================================
 	 * Add Script on footer
 	 * @since	1.22
 	 */
@@ -61,12 +73,6 @@ class BoxersAndSwipersAdmin {
 		if ( !current_user_can( 'manage_options' ) )  {
 			wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 		}
-
-		wp_enqueue_style( 'jquery-ui-tabs', BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/css/jquery-ui.css' );
-		wp_enqueue_script( 'jquery' );
-		wp_enqueue_script( 'jquery-ui-tabs' );
-		wp_enqueue_script( 'jquery-ui-tabs-in', BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/js/jquery-ui-tabs-in.js' );
-		wp_enqueue_script('masonry' , get_template_directory_uri() . '/js/masonry.pkgd.min.js' , array('jquery') , false, true);
 
 		if( !empty($_POST) ) {
 			$this->options_updated(intval($_POST['tabs']));

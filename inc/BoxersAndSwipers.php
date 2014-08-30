@@ -22,6 +22,7 @@
 class BoxersAndSwipers {
 
 	public $effect;
+	public $attachments;
 
 	/* ==================================================
 	* @param	string	$link
@@ -57,16 +58,13 @@ class BoxersAndSwipers {
 			// Through
 		} else {
 			if ( !is_attachment() ) {
+				// for Gallery
+				if ( $is_gallery_boxersandswipers_apply ) {
+					add_shortcode( 'gallery', array(&$this, 'file_gallery_shortcode') );
+					add_filter( 'post_gallery', array(&$this, 'gallery_filter') );
+				}
 				// for Insert Attachement
 				if ( (is_singular() && $is_singular_boxersandswipers_apply) || (is_home() && $is_home_boxersandswipers_apply) || (is_archive() && $is_archive_boxersandswipers_apply) || (is_category() && $is_category_boxersandswipers_apply) ){
-
-					$args = array(
-						'post_type' => 'attachment',
-						'post_mime_type' => 'image',
-						'numberposts' => -1
-						);
-					$attachments = get_posts($args);
-
 					if(preg_match_all("/\s+href\s*=\s*([\"\']?)([^\s\"\'>]+)(\\1)/ims", $link, $result) !== false){
 				    	foreach ($result[0] as $value){
 							$exts = explode('.', substr($value, 0, -1));
@@ -77,7 +75,7 @@ class BoxersAndSwipers {
 									// colorbox
 									$class_name = ' class="boxersandswipers"';
 									$titlename = NULL;
-									foreach ( $attachments as $attachment ) {
+									foreach ( $this->attachments as $attachment ) {
 										if( strpos($value, $attachment->guid) ){
 											$titlename = ' title="'.$attachment->post_title.'"';
 										}
@@ -87,7 +85,7 @@ class BoxersAndSwipers {
 									//slimbox
 									$rel_name = ' rel="boxersandswipers"';
 									$titlename = NULL;
-									foreach ( $attachments as $attachment ) {
+									foreach ( $this->attachments as $attachment ) {
 										if( strpos($value, $attachment->guid) ){
 											$titlename = ' title="'.$attachment->post_title.'"';
 										}
@@ -97,7 +95,7 @@ class BoxersAndSwipers {
 									//nivolightbox
 									$rel_name = ' data-lightbox-gallery="boxersandswipers"';
 									$titlename = NULL;
-									foreach ( $attachments as $attachment ) {
+									foreach ( $this->attachments as $attachment ) {
 										if( strpos($value, $attachment->guid) ){
 											$titlename = ' title="'.$attachment->post_title.'"';
 										}
@@ -107,7 +105,7 @@ class BoxersAndSwipers {
 									//imagelightbox
 									$rel_name = ' data-imagelightbox="boxersandswipers"';
 									$titlename = NULL;
-									foreach ( $attachments as $attachment ) {
+									foreach ( $this->attachments as $attachment ) {
 										if( strpos($value, $attachment->guid) ){
 											$titlename = ' title="'.$attachment->post_title.'"';
 										}
@@ -122,7 +120,7 @@ class BoxersAndSwipers {
 									$rel_name = ' rel="boxers-and-swipers"';
 									$class_name = ' class="boxersandswipers"';
 									$titlename = NULL;
-									foreach ( $attachments as $attachment ) {
+									foreach ( $this->attachments as $attachment ) {
 										if( strpos($value, $attachment->guid) ){
 											$titlename = ' title="'.$attachment->post_title.'"';
 										}
@@ -147,11 +145,6 @@ class BoxersAndSwipers {
 						}
 					}
 				}
-				// for Gallery
-				if ( $is_gallery_boxersandswipers_apply ) {
-					add_shortcode( 'gallery', array(&$this, 'file_gallery_shortcode') );
-					add_filter( 'post_gallery', array(&$this, 'gallery_filter') );
-				}
 			}
 		}
 
@@ -165,7 +158,7 @@ class BoxersAndSwipers {
 	* @since	1.0
 	*/
 	function gallery_filter($link) {
-		add_filter( 'wp_get_attachment_link', array(&$this, 'add_anchor_tag_gallery') );	
+		add_filter( 'wp_get_attachment_link', array(&$this, 'add_anchor_tag_gallery'), 10, 6 );	
 	}
 
 	/* ==================================================
@@ -173,45 +166,34 @@ class BoxersAndSwipers {
 	* @return	string	$link
 	* @since	1.0
 	*/
-	function add_anchor_tag_gallery($link) {
+	function add_anchor_tag_gallery($link, $id, $size, $permalink, $icon, $text) {
 
-		$args = array(
-			'post_type' => 'attachment',
-			'post_mime_type' => 'image',
-			'numberposts' => -1
-			);
-		$attachments = get_posts($args);
-
-		foreach ( $attachments as $attachment ) {
-			if( strpos($link, $attachment->guid) ){
-				$titlename = ' title="'.$attachment->post_title.'"';
-				if ( $this->effect === 'colorbox' ) {
-					// colorbox
-					$class_name = 'class="boxersandswipers"';
-				    $link = str_replace( '<a', '<a '.$class_name.$titlename, $link );
-				} else if ( $this->effect === 'slimbox' ) {
-					//slimbox
-					$rel_name = 'rel="boxersandswipers"';
-				    $link = str_replace( '<a', '<a '.$rel_name.$titlename, $link );
-				} else if ( $this->effect === 'nivolightbox' ) {
-					//nivolightbox
-					$rel_name = 'data-lightbox-gallery="boxersandswipers"';
-				    $link = str_replace( '<a', '<a '.$rel_name.$titlename, $link );
-				} else if ( $this->effect === 'imagelightbox' ) {
-					//imagelightbox
-					$rel_name = 'data-imagelightbox="boxersandswipers"';
-				    $link = str_replace( '<a', '<a '.$rel_name.$titlename, $link );
-				} else if ( $this->effect === 'photoswipe' ) {
-					//photoswipe
-					$class_name = 'class="boxersandswipers" ';
-				    $link = str_replace( '<a', '<a '.$class_name, $link );
-				} else if ( $this->effect === 'swipebox' ) {
-					//swipebox
-					$rel_name = 'rel="boxers-and-swipers"';
-					$class_name = ' class="boxersandswipers"';
-				    $link = str_replace( '<a', '<a '.$rel_name.$class_name.$titlename, $link );
-				}
-			}
+		$titlename = ' title="'.get_the_title($id).'"';
+		if ( $this->effect === 'colorbox' ) {
+			// colorbox
+			$class_name = 'class="boxersandswipers"';
+		    $link = str_replace( '<a', '<a '.$class_name.$titlename, $link );
+		} else if ( $this->effect === 'slimbox' ) {
+			//slimbox
+			$rel_name = 'rel="boxersandswipers"';
+		    $link = str_replace( '<a', '<a '.$rel_name.$titlename, $link );
+		} else if ( $this->effect === 'nivolightbox' ) {
+			//nivolightbox
+			$rel_name = 'data-lightbox-gallery="boxersandswipers"';
+		    $link = str_replace( '<a', '<a '.$rel_name.$titlename, $link );
+		} else if ( $this->effect === 'imagelightbox' ) {
+			//imagelightbox
+			$rel_name = 'data-imagelightbox="boxersandswipers"';
+		    $link = str_replace( '<a', '<a '.$rel_name.$titlename, $link );
+		} else if ( $this->effect === 'photoswipe' ) {
+			//photoswipe
+			$class_name = 'class="boxersandswipers" ';
+		    $link = str_replace( '<a', '<a '.$class_name, $link );
+		} else if ( $this->effect === 'swipebox' ) {
+			//swipebox
+			$rel_name = 'rel="boxers-and-swipers"';
+			$class_name = ' class="boxersandswipers"';
+		    $link = str_replace( '<a', '<a '.$rel_name.$class_name.$titlename, $link );
 		}
 
 		return $link;
@@ -226,31 +208,31 @@ class BoxersAndSwipers {
 
 		if ($this->effect === 'colorbox'){
 			// for COLORBOX
-			wp_enqueue_style( 'colorbox',  BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/colorbox/colorbox.css' );
+			wp_enqueue_style( 'colorbox',  BOXERSANDSWIPERS_PLUGIN_URL.'/colorbox/colorbox.css' );
 			wp_enqueue_script('jquery');
-			wp_enqueue_script( 'colorbox', BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/colorbox/jquery.colorbox-min.js', null, '1.4.37');
+			wp_enqueue_script( 'colorbox', BOXERSANDSWIPERS_PLUGIN_URL.'/colorbox/jquery.colorbox-min.js', null, '1.4.37');
 		} else if ($this->effect === 'slimbox'){
 			// for slimbox
-			wp_enqueue_style( 'slimbox',  BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/slimbox/css/slimbox2.css' );
-			wp_enqueue_script( 'slimbox', BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/slimbox/js/slimbox2.js', null, '2.05');
+			wp_enqueue_style( 'slimbox',  BOXERSANDSWIPERS_PLUGIN_URL.'/slimbox/css/slimbox2.css' );
+			wp_enqueue_script( 'slimbox', BOXERSANDSWIPERS_PLUGIN_URL.'/slimbox/js/slimbox2.js', null, '2.05');
 		} else if ($this->effect === 'nivolightbox'){
 			// for nivolightbox
-			wp_enqueue_style( 'nivolightbox',  BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/nivolightbox/nivo-lightbox.css' );
-			wp_enqueue_style( 'nivolightbox-themes',  BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/nivolightbox/themes/default/default.css' );
-			wp_enqueue_script( 'nivolightbox', BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/nivolightbox/nivo-lightbox.min.js', null, '1.1');
+			wp_enqueue_style( 'nivolightbox',  BOXERSANDSWIPERS_PLUGIN_URL.'/nivolightbox/nivo-lightbox.css' );
+			wp_enqueue_style( 'nivolightbox-themes',  BOXERSANDSWIPERS_PLUGIN_URL.'/nivolightbox/themes/default/default.css' );
+			wp_enqueue_script( 'nivolightbox', BOXERSANDSWIPERS_PLUGIN_URL.'/nivolightbox/nivo-lightbox.min.js', null, '1.1');
 		} else if ($this->effect === 'imagelightbox'){
 			// for imagelightbox
-			wp_enqueue_style( 'imagelightbox',  BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/imagelightbox/imagelightbox.css' );
-			wp_enqueue_script( 'imagelightbox', BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/imagelightbox/imagelightbox.min.js');
+			wp_enqueue_style( 'imagelightbox',  BOXERSANDSWIPERS_PLUGIN_URL.'/imagelightbox/imagelightbox.css' );
+			wp_enqueue_script( 'imagelightbox', BOXERSANDSWIPERS_PLUGIN_URL.'/imagelightbox/imagelightbox.min.js');
 		} else if ($this->effect === 'photoswipe'){
 			// for PhotoSwipe
-			wp_enqueue_style( 'photoswipe',  BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/photoswipe/photoswipe.css' );
-			wp_enqueue_script( 'sji' , BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/photoswipe/lib/simple-inheritance.min.js', null );
-			wp_enqueue_script( 'photoswipe' , BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/photoswipe/code-photoswipe-1.0.11.min.js', null, '1.0.11' );
+			wp_enqueue_style( 'photoswipe',  BOXERSANDSWIPERS_PLUGIN_URL.'/photoswipe/photoswipe.css' );
+			wp_enqueue_script( 'sji' , BOXERSANDSWIPERS_PLUGIN_URL.'/photoswipe/lib/simple-inheritance.min.js', null );
+			wp_enqueue_script( 'photoswipe' , BOXERSANDSWIPERS_PLUGIN_URL.'/photoswipe/code-photoswipe-1.0.11.min.js', null, '1.0.11' );
 		} else if ($this->effect === 'swipebox'){
 			// for Swipebox
-			wp_enqueue_style( 'swipebox',  BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/swipebox/source/swipebox.css' );
-			wp_enqueue_script( 'swipebox' , BOXERSANDSWIPERS_PLUGIN_URL.'/boxers-and-swipers/swipebox/source/jquery.swipebox.min.js', null, '1.2.1' );
+			wp_enqueue_style( 'swipebox',  BOXERSANDSWIPERS_PLUGIN_URL.'/swipebox/source/swipebox.css' );
+			wp_enqueue_script( 'swipebox' , BOXERSANDSWIPERS_PLUGIN_URL.'/swipebox/source/jquery.swipebox.min.js', null, '1.2.1' );
 		}
 
 	}
