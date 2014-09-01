@@ -285,7 +285,13 @@ class BoxersAndSwipers {
 	*/
 	function file_gallery_shortcode( $atts ){
 
-	    $atts['link'] = 'file';
+		if ( empty($atts['link']) ) {
+		    $atts['link'] = 'file';
+		} else if ( $atts['link'] === 'none' ) {
+		    $atts['link'] = 'none';
+		} else {
+		    $atts['link'] = 'file';
+		}
 
 	    return gallery_shortcode( $atts );
 

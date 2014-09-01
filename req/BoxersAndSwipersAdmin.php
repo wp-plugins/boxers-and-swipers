@@ -49,10 +49,10 @@ class BoxersAndSwipersAdmin {
 	 * @since	1.26
 	 */
 	function load_custom_wp_admin_style() {
-		wp_enqueue_style( 'jquery-ui-tabs', BOXERSANDSWIPERS_PLUGIN_URL.'/css/jquery-ui.css' );
+		wp_enqueue_style( 'jquery-responsiveTabs', BOXERSANDSWIPERS_PLUGIN_URL.'/css/responsive-tabs.css' );
+		wp_enqueue_style( 'jquery-responsiveTabs-style', BOXERSANDSWIPERS_PLUGIN_URL.'/css/style.css' );
 		wp_enqueue_script( 'jquery' );
-		wp_enqueue_script( 'jquery-ui-tabs' );
-		wp_enqueue_script( 'jquery-ui-tabs-in', BOXERSANDSWIPERS_PLUGIN_URL.'/js/jquery-ui-tabs-in.js' );
+		wp_enqueue_script( 'jquery-responsiveTabs', BOXERSANDSWIPERS_PLUGIN_URL.'/js/jquery.responsiveTabs.min.js' );
 		wp_enqueue_script('masonry' , get_template_directory_uri() . '/js/masonry.pkgd.min.js' , array('jquery') , false, true);
 	}
 
@@ -248,6 +248,7 @@ class BoxersAndSwipersAdmin {
 
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>transition</div>
+					<div><?php _e('Default') ?>&nbsp(elastic)</div>
 					<div>
 					<?php $target_colorbox_transition = $boxersandswipers_colorbox['transition']; ?>
 					<select id="boxersandswipers_colorbox_transition" name="boxersandswipers_colorbox_transition">
@@ -259,18 +260,21 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>speed</div>
+					<div><?php _e('Default') ?>&nbsp(350)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_speed" name="boxersandswipers_colorbox_speed" value="<?php echo $boxersandswipers_colorbox['speed'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>title</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_title" name="boxersandswipers_colorbox_title" value="<?php echo $boxersandswipers_colorbox['title'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>scalePhotos</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_colorbox_scalePhotos = $boxersandswipers_colorbox['scalePhotos']; ?>
 					<select id="boxersandswipers_colorbox_scalePhotos" name="boxersandswipers_colorbox_scalePhotos">
@@ -281,6 +285,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>scrolling</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_colorbox_scrolling = $boxersandswipers_colorbox['scrolling']; ?>
 					<select id="boxersandswipers_colorbox_scrolling" name="boxersandswipers_colorbox_scrolling">
@@ -291,12 +296,14 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>opacity</div>
+					<div><?php _e('Default') ?>&nbsp(0.85)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_opacity" name="boxersandswipers_colorbox_opacity" value="<?php echo $boxersandswipers_colorbox['opacity'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>open</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 					<?php $target_colorbox_open = $boxersandswipers_colorbox['open']; ?>
 					<select id="boxersandswipers_colorbox_open" name="boxersandswipers_colorbox_open">
@@ -307,6 +314,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>returnFocus</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_colorbox_returnFocus = $boxersandswipers_colorbox['returnFocus']; ?>
 					<select id="boxersandswipers_colorbox_returnFocus" name="boxersandswipers_colorbox_returnFocus">
@@ -317,6 +325,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>trapFocus</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_colorbox_trapFocus = $boxersandswipers_colorbox['trapFocus']; ?>
 					<select id="boxersandswipers_colorbox_trapFocus" name="boxersandswipers_colorbox_trapFocus">
@@ -327,6 +336,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>fastIframe</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_colorbox_fastIframe = $boxersandswipers_colorbox['fastIframe']; ?>
 					<select id="boxersandswipers_colorbox_fastIframe" name="boxersandswipers_colorbox_fastIframe">
@@ -337,6 +347,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>preloading</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_colorbox_preloading = $boxersandswipers_colorbox['preloading']; ?>
 					<select id="boxersandswipers_colorbox_preloading" name="boxersandswipers_colorbox_preloading">
@@ -347,6 +358,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>overlayClose</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_colorbox_overlayClose = $boxersandswipers_colorbox['overlayClose']; ?>
 					<select id="boxersandswipers_colorbox_overlayClose" name="boxersandswipers_colorbox_overlayClose">
@@ -357,6 +369,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>escKey</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_colorbox_escKey = $boxersandswipers_colorbox['escKey']; ?>
 					<select id="boxersandswipers_colorbox_escKey" name="boxersandswipers_colorbox_escKey">
@@ -367,6 +380,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>arrowKey</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_colorbox_arrowKey = $boxersandswipers_colorbox['arrowKey']; ?>
 					<select id="boxersandswipers_colorbox_arrowKey" name="boxersandswipers_colorbox_arrowKey">
@@ -377,6 +391,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>loop</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_colorbox_loop = $boxersandswipers_colorbox['loop']; ?>
 					<select id="boxersandswipers_colorbox_loop" name="boxersandswipers_colorbox_loop">
@@ -387,12 +402,14 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>fadeOut</div>
+					<div><?php _e('Default') ?>&nbsp(300)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_fadeOut" name="boxersandswipers_colorbox_fadeOut" value="<?php echo $boxersandswipers_colorbox['fadeOut'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>closeButton</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_colorbox_closeButton = $boxersandswipers_colorbox['closeButton']; ?>
 					<select id="boxersandswipers_colorbox_closeButton" name="boxersandswipers_colorbox_closeButton">
@@ -403,78 +420,91 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>current</div>
+					<div><?php _e('Default') ?>&nbsp(image {current} of {total})</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_current" name="boxersandswipers_colorbox_current" value="<?php echo $boxersandswipers_colorbox['current'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>previous</div>
+					<div><?php _e('Default') ?>&nbsp(previous)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_previous" name="boxersandswipers_colorbox_previous" value="<?php echo $boxersandswipers_colorbox['previous'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>next</div>
+					<div><?php _e('Default') ?>&nbsp(next)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_next" name="boxersandswipers_colorbox_next" value="<?php echo $boxersandswipers_colorbox['next'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>close</div>
+					<div><?php _e('Default') ?>&nbsp(close)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_close" name="boxersandswipers_colorbox_close" value="<?php echo $boxersandswipers_colorbox['close'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>width</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_width" name="boxersandswipers_colorbox_width" value="<?php echo $boxersandswipers_colorbox['width'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>height</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_height" name="boxersandswipers_colorbox_height" value="<?php echo $boxersandswipers_colorbox['height'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>innerWidth</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_innerWidth" name="boxersandswipers_colorbox_innerWidth" value="<?php echo $boxersandswipers_colorbox['innerWidth'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>innerHeight</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_innerHeight" name="boxersandswipers_colorbox_innerHeight" value="<?php echo $boxersandswipers_colorbox['innerHeight'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>initialWidth</div>
+					<div><?php _e('Default') ?>&nbsp(300)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_initialWidth" name="boxersandswipers_colorbox_initialWidth" value="<?php echo $boxersandswipers_colorbox['initialWidth'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>initialHeight</div>
+					<div><?php _e('Default') ?>&nbsp(100)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_initialHeight" name="boxersandswipers_colorbox_initialHeight" value="<?php echo $boxersandswipers_colorbox['initialHeight'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>maxWidth</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_maxWidth" name="boxersandswipers_colorbox_maxWidth" value="<?php echo $boxersandswipers_colorbox['maxWidth'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>maxHeight</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_maxHeight" name="boxersandswipers_colorbox_maxHeight" value="<?php echo $boxersandswipers_colorbox['maxHeight'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>slideshow</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_colorbox_slideshow = $boxersandswipers_colorbox['slideshow']; ?>
 					<select id="boxersandswipers_colorbox_slideshow" name="boxersandswipers_colorbox_slideshow">
@@ -485,12 +515,14 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>slideshowSpeed</div>
+					<div><?php _e('Default') ?>&nbsp(2500)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_slideshowSpeed" name="boxersandswipers_colorbox_slideshowSpeed" value="<?php echo $boxersandswipers_colorbox['slideshowSpeed'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>slideshowAuto</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 					<?php $target_colorbox_slideshowAuto = $boxersandswipers_colorbox['slideshowAuto']; ?>
 					<select id="boxersandswipers_colorbox_slideshowAuto" name="boxersandswipers_colorbox_slideshowAuto">
@@ -501,18 +533,21 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>slideshowStart</div>
+					<div><?php _e('Default') ?>&nbsp(start slideshow)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_slideshowStart" name="boxersandswipers_colorbox_slideshowStart" value="<?php echo $boxersandswipers_colorbox['slideshowStart'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>slideshowStop</div>
+					<div><?php _e('Default') ?>&nbsp(stop slideshow)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_slideshowStop" name="boxersandswipers_colorbox_slideshowStop" value="<?php echo $boxersandswipers_colorbox['slideshowStop'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>fixed</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 					<?php $target_colorbox_fixed = $boxersandswipers_colorbox['fixed']; ?>
 					<select id="boxersandswipers_colorbox_fixed" name="boxersandswipers_colorbox_fixed">
@@ -523,30 +558,35 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>top</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_top" name="boxersandswipers_colorbox_top" value="<?php echo $boxersandswipers_colorbox['top'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>bottom</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_bottom" name="boxersandswipers_colorbox_bottom" value="<?php echo $boxersandswipers_colorbox['bottom'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>left</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_left" name="boxersandswipers_colorbox_left" value="<?php echo $boxersandswipers_colorbox['left'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>right</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 						<input type="text" id="boxersandswipers_colorbox_right" name="boxersandswipers_colorbox_right" value="<?php echo $boxersandswipers_colorbox['right'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>reposition</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_colorbox_reposition = $boxersandswipers_colorbox['reposition']; ?>
 					<select id="boxersandswipers_colorbox_reposition" name="boxersandswipers_colorbox_reposition">
@@ -557,6 +597,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>retinaImage</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 					<?php $target_colorbox_retinaImage = $boxersandswipers_colorbox['retinaImage']; ?>
 					<select id="boxersandswipers_colorbox_retinaImage" name="boxersandswipers_colorbox_retinaImage">
@@ -594,6 +635,7 @@ class BoxersAndSwipersAdmin {
 
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>loop</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 					<?php $target_slimbox_loop = $boxersandswipers_slimbox['loop']; ?>
 					<select id="boxersandswipers_slimbox_loop" name="boxersandswipers_slimbox_loop">
@@ -604,24 +646,28 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>overlayOpacity</div>
+					<div><?php _e('Default') ?>&nbsp(0.8)</div>
 					<div>
 						<input type="text" id="boxersandswipers_slimbox_overlayOpacity" name="boxersandswipers_slimbox_overlayOpacity" value="<?php echo $boxersandswipers_slimbox['overlayOpacity'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>overlayFadeDuration</div>
+					<div><?php _e('Default') ?>&nbsp(400)</div>
 					<div>
 						<input type="text" id="boxersandswipers_slimbox_overlayFadeDuration" name="boxersandswipers_slimbox_overlayFadeDuration" value="<?php echo $boxersandswipers_slimbox['overlayFadeDuration'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>resizeDuration</div>
+					<div><?php _e('Default') ?>&nbsp(400)</div>
 					<div>
 						<input type="text" id="boxersandswipers_slimbox_resizeDuration" name="boxersandswipers_slimbox_resizeDuration" value="<?php echo $boxersandswipers_slimbox['resizeDuration'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>resizeEasing</div>
+					<div><?php _e('Default') ?>&nbsp(swing)</div>
 					<div>
 					<?php $target_slimbox_resizeEasing = $boxersandswipers_slimbox['resizeEasing']; ?>
 					<select id="boxersandswipers_slimbox_resizeEasing" name="boxersandswipers_slimbox_resizeEasing">
@@ -632,48 +678,56 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>initialWidth</div>
+					<div><?php _e('Default') ?>&nbsp(250)</div>
 					<div>
 						<input type="text" id="boxersandswipers_slimbox_initialWidth" name="boxersandswipers_slimbox_initialWidth" value="<?php echo $boxersandswipers_slimbox['initialWidth'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>initialHeight</div>
+					<div><?php _e('Default') ?>&nbsp(250)</div>
 					<div>
 						<input type="text" id="boxersandswipers_slimbox_initialHeight" name="boxersandswipers_slimbox_initialHeight" value="<?php echo $boxersandswipers_slimbox['initialHeight'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>imageFadeDuration</div>
+					<div><?php _e('Default') ?>&nbsp(400)</div>
 					<div>
 						<input type="text" id="boxersandswipers_slimbox_imageFadeDuration" name="boxersandswipers_slimbox_imageFadeDuration" value="<?php echo $boxersandswipers_slimbox['imageFadeDuration'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>captionAnimationDuration</div>
+					<div><?php _e('Default') ?>&nbsp(400)</div>
 					<div>
 						<input type="text" id="boxersandswipers_slimbox_captionAnimationDuration" name="boxersandswipers_slimbox_captionAnimationDuration" value="<?php echo $boxersandswipers_slimbox['captionAnimationDuration'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>counterText</div>
+					<div><?php _e('Default') ?>&nbsp(Image {x} of {y})</div>
 					<div>
 						<input type="text" id="boxersandswipers_slimbox_counterText" name="boxersandswipers_slimbox_counterText" value="<?php echo $boxersandswipers_slimbox['counterText'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>closeKeys</div>
+					<div><?php _e('Default') ?>&nbsp([27, 88, 67])</div>
 					<div>
 						<input type="text" id="boxersandswipers_slimbox_closeKeys" name="boxersandswipers_slimbox_closeKeys" value="<?php echo $boxersandswipers_slimbox['closeKeys'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>previousKeys</div>
+					<div><?php _e('Default') ?>&nbsp([37, 80])</div>
 					<div>
 						<input type="text" id="boxersandswipers_slimbox_previousKeys" name="boxersandswipers_slimbox_previousKeys" value="<?php echo $boxersandswipers_slimbox['previousKeys'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>nextKeys</div>
+					<div><?php _e('Default') ?>&nbsp([39, 78])</div>
 					<div>
 						<input type="text" id="boxersandswipers_slimbox_nextKeys" name="boxersandswipers_slimbox_nextKeys" value="<?php echo $boxersandswipers_slimbox['nextKeys'] ?>" />
 					</div>
@@ -706,6 +760,7 @@ class BoxersAndSwipersAdmin {
 
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>effect</div>
+					<div><?php _e('Default') ?>&nbsp(fade)</div>
 					<div>
 					<?php $target_nivolightbox_effect = $boxersandswipers_nivolightbox['effect']; ?>
 					<select id="boxersandswipers_nivolightbox_effect" name="boxersandswipers_nivolightbox_effect">
@@ -721,6 +776,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>keyboardNav</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_nivolightbox_keyboardNav = $boxersandswipers_nivolightbox['keyboardNav']; ?>
 					<select id="boxersandswipers_nivolightbox_keyboardNav" name="boxersandswipers_nivolightbox_keyboardNav">
@@ -731,6 +787,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>clickOverlayToClose</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_nivolightbox_clickOverlayToClose = $boxersandswipers_nivolightbox['clickOverlayToClose']; ?>
 					<select id="boxersandswipers_nivolightbox_clickOverlayToClose" name="boxersandswipers_nivolightbox_clickOverlayToClose">
@@ -767,12 +824,14 @@ class BoxersAndSwipersAdmin {
 
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>animationSpeed</div>
+					<div><?php _e('Default') ?>&nbsp(250)</div>
 					<div>
 						<input type="text" id="boxersandswipers_imagelightbox_animationSpeed" name="boxersandswipers_imagelightbox_animationSpeed" value="<?php echo $boxersandswipers_imagelightbox['animationSpeed'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>preloadNext</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_imagelightbox_preloadNext = $boxersandswipers_imagelightbox['preloadNext']; ?>
 					<select id="boxersandswipers_imagelightbox_preloadNext" name="boxersandswipers_imagelightbox_preloadNext">
@@ -783,6 +842,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>enableKeyboard</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_imagelightbox_enableKeyboard = $boxersandswipers_imagelightbox['enableKeyboard']; ?>
 					<select id="boxersandswipers_imagelightbox_enableKeyboard" name="boxersandswipers_imagelightbox_enableKeyboard">
@@ -793,6 +853,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>quitOnEnd</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 					<?php $target_imagelightbox_quitOnEnd = $boxersandswipers_imagelightbox['quitOnEnd']; ?>
 					<select id="boxersandswipers_imagelightbox_quitOnEnd" name="boxersandswipers_imagelightbox_quitOnEnd">
@@ -803,6 +864,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>quitOnImgClick</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 					<?php $target_imagelightbox_quitOnImgClick = $boxersandswipers_imagelightbox['quitOnImgClick']; ?>
 					<select id="boxersandswipers_imagelightbox_quitOnImgClick" name="boxersandswipers_imagelightbox_quitOnImgClick">
@@ -813,6 +875,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>quitOnDocClick</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 					<?php $target_imagelightbox_quitOnDocClick = $boxersandswipers_imagelightbox['quitOnDocClick']; ?>
 					<select id="boxersandswipers_imagelightbox_quitOnDocClick" name="boxersandswipers_imagelightbox_quitOnDocClick">
@@ -849,36 +912,42 @@ class BoxersAndSwipersAdmin {
 
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>fadeInSpeed</div>
+					<div><?php _e('Default') ?>&nbsp(250)</div>
 					<div>
 						<input type="text" id="boxersandswipers_photoswipe_fadeInSpeed" name="boxersandswipers_photoswipe_fadeInSpeed" value="<?php echo $boxersandswipers_photoswipe['fadeInSpeed'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>fadeOutSpeed</div>
+					<div><?php _e('Default') ?>&nbsp(500)</div>
 					<div>
 						<input type="text" id="boxersandswipers_photoswipe_fadeOutSpeed" name="boxersandswipers_photoswipe_fadeOutSpeed" value="<?php echo $boxersandswipers_photoswipe['fadeOutSpeed'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>slideSpeed</div>
+					<div><?php _e('Default') ?>&nbsp(250)</div>
 					<div>
 						<input type="text" id="boxersandswipers_photoswipe_slideSpeed" name="boxersandswipers_photoswipe_slideSpeed" value="<?php echo $boxersandswipers_photoswipe['slideSpeed'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>swipeThreshold</div>
+					<div><?php _e('Default') ?>&nbsp(50)</div>
 					<div>
 						<input type="text" id="boxersandswipers_photoswipe_swipeThreshold" name="boxersandswipers_photoswipe_swipeThreshold" value="<?php echo $boxersandswipers_photoswipe['swipeThreshold'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>swipeTimeThreshold</div>
+					<div><?php _e('Default') ?>&nbsp(250)</div>
 					<div>
 						<input type="text" id="boxersandswipers_photoswipe_swipeTimeThreshold" name="boxersandswipers_photoswipe_swipeTimeThreshold" value="<?php echo $boxersandswipers_photoswipe['swipeTimeThreshold'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>loop</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_photoswipe_loop = $boxersandswipers_photoswipe['loop']; ?>
 					<select id="boxersandswipers_photoswipe_loop" name="boxersandswipers_photoswipe_loop">
@@ -889,12 +958,14 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>slideshowDelay</div>
+					<div><?php _e('Default') ?>&nbsp(3000)</div>
 					<div>
 						<input type="text" id="boxersandswipers_photoswipe_slideshowDelay" name="boxersandswipers_photoswipe_slideshowDelay" value="<?php echo $boxersandswipers_photoswipe['slideshowDelay'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>imageScaleMethod</div>
+					<div><?php _e('Default') ?>&nbsp(fit)</div>
 					<div>
 					<?php $target_photoswipe_imageScaleMethod = $boxersandswipers_photoswipe['imageScaleMethod']; ?>
 					<select id="boxersandswipers_photoswipe_imageScaleMethod" name="boxersandswipers_photoswipe_imageScaleMethod">
@@ -906,6 +977,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>preventHide</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 					<?php $target_photoswipe_preventHide = $boxersandswipers_photoswipe['preventHide']; ?>
 					<select id="boxersandswipers_photoswipe_preventHide" name="boxersandswipers_photoswipe_preventHide">
@@ -916,6 +988,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>backButtonHideEnabled</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_photoswipe_backButtonHideEnabled = $boxersandswipers_photoswipe['backButtonHideEnabled']; ?>
 					<select id="boxersandswipers_photoswipe_backButtonHideEnabled" name="boxersandswipers_photoswipe_backButtonHideEnabled">
@@ -926,6 +999,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>captionAndToolbarHide</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 					<?php $target_photoswipe_captionAndToolbarHide = $boxersandswipers_photoswipe['captionAndToolbarHide']; ?>
 					<select id="boxersandswipers_photoswipe_captionAndToolbarHide" name="boxersandswipers_photoswipe_captionAndToolbarHide">
@@ -936,6 +1010,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>captionAndToolbarHideOnSwipe</div>
+					<div><?php _e('Default') ?>&nbsp(true)</div>
 					<div>
 					<?php $target_photoswipe_captionAndToolbarHideOnSwipe = $boxersandswipers_photoswipe['captionAndToolbarHideOnSwipe']; ?>
 					<select id="boxersandswipers_photoswipe_captionAndToolbarHideOnSwipe" name="boxersandswipers_photoswipe_captionAndToolbarHideOnSwipe">
@@ -946,6 +1021,7 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>captionAndToolbarFlipPosition</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 					<?php $target_photoswipe_captionAndToolbarFlipPosition = $boxersandswipers_photoswipe['captionAndToolbarFlipPosition']; ?>
 					<select id="boxersandswipers_photoswipe_captionAndToolbarFlipPosition" name="boxersandswipers_photoswipe_captionAndToolbarFlipPosition">
@@ -956,18 +1032,21 @@ class BoxersAndSwipersAdmin {
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>captionAndToolbarAutoHideDelay</div>
+					<div><?php _e('Default') ?>&nbsp(5000)</div>
 					<div>
 						<input type="text" id="boxersandswipers_photoswipe_captionAndToolbarAutoHideDelay" name="boxersandswipers_photoswipe_captionAndToolbarAutoHideDelay" value="<?php echo $boxersandswipers_photoswipe['captionAndToolbarAutoHideDelay'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>captionAndToolbarOpacity</div>
+					<div><?php _e('Default') ?>&nbsp(0.8)</div>
 					<div>
 						<input type="text" id="boxersandswipers_photoswipe_captionAndToolbarOpacity" name="boxersandswipers_photoswipe_captionAndToolbarOpacity" value="<?php echo $boxersandswipers_photoswipe['captionAndToolbarOpacity'] ?>" />
 					</div>
 				</div>
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>captionAndToolbarShowEmptyCaptions</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
 					<div>
 					<?php $target_photoswipe_captionAndToolbarShowEmptyCaptions = $boxersandswipers_photoswipe['captionAndToolbarShowEmptyCaptions']; ?>
 					<select id="boxersandswipers_photoswipe_captionAndToolbarShowEmptyCaptions" name="boxersandswipers_photoswipe_captionAndToolbarShowEmptyCaptions">
@@ -1004,6 +1083,7 @@ class BoxersAndSwipersAdmin {
 
 				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
 					<div>hideBarsDelay</div>
+					<div><?php _e('Default') ?>&nbsp(3000)</div>
 					<div>
 						<input type="text" id="boxersandswipers_swipebox_hideBarsDelay" name="boxersandswipers_swipebox_hideBarsDelay" value="<?php echo $boxersandswipers_swipebox['hideBarsDelay'] ?>" />
 					</div>
@@ -1360,6 +1440,13 @@ $boxersandswipers_add_jscss = <<<BOXERSANDSWIPERS
 
 <!-- BEGIN: Boxers And Swipers -->
 <script type="text/javascript">
+	jQuery(document).ready(function () {
+		jQuery('#tabs').responsiveTabs({
+			startCollapsed: 'accordion'
+		});
+	});
+</script>
+<script type="text/javascript">
 jQuery(window).load(function(){
 	jQuery('#container-colorbox').masonry({
 		itemSelector : '.item-boxersandswipers-settings',
@@ -1388,7 +1475,7 @@ jQuery(window).load(function(){
 });
 </script>
 <style type="text/css">
-.item-boxersandswipers-settings { width: 250px; height: 60px; float:left; margin:5px; padding:5px; }
+.item-boxersandswipers-settings { width: 250px; height: 70px; float:left; margin:5px; padding:5px; }
 </style>
 <!-- END: Boxers And Swipers -->
 

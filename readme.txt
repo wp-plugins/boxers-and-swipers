@@ -4,7 +4,7 @@ Donate link: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
 Tags: colorbox, slimbox, lightbox, nivolightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
 Requires at least: 3.0.1
 Tested up to: 3.4
-Stable tag: 2.0
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,6 +53,10 @@ none
 
 
 == Changelog ==
+
+= 2.1 =
+When specified the link = "none" option in the gallery, is excluded from the effect.
+Change management screen to responsive tab menu design.
 
 = 2.0 =
 Add function to set the exclusion in each page or post or custom post.
@@ -151,6 +155,7 @@ Fixed problem in the display of the Pages and Posts.
 
 == Upgrade Notice ==
 
+= 2.1 =
 = 2.0 =
 = 1.27 =
 = 1.26 =
