@@ -26,9 +26,5 @@ msgstr "ユーザーエージェント[|で区切って指定します。正規�
 msgid "The default value for effects."
 msgstr "エフェクトのデフォルト値"
 
-msgid ""
-"If you are using an image gallery of WordPress, please describe the short "
-"code as follows."
-msgstr ""
-"ワードプレスのギャラリー機能を使用している場合は、次のようにショートコードを"
-"記述してください。"
+msgid "Exclude"
+msgstr "除外"

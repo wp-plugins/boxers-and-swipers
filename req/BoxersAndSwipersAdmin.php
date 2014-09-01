@@ -101,12 +101,12 @@ class BoxersAndSwipersAdmin {
 	<div id="tabs">
 	  <ul>
 	    <li><a href="#tabs-1"><?php _e('The default value for each terminal', 'boxersandswipers') ?></a></li>
-		<li><a href="#tabs-2">colorbox&nbsp<?php _e('Settings'); ?></a></li>
-		<li><a href="#tabs-3">slimbox&nbsp<?php _e('Settings'); ?></a></li>
-		<li><a href="#tabs-4">nivolightbox&nbsp<?php _e('Settings'); ?></a></li>
-		<li><a href="#tabs-5">imagelightbox&nbsp<?php _e('Settings'); ?></a></li>
-		<li><a href="#tabs-6">photoswipe&nbsp<?php _e('Settings'); ?></a></li>
-		<li><a href="#tabs-7">swipebox&nbsp<?php _e('Settings'); ?></a></li>
+		<li><a href="#tabs-2">Colorbox&nbsp<?php _e('Settings'); ?></a></li>
+		<li><a href="#tabs-3">Slimbox&nbsp<?php _e('Settings'); ?></a></li>
+		<li><a href="#tabs-4">Nivo Lightbox&nbsp<?php _e('Settings'); ?></a></li>
+		<li><a href="#tabs-5">Image Lightbox&nbsp<?php _e('Settings'); ?></a></li>
+		<li><a href="#tabs-6">PhotoSwipe&nbsp<?php _e('Settings'); ?></a></li>
+		<li><a href="#tabs-7">Swipebox&nbsp<?php _e('Settings'); ?></a></li>
 	<!--
 		<li><a href="#tabs-8">FAQ</a></li>
 	 -->
@@ -131,12 +131,12 @@ class BoxersAndSwipersAdmin {
 					<div style="display:block;padding:20px 0">
 					<?php $target_effect_pc = $boxersandswipers_effect['pc']; ?>
 					<select id="boxersandswipers_effect_pc" name="boxersandswipers_effect_pc">
-						<option <?php if ('colorbox' == $target_effect_pc)echo 'selected="selected"'; ?>>colorbox</option>
-						<option <?php if ('slimbox' == $target_effect_pc)echo 'selected="selected"'; ?>>slimbox</option>
-						<option <?php if ('nivolightbox' == $target_effect_pc)echo 'selected="selected"'; ?>>nivolightbox</option>
-						<option <?php if ('imagelightbox' == $target_effect_pc)echo 'selected="selected"'; ?>>imagelightbox</option>
-						<option <?php if ('photoswipe' == $target_effect_pc)echo 'selected="selected"'; ?>>photoswipe</option>
-						<option <?php if ('swipebox' == $target_effect_pc)echo 'selected="selected"'; ?>>swipebox</option>
+						<option value='colorbox' <?php if ('colorbox' == $target_effect_pc)echo 'selected="selected"'; ?>>Colorbox</option>
+						<option value='slimbox' <?php if ('slimbox' == $target_effect_pc)echo 'selected="selected"'; ?>>Slimbox</option>
+						<option value='nivolightbox' <?php if ('nivolightbox' == $target_effect_pc)echo 'selected="selected"'; ?>>Nivo Lightbox</option>
+						<option value='imagelightbox' <?php if ('imagelightbox' == $target_effect_pc)echo 'selected="selected"'; ?>>Image Lightbox</option>
+						<option value='photoswipe' <?php if ('photoswipe' == $target_effect_pc)echo 'selected="selected"'; ?>>PhotoSwipe</option>
+						<option value='swipebox' <?php if ('swipebox' == $target_effect_pc)echo 'selected="selected"'; ?>>Swipebox</option>
 					</select>
 					</div>
 					<div>
@@ -156,12 +156,12 @@ class BoxersAndSwipersAdmin {
 					<div style="display:block;padding:20px 0">
 					<?php $target_effect_tb = $boxersandswipers_effect['tb']; ?>
 					<select id="boxersandswipers_effect_tb" name="boxersandswipers_effect_tb">
-						<option <?php if ('colorbox' == $target_effect_tb)echo 'selected="selected"'; ?>>colorbox</option>
-						<option <?php if ('slimbox' == $target_effect_tb)echo 'selected="selected"'; ?>>slimbox</option>
-						<option <?php if ('nivolightbox' == $target_effect_tb)echo 'selected="selected"'; ?>>nivolightbox</option>
-						<option <?php if ('imagelightbox' == $target_effect_tb)echo 'selected="selected"'; ?>>imagelightbox</option>
-						<option <?php if ('photoswipe' == $target_effect_tb)echo 'selected="selected"'; ?>>photoswipe</option>
-						<option <?php if ('swipebox' == $target_effect_tb)echo 'selected="selected"'; ?>>swipebox</option>
+						<option value='colorbox' <?php if ('colorbox' == $target_effect_tb)echo 'selected="selected"'; ?>>Colorbox</option>
+						<option value='slimbox' <?php if ('slimbox' == $target_effect_tb)echo 'selected="selected"'; ?>>Slimbox</option>
+						<option value='nivolightbox' <?php if ('nivolightbox' == $target_effect_tb)echo 'selected="selected"'; ?>>Nivo Lightbox</option>
+						<option value='imagelightbox' <?php if ('imagelightbox' == $target_effect_tb)echo 'selected="selected"'; ?>>Image Lightbox</option>
+						<option value='photoswipe' <?php if ('photoswipe' == $target_effect_tb)echo 'selected="selected"'; ?>>PhotoSwipe</option>
+						<option value='swipebox' <?php if ('swipebox' == $target_effect_tb)echo 'selected="selected"'; ?>>Swipebox</option>
 					</select>
 					</div>
 					<div style="padding:0 0 20px">
@@ -189,12 +189,12 @@ class BoxersAndSwipersAdmin {
 					<div style="display:block;margin:20px 0">
 					<?php $target_effect_sp = $boxersandswipers_effect['sp']; ?>
 					<select id="boxersandswipers_effect_sp" name="boxersandswipers_effect_sp">
-						<option <?php if ('colorbox' == $target_effect_sp)echo 'selected="selected"'; ?>>colorbox</option>
-						<option <?php if ('slimbox' == $target_effect_sp)echo 'selected="selected"'; ?>>slimbox</option>
-						<option <?php if ('nivolightbox' == $target_effect_sp)echo 'selected="selected"'; ?>>nivolightbox</option>
-						<option <?php if ('imagelightbox' == $target_effect_sp)echo 'selected="selected"'; ?>>imagelightbox</option>
-						<option <?php if ('photoswipe' == $target_effect_sp)echo 'selected="selected"'; ?>>photoswipe</option>
-						<option <?php if ('swipebox' == $target_effect_sp)echo 'selected="selected"'; ?>>swipebox</option>
+						<option value='colorbox' <?php if ('colorbox' == $target_effect_sp)echo 'selected="selected"'; ?>>Colorbox</option>
+						<option value='slimbox' <?php if ('slimbox' == $target_effect_sp)echo 'selected="selected"'; ?>>Slimbox</option>
+						<option value='nivolightbox' <?php if ('nivolightbox' == $target_effect_sp)echo 'selected="selected"'; ?>>Nivo Lightbox</option>
+						<option value='imagelightbox' <?php if ('imagelightbox' == $target_effect_sp)echo 'selected="selected"'; ?>>Image Lightbox</option>
+						<option value='photoswipe' <?php if ('photoswipe' == $target_effect_sp)echo 'selected="selected"'; ?>>PhotoSwipe</option>
+						<option value='swipebox' <?php if ('swipebox' == $target_effect_sp)echo 'selected="selected"'; ?>>Swipebox</option>
 					</select>
 					</div>
 					<div style="padding:0 0 20px">
@@ -235,7 +235,7 @@ class BoxersAndSwipersAdmin {
 
 	  <div id="tabs-2">
 		<div class="wrap">
-			<h2>colorbox&nbsp<?php _e('Settings'); ?>(<a href="http://www.jacklmoore.com/colorbox/" target="_blank"><font color="red"><?php _e('Description'); ?></font></a>)</h2>	
+			<h2>Colorbox&nbsp<?php _e('Settings'); ?>(<a href="http://www.jacklmoore.com/colorbox/" target="_blank"><font color="red">Colorbox&nbsp<?php _e('Website'); ?></font></a>)</h2>	
 
 			<form method="post" action="<?php echo $scriptname.'#tabs-2'; ?>">
 
@@ -581,7 +581,7 @@ class BoxersAndSwipersAdmin {
 
 	  <div id="tabs-3">
 		<div class="wrap">
-			<h2>slimbox&nbsp<?php _e('Settings'); ?>(<a href="http://www.digitalia.be/software/slimbox2" target="_blank"><font color="red"><?php _e('Description'); ?></font></a>)</h2>	
+			<h2>Slimbox&nbsp<?php _e('Settings'); ?>(<a href="http://www.digitalia.be/software/slimbox2" target="_blank"><font color="red">Slimbox&nbsp<?php _e('Website'); ?></font></a>)</h2>	
 
 			<form method="post" action="<?php echo $scriptname.'#tabs-3'; ?>">
 
@@ -693,7 +693,7 @@ class BoxersAndSwipersAdmin {
 	  </div>
 	  <div id="tabs-4">
 		<div class="wrap">
-			<h2>nivolightbox&nbsp<?php _e('Settings'); ?>(<a href="http://docs.dev7studios.com/jquery-plugins/nivo-lightbox" target="_blank"><font color="red"><?php _e('Description'); ?></font></a>)</h2>	
+			<h2>Nivo Lightbox&nbsp<?php _e('Settings'); ?>(<a href="http://docs.dev7studios.com/jquery-plugins/nivo-lightbox" target="_blank"><font color="red">Nivo Lightbox&nbsp<?php _e('Website'); ?></font></a>)</h2>	
 
 			<form method="post" action="<?php echo $scriptname.'#tabs-4'; ?>">
 
@@ -754,7 +754,7 @@ class BoxersAndSwipersAdmin {
 	  </div>
 	  <div id="tabs-5">
 		<div class="wrap">
-			<h2>imagelightbox&nbsp<?php _e('Settings'); ?>(<a href="http://osvaldas.info/image-lightbox-responsive-touch-friendly" target="_blank"><font color="red"><?php _e('Description'); ?></font></a>)</h2>	
+			<h2>Image Lightbox&nbsp<?php _e('Settings'); ?>(<a href="http://osvaldas.info/image-lightbox-responsive-touch-friendly" target="_blank"><font color="red">Image Lightbox&nbsp<?php _e('Website'); ?></font></a>)</h2>	
 
 			<form method="post" action="<?php echo $scriptname.'#tabs-5'; ?>">
 
@@ -836,7 +836,7 @@ class BoxersAndSwipersAdmin {
 	  </div>
 	  <div id="tabs-6">
 		<div class="wrap">
-			<h2>photoswipe&nbsp<?php _e('Settings'); ?>(<a href="https://github.com/dimsemenov/PhotoSwipe/blob/master/README.md" target="_blank"><font color="red"><?php _e('Description'); ?></font></a>)</h2>	
+			<h2>PhotoSwipe&nbsp<?php _e('Settings'); ?>(<a href="https://github.com/dimsemenov/PhotoSwipe/blob/master/README.md" target="_blank"><font color="red">PhotoSwipe&nbsp<?php _e('Website'); ?></font></a>)</h2>	
 
 			<form method="post" action="<?php echo $scriptname.'#tabs-6'; ?>">
 
@@ -991,7 +991,7 @@ class BoxersAndSwipersAdmin {
 	  </div>
 	  <div id="tabs-7">
 		<div class="wrap">
-			<h2>swipebox&nbsp<?php _e('Settings'); ?>(<a href="http://brutaldesign.github.io/swipebox/" target="_blank"><font color="red"><?php _e('Description'); ?></font></a>)</h2>	
+			<h2>Swipebox&nbsp<?php _e('Settings'); ?>(<a href="http://brutaldesign.github.io/swipebox/" target="_blank"><font color="red">Swipebox&nbsp<?php _e('Website'); ?></font></a>)</h2>	
 
 			<form method="post" action="<?php echo $scriptname.'#tabs-7'; ?>">
 
@@ -1396,6 +1396,138 @@ BOXERSANDSWIPERS;
 
 		return $boxersandswipers_add_jscss;
 
+	}
+
+	/* ==================================================
+	 * Add custom box.
+	 * @since	2.0
+	 */
+	function add_exclude_boxersandswipers_custom_box() {
+	    add_meta_box('boxersandswipers_exclude', 'Boxers And Swipers', array(&$this,'exclude_boxersandswipers_custom_box'), 'page', 'side', 'high');
+	    add_meta_box('boxersandswipers_exclude', 'Boxers And Swipers', array(&$this,'exclude_boxersandswipers_custom_box'), 'post', 'side', 'high');
+
+		$args = array(
+		   'public'   => true,
+		   '_builtin' => false
+		);
+		$custom_post_types = get_post_types( $args, 'objects', 'and' ); 
+		foreach ( $custom_post_types as $post_type ) {
+		    add_meta_box('boxersandswipers_exclude', 'Boxers And Swipers', array(&$this,'exclude_boxersandswipers_custom_box'), $post_type->name, 'side', 'high');
+		}
+
+	}
+	 
+	/* ==================================================
+	 * Custom box.
+	 * @since	2.0
+	 */
+	function exclude_boxersandswipers_custom_box() {
+
+		if ( isset($_GET['post']) ) {
+			$get_post = $_GET['post'];
+		} else {
+			$get_post = NULL;
+		}
+
+		$boxersandswipers_exclude = get_post_meta( $get_post, 'boxersandswipers_exclude' );
+
+		?>
+		<table>
+		<tbody>
+			<tr>
+				<td>
+					<div>
+						<?php
+						if (!empty($boxersandswipers_exclude)) {
+						?>
+							<input type="radio" name="boxersandswipers_exclude" value="true" <?php if ($boxersandswipers_exclude[0] === 'true') { echo 'checked'; }?>><?php _e('Exclude', 'boxersandswipers'); ?>&nbsp;&nbsp;
+							<input type="radio" name="boxersandswipers_exclude" value="false" <?php if ($boxersandswipers_exclude[0] <> 'true') { echo 'checked'; }?>><?php _e('Apply');
+						} else {
+						?>
+							<input type="radio" name="boxersandswipers_exclude" value="true"><?php _e('Exclude', 'boxersandswipers'); ?>&nbsp;&nbsp;
+							<input type="radio" name="boxersandswipers_exclude" value="false" checked><?php _e('Apply');
+						}
+						?>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+		</table>
+		<?php
+
+	}
+
+	/* ==================================================
+	 * Update wp_postmeta table.
+	 * @since	2.0
+	 */
+	function save_exclude_boxersandswipers_postdata( $post_id ) {
+
+		if ( isset($_POST['boxersandswipers_exclude']) ) {
+			$dataexclude = $_POST['boxersandswipers_exclude'];
+			if ( $dataexclude === 'true' ) {
+				add_post_meta( $post_id, 'boxersandswipers_exclude', $dataexclude, true );
+			} else if ( $dataexclude === ''  || $dataexclude === 'false' ) {
+				delete_post_meta( $post_id, 'boxersandswipers_exclude' );
+			}
+		}
+
+	}
+
+	/* ==================================================
+	 * Posts columns menu
+	 * @since	2.0
+	 */
+	function posts_columns_boxersandswipers($columns){
+	    $columns['column_boxersandswipers_exclude'] = __('Boxers And Swipers');
+	    return $columns;
+	}
+
+	/* ==================================================
+	 * Posts columns
+	 * @since	2.0
+	 */
+	function posts_custom_columns_boxersandswipers($column_name, $post_id){
+		if($column_name === 'column_boxersandswipers_exclude'){
+			$boxersandswipers_exclude = get_post_meta( $post_id, 'boxersandswipers_exclude' );
+			if (!empty($boxersandswipers_exclude)) {
+				if ($boxersandswipers_exclude[0]){
+					_e('Exclude', 'boxersandswipers');
+				} else {
+					_e('Apply');
+				}
+			} else {
+				_e('Apply');
+			}
+	    }
+	}
+
+	/* ==================================================
+	 * Pages columns menu
+	 * @since	2.0
+	 */
+	function pages_columns_boxersandswipers($columns){
+	    $columns['column_boxersandswipers_exclude'] = __('Boxers And Swipers');
+	    return $columns;
+	}
+
+	/* ==================================================
+	 * Pages columns
+	 * @since	2.0
+	 */
+	function pages_custom_columns_boxersandswipers($column_name, $post_id){
+		if($column_name === 'column_boxersandswipers_exclude'){
+			$boxersandswipers_exclude = get_post_meta( $post_id, 'boxersandswipers_exclude' );
+			if (!empty($boxersandswipers_exclude)) {
+				if ($boxersandswipers_exclude[0]){
+					_e('Exclude', 'boxersandswipers');
+				} else {
+					_e('Apply');
+				}
+			} else {
+				_e('Apply');
+			}
+	    }
 	}
 
 }

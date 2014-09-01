@@ -2,7 +2,7 @@
 /*
 Plugin Name: Boxers and Swipers
 Plugin URI: http://wordpress.org/plugins/boxers-and-swipers/
-Version: 1.27
+Version: 2.0
 Description: Integrates Colorbox, Slimbox, Nivo Lightbox, Image Lightbox, Photoswipe and Swipebox into WordPress.
 Author: Katsushi Kawamori
 Author URI: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
@@ -38,7 +38,13 @@ Domain Path: /languages
 	require_once( dirname( __FILE__ ) . '/req/BoxersAndSwipersAdmin.php' );
 	$boxersandswipersadmin = new BoxersAndSwipersAdmin();
 	add_action( 'admin_menu', array($boxersandswipersadmin, 'plugin_menu'));
+	add_action( 'admin_menu', array($boxersandswipersadmin, 'add_exclude_boxersandswipers_custom_box'));
+	add_action( 'save_post', array($boxersandswipersadmin, 'save_exclude_boxersandswipers_postdata'));
 	add_filter( 'plugin_action_links', array($boxersandswipersadmin, 'settings_link'), 10, 2 );
+	add_filter('manage_posts_columns', array($boxersandswipersadmin, 'posts_columns_boxersandswipers'));
+	add_action('manage_posts_custom_column', array($boxersandswipersadmin, 'posts_custom_columns_boxersandswipers'), 10, 2);
+	add_filter('manage_pages_columns', array($boxersandswipersadmin, 'pages_columns_boxersandswipers'));
+	add_action('manage_pages_custom_column', array($boxersandswipersadmin, 'pages_custom_columns_boxersandswipers'), 10, 2);
 	add_action( 'admin_enqueue_scripts', array($boxersandswipersadmin, 'load_custom_wp_admin_style') );
 	add_action( 'admin_footer', array($boxersandswipersadmin, 'load_custom_wp_admin_style2') );
 	unset($boxersandswipersadmin);

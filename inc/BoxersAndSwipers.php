@@ -44,10 +44,13 @@ class BoxersAndSwipers {
 		settype($is_category_boxersandswipers_apply, "boolean");
 		settype($is_gallery_boxersandswipers_apply, "boolean");
 
+		$boxersandswipers_exclude = get_post_meta( get_the_ID(), 'boxersandswipers_exclude' );
 		$simplemasonry_apply = get_post_meta( get_the_ID(), 'simplemasonry_apply' );
 		$simplenivoslider_apply = get_post_meta( get_the_ID(), 'simplenivoslider_apply' );
 
-		if ( get_post_gallery( get_the_ID() ) && !empty($simplemasonry_apply) && $simplemasonry_apply[0] ) {
+		if ( !empty($boxersandswipers_exclude) && $boxersandswipers_exclude[0] ) {
+			// Through
+		} else if ( get_post_gallery( get_the_ID() ) && !empty($simplemasonry_apply) && $simplemasonry_apply[0] ) {
 			// for Simple Masonry Gallery http://wordpress.org/plugins/simple-masonry-gallery/
 			// for Gallery
 			if ( $is_gallery_boxersandswipers_apply ) {

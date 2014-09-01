@@ -4,7 +4,7 @@ Donate link: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
 Tags: colorbox, slimbox, lightbox, nivolightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
 Requires at least: 3.0.1
 Tested up to: 3.4
-Stable tag: 1.27
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,14 +14,17 @@ Integrates Colorbox, Slimbox, Nivo Lightbox, Image Lightbox, Photoswipe and Swip
 
 * Integrates Colorbox, Slimbox, Nivo Lightbox, Image Lightbox, Photoswipe and Swipebox into WordPress.
 * Can switch the effect to each user agent.
-* Apply effect on images inserted into WordPress post/page/custom post/.
-* Apply effect into WordPress gallery.
-* Apply effect into WordPress home/category/archive/.
+* Add effect to images inserted into WordPress posts, custom posts and pages.
+* Add effect to the WordPress gallery.
+* Add effect to the WordPress home, category and archive pages.
+* Can set the exclusion in each page or post or custom post.
+
 * Works with [MediaLibrary Feeder](http://wordpress.org/plugins/medialibrary-feeder/).
 * Works with [GalleryLink](http://wordpress.org/plugins/gallerylink/).
 * Works with [MediaLink](http://wordpress.org/plugins/medialink/).
 
 *   Japanese (ja) - [Katsushi Kawamori](http://gallerylink.nyanko.org/medialink/boxers-and-swipers/)
+*   English  (en) - [Glen Charles Rowell](http://a4jp.com/)
 
 == Installation ==
 
@@ -50,6 +53,11 @@ none
 
 
 == Changelog ==
+
+= 2.0 =
+Add function to set the exclusion in each page or post or custom post.
+Change /languages.
+Change readme.txt
 
 = 1.27 =
 Fixed problem of management screen.
@@ -143,6 +151,7 @@ Fixed problem in the display of the Pages and Posts.
 
 == Upgrade Notice ==
 
+= 2.0 =
 = 1.27 =
 = 1.26 =
 = 1.25 =
