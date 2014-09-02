@@ -75,7 +75,7 @@ class BoxersAndSwipersAdmin {
 		}
 
 		if( !empty($_POST) ) {
-			$this->options_updated(intval($_POST['tabs']));
+			$this->options_updated(intval($_POST['boxersandswipers_admin_tabs']));
 		}
 
 		$scriptname = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH).'?page=boxersandswipers';
@@ -98,21 +98,22 @@ class BoxersAndSwipersAdmin {
 		<div class="wrap">
 		<h2>Boxers and Swipers</h2>
 
-	<div id="tabs">
+	<div id="boxersandswipers_admin_tabs">
 	  <ul>
-	    <li><a href="#tabs-1"><?php _e('The default value for each terminal', 'boxersandswipers') ?></a></li>
-		<li><a href="#tabs-2">Colorbox&nbsp<?php _e('Settings'); ?></a></li>
-		<li><a href="#tabs-3">Slimbox&nbsp<?php _e('Settings'); ?></a></li>
-		<li><a href="#tabs-4">Nivo Lightbox&nbsp<?php _e('Settings'); ?></a></li>
-		<li><a href="#tabs-5">Image Lightbox&nbsp<?php _e('Settings'); ?></a></li>
-		<li><a href="#tabs-6">PhotoSwipe&nbsp<?php _e('Settings'); ?></a></li>
-		<li><a href="#tabs-7">Swipebox&nbsp<?php _e('Settings'); ?></a></li>
+	    <li><a href="#boxersandswipers_admin_tabs-1"><?php _e('The default value for each terminal', 'boxersandswipers') ?></a></li>
+		<li><a href="#boxersandswipers_admin_tabs-2">Colorbox&nbsp<?php _e('Settings'); ?></a></li>
+		<li><a href="#boxersandswipers_admin_tabs-3">Slimbox&nbsp<?php _e('Settings'); ?></a></li>
+		<li><a href="#boxersandswipers_admin_tabs-4">Nivo Lightbox&nbsp<?php _e('Settings'); ?></a></li>
+		<li><a href="#boxersandswipers_admin_tabs-5">Image Lightbox&nbsp<?php _e('Settings'); ?></a></li>
+		<li><a href="#boxersandswipers_admin_tabs-6">PhotoSwipe&nbsp<?php _e('Settings'); ?></a></li>
+		<li><a href="#boxersandswipers_admin_tabs-7">Swipebox&nbsp<?php _e('Settings'); ?></a></li>
+		<li><a href="#boxersandswipers_admin_tabs-8"><?php _e('Exclude', 'boxersandswipers'); ?></a></li>
 	<!--
-		<li><a href="#tabs-8">FAQ</a></li>
+		<li><a href="#boxersandswipers_admin_tabs-9">FAQ</a></li>
 	 -->
 	  </ul>
 
-	  <div id="tabs-1">
+	  <div id="boxersandswipers_admin_tabs-1">
 		<div class="wrap">
 
 			<form method="post" action="<?php echo $scriptname; ?>">
@@ -144,10 +145,12 @@ class BoxersAndSwipersAdmin {
 					$posttypes = $this->search_posttype();
 					foreach ( $posttypes as $key => $value ) {
 						?>
-						<input name="boxersandswipers_apply_pc[<?php echo $key; ?>]" type="checkbox" value="true" <?php if ($boxersandswipers_apply[$key]['pc'] === 'true') echo 'checked'; ?>><?php echo $value; ?>&nbsp;&nbsp;
+						<div style="float:left;margin:7px">
+						<input name="boxersandswipers_apply_pc[<?php echo $key; ?>]" type="checkbox" value="true" <?php if ($boxersandswipers_apply[$key]['pc'] === 'true') echo 'checked'; ?>><?php echo $value; ?></div>&nbsp;&nbsp;
 						<?php
 					}
 					?>
+					<div style="clear:both"></div>
 					</div>
 				</div>
 
@@ -168,10 +171,12 @@ class BoxersAndSwipersAdmin {
 					<?php
 					foreach ( $posttypes as $key => $value ) {
 						?>
-						<input name="boxersandswipers_apply_tb[<?php echo $key; ?>]" type="checkbox" value="true" <?php if ($boxersandswipers_apply[$key]['tb'] === 'true') echo 'checked'; ?>><?php echo $value; ?>&nbsp;&nbsp;
+						<div style="float:left;margin:7px">
+						<input name="boxersandswipers_apply_tb[<?php echo $key; ?>]" type="checkbox" value="true" <?php if ($boxersandswipers_apply[$key]['tb'] === 'true') echo 'checked'; ?>><?php echo $value; ?></div>&nbsp;&nbsp;
 						<?php
 					}
 					?>
+					<div style="clear:both"></div>
 					</div>
 					<div style="display:box">
 						<p>
@@ -202,10 +207,12 @@ class BoxersAndSwipersAdmin {
 					$posttypes = $this->search_posttype();
 					foreach ( $posttypes as $key => $value ) {
 						?>
-						<input name="boxersandswipers_apply_sp[<?php echo $key; ?>]" type="checkbox" value="true" <?php if ($boxersandswipers_apply[$key]['sp'] === 'true') echo 'checked'; ?>><?php echo $value; ?>&nbsp;&nbsp;
+						<div style="float:left;margin:7px">
+						<input name="boxersandswipers_apply_sp[<?php echo $key; ?>]" type="checkbox" value="true" <?php if ($boxersandswipers_apply[$key]['sp'] === 'true') echo 'checked'; ?>><?php echo $value; ?></div>&nbsp;&nbsp;
 						<?php
 					}
 					?>
+					<div style="clear:both"></div>
 					</div>
 					<div style="display:block">
 						<p>
@@ -221,7 +228,7 @@ class BoxersAndSwipersAdmin {
 			</div>
 			<div style="clear:both"></div>
 
-			<input type="hidden" name="tabs" value="1" />
+			<input type="hidden" name="boxersandswipers_admin_tabs" value="1" />
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
 			</p>
@@ -233,11 +240,11 @@ class BoxersAndSwipersAdmin {
 		</div>
 	  </div>
 
-	  <div id="tabs-2">
+	  <div id="boxersandswipers_admin_tabs-2">
 		<div class="wrap">
-			<h2>Colorbox&nbsp<?php _e('Settings'); ?>(<a href="http://www.jacklmoore.com/colorbox/" target="_blank"><font color="red">Colorbox&nbsp<?php _e('Website'); ?></font></a>)</h2>	
+			<h2>Colorbox <?php _e('Settings'); ?>(<a href="http://www.jacklmoore.com/colorbox/" target="_blank"><font color="red">Colorbox <?php _e('Website'); ?></font></a>)</h2>	
 
-			<form method="post" action="<?php echo $scriptname.'#tabs-2'; ?>">
+			<form method="post" action="<?php echo $scriptname.'#boxersandswipers_admin_tabs-2'; ?>">
 
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
@@ -610,7 +617,7 @@ class BoxersAndSwipersAdmin {
 			</div>
 			<div style="clear:both"></div>
 
-			<input type="hidden" name="tabs" value="2" />
+			<input type="hidden" name="boxersandswipers_admin_tabs" value="2" />
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
 			</p>
@@ -620,11 +627,11 @@ class BoxersAndSwipersAdmin {
 		</div>
 	  </div>
 
-	  <div id="tabs-3">
+	  <div id="boxersandswipers_admin_tabs-3">
 		<div class="wrap">
-			<h2>Slimbox&nbsp<?php _e('Settings'); ?>(<a href="http://www.digitalia.be/software/slimbox2" target="_blank"><font color="red">Slimbox&nbsp<?php _e('Website'); ?></font></a>)</h2>	
+			<h2>Slimbox <?php _e('Settings'); ?>(<a href="http://www.digitalia.be/software/slimbox2" target="_blank"><font color="red">Slimbox <?php _e('Website'); ?></font></a>)</h2>	
 
-			<form method="post" action="<?php echo $scriptname.'#tabs-3'; ?>">
+			<form method="post" action="<?php echo $scriptname.'#boxersandswipers_admin_tabs-3'; ?>">
 
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
@@ -736,7 +743,7 @@ class BoxersAndSwipersAdmin {
 			</div>
 			<div style="clear:both"></div>
 
-			<input type="hidden" name="tabs" value="3" />
+			<input type="hidden" name="boxersandswipers_admin_tabs" value="3" />
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
 			</p>
@@ -745,11 +752,11 @@ class BoxersAndSwipersAdmin {
 
 		</div>
 	  </div>
-	  <div id="tabs-4">
+	  <div id="boxersandswipers_admin_tabs-4">
 		<div class="wrap">
-			<h2>Nivo Lightbox&nbsp<?php _e('Settings'); ?>(<a href="http://docs.dev7studios.com/jquery-plugins/nivo-lightbox" target="_blank"><font color="red">Nivo Lightbox&nbsp<?php _e('Website'); ?></font></a>)</h2>	
+			<h2>Nivo Lightbox <?php _e('Settings'); ?>(<a href="http://docs.dev7studios.com/jquery-plugins/nivo-lightbox" target="_blank"><font color="red">Nivo Lightbox <?php _e('Website'); ?></font></a>)</h2>	
 
-			<form method="post" action="<?php echo $scriptname.'#tabs-4'; ?>">
+			<form method="post" action="<?php echo $scriptname.'#boxersandswipers_admin_tabs-4'; ?>">
 
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
@@ -800,7 +807,7 @@ class BoxersAndSwipersAdmin {
 			</div>
 			<div style="clear:both"></div>
 
-			<input type="hidden" name="tabs" value="4" />
+			<input type="hidden" name="boxersandswipers_admin_tabs" value="4" />
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
 			</p>
@@ -809,11 +816,11 @@ class BoxersAndSwipersAdmin {
 
 		</div>
 	  </div>
-	  <div id="tabs-5">
+	  <div id="boxersandswipers_admin_tabs-5">
 		<div class="wrap">
-			<h2>Image Lightbox&nbsp<?php _e('Settings'); ?>(<a href="http://osvaldas.info/image-lightbox-responsive-touch-friendly" target="_blank"><font color="red">Image Lightbox&nbsp<?php _e('Website'); ?></font></a>)</h2>	
+			<h2>Image Lightbox <?php _e('Settings'); ?>(<a href="http://osvaldas.info/image-lightbox-responsive-touch-friendly" target="_blank"><font color="red">Image Lightbox <?php _e('Website'); ?></font></a>)</h2>	
 
-			<form method="post" action="<?php echo $scriptname.'#tabs-5'; ?>">
+			<form method="post" action="<?php echo $scriptname.'#boxersandswipers_admin_tabs-5'; ?>">
 
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
@@ -888,7 +895,7 @@ class BoxersAndSwipersAdmin {
 			</div>
 			<div style="clear:both"></div>
 
-			<input type="hidden" name="tabs" value="5" />
+			<input type="hidden" name="boxersandswipers_admin_tabs" value="5" />
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
 			</p>
@@ -897,11 +904,11 @@ class BoxersAndSwipersAdmin {
 
 		</div>
 	  </div>
-	  <div id="tabs-6">
+	  <div id="boxersandswipers_admin_tabs-6">
 		<div class="wrap">
-			<h2>PhotoSwipe&nbsp<?php _e('Settings'); ?>(<a href="https://github.com/dimsemenov/PhotoSwipe/blob/master/README.md" target="_blank"><font color="red">PhotoSwipe&nbsp<?php _e('Website'); ?></font></a>)</h2>	
+			<h2>PhotoSwipe <?php _e('Settings'); ?>(<a href="https://github.com/dimsemenov/PhotoSwipe/blob/master/README.md" target="_blank"><font color="red">PhotoSwipe <?php _e('Website'); ?></font></a>)</h2>	
 
-			<form method="post" action="<?php echo $scriptname.'#tabs-6'; ?>">
+			<form method="post" action="<?php echo $scriptname.'#boxersandswipers_admin_tabs-6'; ?>">
 
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
@@ -1059,7 +1066,7 @@ class BoxersAndSwipersAdmin {
 			</div>
 			<div style="clear:both"></div>
 
-			<input type="hidden" name="tabs" value="6" />
+			<input type="hidden" name="boxersandswipers_admin_tabs" value="6" />
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
 			</p>
@@ -1068,11 +1075,11 @@ class BoxersAndSwipersAdmin {
 
 		</div>
 	  </div>
-	  <div id="tabs-7">
+	  <div id="boxersandswipers_admin_tabs-7">
 		<div class="wrap">
-			<h2>Swipebox&nbsp<?php _e('Settings'); ?>(<a href="http://brutaldesign.github.io/swipebox/" target="_blank"><font color="red">Swipebox&nbsp<?php _e('Website'); ?></font></a>)</h2>	
+			<h2>Swipebox <?php _e('Settings'); ?>(<a href="http://brutaldesign.github.io/swipebox/" target="_blank"><font color="red">Swipebox <?php _e('Website'); ?></font></a>)</h2>	
 
-			<form method="post" action="<?php echo $scriptname.'#tabs-7'; ?>">
+			<form method="post" action="<?php echo $scriptname.'#boxersandswipers_admin_tabs-7'; ?>">
 
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
@@ -1092,7 +1099,7 @@ class BoxersAndSwipersAdmin {
 			</div>
 			<div style="clear:both"></div>
 
-			<input type="hidden" name="tabs" value="7" />
+			<input type="hidden" name="boxersandswipers_admin_tabs" value="7" />
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
 			</p>
@@ -1102,8 +1109,21 @@ class BoxersAndSwipersAdmin {
 		</div>
 	  </div>
 
+	  <div id="boxersandswipers_admin_tabs-8">
+		<div class="wrap">
+		<h2><?php _e('Exclude', 'boxersandswipers'); ?></h2>
+
+				<div style="margin:20px 0; padding:10px; border:#CCC 2px solid">
+					<?php _e('You can disable this plugin on each page or post as you like, by editing the page or post and then selecting the option on that page meta box of Boxers And Swipers. If you can not see the options anywhere make sure the Screen Options check box is on. Click Screen Options &gt; Show on screen &gt; Boxers And Swipers at the top right of your screen.', 'boxersandswipers'); ?>
+
+					<div style="clear:both"></div>
+				</div>
+
+		</div>
+	  </div>
+
 	<!--
-	  <div id="tabs-8">
+	  <div id="boxersandswipers_admin_tabs-9">
 		<div class="wrap">
 		<h2>FAQ</h2>
 
@@ -1441,7 +1461,7 @@ $boxersandswipers_add_jscss = <<<BOXERSANDSWIPERS
 <!-- BEGIN: Boxers And Swipers -->
 <script type="text/javascript">
 	jQuery(document).ready(function () {
-		jQuery('#tabs').responsiveTabs({
+		jQuery('#boxersandswipers_admin_tabs').responsiveTabs({
 			startCollapsed: 'accordion'
 		});
 	});
