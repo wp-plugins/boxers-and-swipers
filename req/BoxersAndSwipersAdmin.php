@@ -100,7 +100,7 @@ class BoxersAndSwipersAdmin {
 
 	<div id="boxersandswipers_admin_tabs">
 	  <ul>
-	    <li><a href="#boxersandswipers_admin_tabs-1"><?php _e('The default value for each terminal', 'boxersandswipers') ?></a></li>
+	    <li><a href="#boxersandswipers_admin_tabs-1"><?php _e('Device Settings', 'boxersandswipers') ?></a></li>
 		<li><a href="#boxersandswipers_admin_tabs-2">Colorbox&nbsp<?php _e('Settings'); ?></a></li>
 		<li><a href="#boxersandswipers_admin_tabs-3">Slimbox&nbsp<?php _e('Settings'); ?></a></li>
 		<li><a href="#boxersandswipers_admin_tabs-4">Nivo Lightbox&nbsp<?php _e('Settings'); ?></a></li>
@@ -118,7 +118,7 @@ class BoxersAndSwipersAdmin {
 
 			<form method="post" action="<?php echo $scriptname; ?>">
 
-			<h2><?php _e('The default value for each terminal', 'boxersandswipers') ?></h2>	
+			<h2><?php _e('Device Settings', 'boxersandswipers') ?></h2>	
 
 			<p class="submit">
 			  <input type="submit" name="Submit" value="<?php _e('Save Changes') ?>" />
@@ -180,7 +180,7 @@ class BoxersAndSwipersAdmin {
 					</div>
 					<div style="display:box">
 						<p>
-						<?php _e('User Agent[| Specify separated by. Regular expression is possible.]', 'boxersandswipers'); ?>
+						<?php _e('User Agent[Regular expression is possible.]', 'boxersandswipers'); ?>
 						</p>
 						<p>
 						<textarea id="boxersandswipers_useragent_tb" name="boxersandswipers_useragent_tb" rows="5" style="width: 100%;"><?php echo $boxersandswipers_useragent['tb'] ?></textarea>
@@ -216,7 +216,7 @@ class BoxersAndSwipersAdmin {
 					</div>
 					<div style="display:block">
 						<p>
-						<?php _e('User Agent[| Specify separated by. Regular expression is possible.]', 'boxersandswipers'); ?>
+						<?php _e('User Agent[Regular expression is possible.]', 'boxersandswipers'); ?>
 						</p>
 						<p>
 						<textarea id="boxersandswipers_useragent_sp" name="boxersandswipers_useragent_sp" rows="5" style="width: 100%;"><?php echo $boxersandswipers_useragent['sp'] ?></textarea>
@@ -1468,33 +1468,33 @@ $boxersandswipers_add_jscss = <<<BOXERSANDSWIPERS
 </script>
 <script type="text/javascript">
 jQuery(window).load(function(){
-	jQuery('#container-colorbox').masonry({
-		itemSelector : '.item-boxersandswipers-settings',
-		columnWidth: 250px
+	jQuery('.container-colorbox').masonry({
+		itemSelector: '.item-boxersandswipers-settings'
 	});
-	jQuery('#container-slimbox').masonry({
-		itemSelector : '.item-boxersandswipers-settings',
-		columnWidth: 250px
+	jQuery('.container-slimbox').masonry({
+		itemSelector: '.item-boxersandswipers-settings'
 	});
-	jQuery('#container-nivolightbox').masonry({
-		itemSelector : '.item-boxersandswipers-settings',
-		columnWidth: 250px
+	jQuery('.container-nivolightbox').masonry({
+		itemSelector: '.item-boxersandswipers-settings'
 	});
-	jQuery('#container-imagelightbox').masonry({
-		itemSelector : '.item-boxersandswipers-settings',
-		columnWidth: 250px
+	jQuery('.container-imagelightbox').masonry({
+		itemSelector: '.item-boxersandswipers-settings'
 	});
-	jQuery('#container-photoswipe').masonry({
-		itemSelector : '.item-boxersandswipers-settings',
-		columnWidth: 250px
+	jQuery('.container-photoswipe').masonry({
+		itemSelector: '.item-boxersandswipers-settings'
 	});
-	jQuery('#container-swipebox').masonry({
-		itemSelector : '.item-boxersandswipers-settings',
-		columnWidth: 250px
+	jQuery('.container-swipebox').masonry({
+		itemSelector: '.item-boxersandswipers-settings'
 	});
 });
 </script>
 <style type="text/css">
+.container-colorbox { float:left; }
+.container-slimbox { float:left; }
+.container-nivolightbox { float:left; }
+.container-imagelightbox { float:left; }
+.container-photoswipe { float:left; }
+.container-swipebox { float:left; }
 .item-boxersandswipers-settings { width: 250px; height: 70px; float:left; margin:5px; padding:5px; }
 </style>
 <!-- END: Boxers And Swipers -->

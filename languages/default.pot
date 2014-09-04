@@ -11,7 +11,7 @@ msgstr ""
 "X-Generator: Poedit 1.6.7\n"
 "Language: ja\n"
 
-msgid "The default value for each terminal"
+msgid "Device Settings"
 msgstr ""
 
 msgid "Terminal"
@@ -20,7 +20,7 @@ msgstr ""
 msgid "Effect"
 msgstr ""
 
-msgid "User Agent[| Specify separated by. Regular expression is possible.]"
+msgid "User Agent[Regular expression is possible.]"
 msgstr ""
 
 msgid "The default value for effects."
