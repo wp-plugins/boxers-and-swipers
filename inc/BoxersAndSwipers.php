@@ -50,13 +50,12 @@ class BoxersAndSwipers {
 
 		if ( !empty($boxersandswipers_exclude) && $boxersandswipers_exclude[0] ) {
 			// Through
-		} else if ( get_post_gallery( get_the_ID() ) && !empty($simplemasonry_apply) && $simplemasonry_apply[0] ) {
-			// for Simple Masonry Gallery http://wordpress.org/plugins/simple-masonry-gallery/
+		} else if ( class_exists('SimpleMasonry') && get_post_gallery(get_the_ID()) && !empty($simplemasonry_apply) && $simplemasonry_apply[0] ) {				// for Simple Masonry Gallery http://wordpress.org/plugins/simple-masonry-gallery/
 			// for Gallery
 			if ( $is_gallery_boxersandswipers_apply ) {
 				add_filter( 'post_gallery', array(&$this, 'gallery_filter') );
 			}
-		} else if ( get_post_gallery( get_the_ID() ) && !empty($simplenivoslider_apply) && $simplenivoslider_apply[0] ) {
+		} else if ( class_exists('SimpleNivoSlider') && !empty($simplenivoslider_apply) && $simplenivoslider_apply[0] ) {
 			// for Simple Nivo Slider http://wordpress.org/plugins/simple-nivoslider/
 			// Through
 		} else {
