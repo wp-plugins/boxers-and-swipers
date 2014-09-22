@@ -242,7 +242,7 @@ class BoxersAndSwipersAdmin {
 
 	  <div id="boxersandswipers_admin_tabs-2">
 		<div class="wrap">
-			<h2>Colorbox <?php _e('Settings'); ?>(<a href="http://www.jacklmoore.com/colorbox/" target="_blank"><font color="red">Colorbox <?php _e('Website'); ?></font></a>)</h2>	
+			<h2>Colorbox <?php _e('Settings'); ?> (<a href="http://www.jacklmoore.com/colorbox/" target="_blank"><font color="red">Colorbox <?php _e('Website'); ?></font></a>)</h2>	
 
 			<form method="post" action="<?php echo $scriptname.'#boxersandswipers_admin_tabs-2'; ?>">
 
@@ -629,7 +629,7 @@ class BoxersAndSwipersAdmin {
 
 	  <div id="boxersandswipers_admin_tabs-3">
 		<div class="wrap">
-			<h2>Slimbox <?php _e('Settings'); ?>(<a href="http://www.digitalia.be/software/slimbox2" target="_blank"><font color="red">Slimbox <?php _e('Website'); ?></font></a>)</h2>	
+			<h2>Slimbox <?php _e('Settings'); ?> (<a href="http://www.digitalia.be/software/slimbox2" target="_blank"><font color="red">Slimbox <?php _e('Website'); ?></font></a>)</h2>	
 
 			<form method="post" action="<?php echo $scriptname.'#boxersandswipers_admin_tabs-3'; ?>">
 
@@ -754,7 +754,7 @@ class BoxersAndSwipersAdmin {
 	  </div>
 	  <div id="boxersandswipers_admin_tabs-4">
 		<div class="wrap">
-			<h2>Nivo Lightbox <?php _e('Settings'); ?>(<a href="http://docs.dev7studios.com/jquery-plugins/nivo-lightbox" target="_blank"><font color="red">Nivo Lightbox <?php _e('Website'); ?></font></a>)</h2>	
+			<h2>Nivo Lightbox <?php _e('Settings'); ?> (<a href="http://docs.dev7studios.com/jquery-plugins/nivo-lightbox" target="_blank"><font color="red">Nivo Lightbox <?php _e('Website'); ?></font></a>)</h2>	
 
 			<form method="post" action="<?php echo $scriptname.'#boxersandswipers_admin_tabs-4'; ?>">
 
@@ -818,7 +818,7 @@ class BoxersAndSwipersAdmin {
 	  </div>
 	  <div id="boxersandswipers_admin_tabs-5">
 		<div class="wrap">
-			<h2>Image Lightbox <?php _e('Settings'); ?>(<a href="http://osvaldas.info/image-lightbox-responsive-touch-friendly" target="_blank"><font color="red">Image Lightbox <?php _e('Website'); ?></font></a>)</h2>	
+			<h2>Image Lightbox <?php _e('Settings'); ?> (<a href="http://osvaldas.info/image-lightbox-responsive-touch-friendly" target="_blank"><font color="red">Image Lightbox <?php _e('Website'); ?></font></a>)</h2>	
 
 			<form method="post" action="<?php echo $scriptname.'#boxersandswipers_admin_tabs-5'; ?>">
 
@@ -906,7 +906,7 @@ class BoxersAndSwipersAdmin {
 	  </div>
 	  <div id="boxersandswipers_admin_tabs-6">
 		<div class="wrap">
-			<h2>PhotoSwipe <?php _e('Settings'); ?>(<a href="https://github.com/dimsemenov/PhotoSwipe/blob/master/README.md" target="_blank"><font color="red">PhotoSwipe <?php _e('Website'); ?></font></a>)</h2>	
+			<h2>PhotoSwipe <?php _e('Settings'); ?> (<a href="https://github.com/dimsemenov/PhotoSwipe/blob/master/README.md" target="_blank"><font color="red">PhotoSwipe <?php _e('Website'); ?></font></a>)</h2>	
 
 			<form method="post" action="<?php echo $scriptname.'#boxersandswipers_admin_tabs-6'; ?>">
 
@@ -1077,7 +1077,7 @@ class BoxersAndSwipersAdmin {
 	  </div>
 	  <div id="boxersandswipers_admin_tabs-7">
 		<div class="wrap">
-			<h2>Swipebox <?php _e('Settings'); ?>(<a href="http://brutaldesign.github.io/swipebox/" target="_blank"><font color="red">Swipebox <?php _e('Website'); ?></font></a>)</h2>	
+			<h2>Swipebox <?php _e('Settings'); ?> (<a href="http://brutaldesign.github.io/swipebox/" target="_blank"><font color="red">Swipebox <?php _e('Website'); ?></font></a>)</h2>	
 
 			<form method="post" action="<?php echo $scriptname.'#boxersandswipers_admin_tabs-7'; ?>">
 

@@ -227,7 +227,7 @@ class BoxersAndSwipers {
 			// for COLORBOX
 			wp_enqueue_style( 'colorbox',  BOXERSANDSWIPERS_PLUGIN_URL.'/colorbox/colorbox.css' );
 			wp_enqueue_script('jquery');
-			wp_enqueue_script( 'colorbox', BOXERSANDSWIPERS_PLUGIN_URL.'/colorbox/jquery.colorbox-min.js', null, '1.4.37');
+			wp_enqueue_script( 'colorbox', BOXERSANDSWIPERS_PLUGIN_URL.'/colorbox/jquery.colorbox-min.js', null, '1.5.14');
 		} else if ($this->effect === 'slimbox'){
 			// for slimbox
 			wp_enqueue_style( 'slimbox',  BOXERSANDSWIPERS_PLUGIN_URL.'/slimbox/css/slimbox2.css' );
@@ -236,7 +236,7 @@ class BoxersAndSwipers {
 			// for nivolightbox
 			wp_enqueue_style( 'nivolightbox',  BOXERSANDSWIPERS_PLUGIN_URL.'/nivolightbox/nivo-lightbox.css' );
 			wp_enqueue_style( 'nivolightbox-themes',  BOXERSANDSWIPERS_PLUGIN_URL.'/nivolightbox/themes/default/default.css' );
-			wp_enqueue_script( 'nivolightbox', BOXERSANDSWIPERS_PLUGIN_URL.'/nivolightbox/nivo-lightbox.min.js', null, '1.1');
+			wp_enqueue_script( 'nivolightbox', BOXERSANDSWIPERS_PLUGIN_URL.'/nivolightbox/nivo-lightbox.min.js', null, '1.2.0');
 		} else if ($this->effect === 'imagelightbox'){
 			// for imagelightbox
 			wp_enqueue_style( 'imagelightbox',  BOXERSANDSWIPERS_PLUGIN_URL.'/imagelightbox/imagelightbox.css' );
@@ -248,8 +248,8 @@ class BoxersAndSwipers {
 			wp_enqueue_script( 'photoswipe' , BOXERSANDSWIPERS_PLUGIN_URL.'/photoswipe/code-photoswipe-1.0.11.min.js', null, '1.0.11' );
 		} else if ($this->effect === 'swipebox'){
 			// for Swipebox
-			wp_enqueue_style( 'swipebox',  BOXERSANDSWIPERS_PLUGIN_URL.'/swipebox/source/swipebox.css' );
-			wp_enqueue_script( 'swipebox' , BOXERSANDSWIPERS_PLUGIN_URL.'/swipebox/source/jquery.swipebox.min.js', null, '1.2.1' );
+			wp_enqueue_style( 'swipebox',  BOXERSANDSWIPERS_PLUGIN_URL.'/swipebox/css/swipebox.min.css' );
+			wp_enqueue_script( 'swipebox' , BOXERSANDSWIPERS_PLUGIN_URL.'/swipebox/js/jquery.swipebox.min.js', null, '1.3.0.1' );
 		}
 
 	}

@@ -4,7 +4,7 @@ Donate link: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
 Tags: colorbox, slimbox, lightbox, nivolightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
 Requires at least: 3.0.1
 Tested up to: 3.4
-Stable tag: 2.6
+Stable tag: 2.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,12 @@ none
 
 
 == Changelog ==
+
+= 2.7 =
+Colorbox upgraded to 1.5.14 from 1.4.37.
+Nivo Lightbox upgraded to 1.2.0 from 1.1.
+Swipebox upgraded to 1.3.0.1 from 1.2.1.
+Fixed the problem of spaces on the settings screen.
 
 = 2.6 =
 Fixed the problem of conflict between plugins.
@@ -172,6 +178,7 @@ Fixed problem in the display of the Pages and Posts.
 
 == Upgrade Notice ==
 
+= 2.7 =
 = 2.6 =
 = 2.5 =
 = 2.4 =
