@@ -20,7 +20,7 @@ msgstr ""
 msgid "Effect"
 msgstr ""
 
-msgid "User Agent[Regular expression is possible.]"
+msgid "User Agent (Regular Expressions are Possible)"
 msgstr ""
 
 msgid "The default value for effects."

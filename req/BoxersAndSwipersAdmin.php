@@ -180,7 +180,7 @@ class BoxersAndSwipersAdmin {
 					</div>
 					<div style="display:box">
 						<p>
-						<?php _e('User Agent[Regular expression is possible.]', 'boxersandswipers'); ?>
+						<?php _e('User Agent (Regular Expressions are Possible)', 'boxersandswipers'); ?>
 						</p>
 						<p>
 						<textarea id="boxersandswipers_useragent_tb" name="boxersandswipers_useragent_tb" rows="5" style="width: 100%;"><?php echo $boxersandswipers_useragent['tb'] ?></textarea>
@@ -216,7 +216,7 @@ class BoxersAndSwipersAdmin {
 					</div>
 					<div style="display:block">
 						<p>
-						<?php _e('User Agent[Regular expression is possible.]', 'boxersandswipers'); ?>
+						<?php _e('User Agent (Regular Expressions are Possible)', 'boxersandswipers'); ?>
 						</p>
 						<p>
 						<textarea id="boxersandswipers_useragent_sp" name="boxersandswipers_useragent_sp" rows="5" style="width: 100%;"><?php echo $boxersandswipers_useragent['sp'] ?></textarea>

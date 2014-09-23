@@ -20,8 +20,8 @@ msgstr "端末"
 msgid "Effect"
 msgstr "エフェクト"
 
-msgid "User Agent[Regular expression is possible.]"
-msgstr "ユーザーエージェント[正規表現が可能です。]"
+msgid "User Agent (Regular Expressions are Possible)"
+msgstr "ユーザーエージェント（正規表現が可能です。）"
 
 msgid "The default value for effects."
 msgstr "エフェクトのデフォルト値"
