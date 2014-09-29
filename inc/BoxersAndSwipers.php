@@ -227,7 +227,7 @@ class BoxersAndSwipers {
 			// for COLORBOX
 			wp_enqueue_style( 'colorbox',  BOXERSANDSWIPERS_PLUGIN_URL.'/colorbox/colorbox.css' );
 			wp_enqueue_script('jquery');
-			wp_enqueue_script( 'colorbox', BOXERSANDSWIPERS_PLUGIN_URL.'/colorbox/jquery.colorbox-min.js', null, '1.5.14');
+			wp_enqueue_script( 'colorbox', BOXERSANDSWIPERS_PLUGIN_URL.'/colorbox/jquery.colorbox-min.js', null, '1.4.37');
 		} else if ($this->effect === 'slimbox'){
 			// for slimbox
 			wp_enqueue_style( 'slimbox',  BOXERSANDSWIPERS_PLUGIN_URL.'/slimbox/css/slimbox2.css' );

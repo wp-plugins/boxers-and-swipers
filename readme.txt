@@ -4,7 +4,7 @@ Donate link: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
 Tags: colorbox, slimbox, lightbox, nivolightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
 Requires at least: 3.0.1
 Tested up to: 3.4
-Stable tag: 2.9
+Stable tag: 2.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,9 @@ none
 
 
 == Changelog ==
+
+= 2.10 =
+Colorbox downgraded to 1.4.37 from 1.5.14 for problem of title view.
 
 = 2.9 =
 Fixed problem of with Simple Masonry Gallery.
@@ -185,6 +188,7 @@ Fixed problem in the display of the Pages and Posts.
 
 == Upgrade Notice ==
 
+= 2.10 =
 = 2.9 =
 = 2.8 =
 = 2.7 =
