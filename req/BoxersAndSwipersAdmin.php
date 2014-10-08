@@ -53,7 +53,6 @@ class BoxersAndSwipersAdmin {
 		wp_enqueue_style( 'jquery-responsiveTabs-style', BOXERSANDSWIPERS_PLUGIN_URL.'/css/style.css' );
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'jquery-responsiveTabs', BOXERSANDSWIPERS_PLUGIN_URL.'/js/jquery.responsiveTabs.min.js' );
-		wp_enqueue_script('masonry' , get_template_directory_uri() . '/js/masonry.pkgd.min.js' , array('jquery') , false, true);
 	}
 
 	/* ==================================================
@@ -1465,28 +1464,6 @@ $boxersandswipers_add_jscss = <<<BOXERSANDSWIPERS
 			startCollapsed: 'accordion'
 		});
 	});
-</script>
-<script type="text/javascript">
-jQuery(window).load(function(){
-	jQuery('.container-colorbox').masonry({
-		itemSelector: '.item-boxersandswipers-settings'
-	});
-	jQuery('.container-slimbox').masonry({
-		itemSelector: '.item-boxersandswipers-settings'
-	});
-	jQuery('.container-nivolightbox').masonry({
-		itemSelector: '.item-boxersandswipers-settings'
-	});
-	jQuery('.container-imagelightbox').masonry({
-		itemSelector: '.item-boxersandswipers-settings'
-	});
-	jQuery('.container-photoswipe').masonry({
-		itemSelector: '.item-boxersandswipers-settings'
-	});
-	jQuery('.container-swipebox').masonry({
-		itemSelector: '.item-boxersandswipers-settings'
-	});
-});
 </script>
 <style type="text/css">
 .container-colorbox { float:left; }
