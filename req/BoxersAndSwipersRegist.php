@@ -58,10 +58,10 @@ class BoxersAndSwipersRegist {
 
 		if ( !get_option('boxersandswipers_colorbox') ) {
 			$colorbox_tbl = array(
+								'rel' => 'boxersandswipers',
 								'transition' => 'elastic',
 								'speed' => 350,
 								'title' => 'false',
-								'rel' => 'grouped',
 								'scalePhotos' => 'true',
 								'scrolling' => 'true',
 								'opacity' => 0.85,

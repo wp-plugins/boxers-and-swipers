@@ -4,7 +4,7 @@ Donate link: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
 Tags: colorbox, slimbox, lightbox, nivolightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
 Requires at least: 3.0.1
 Tested up to: 3.4
-Stable tag: 2.11
+Stable tag: 2.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,10 @@ none
 
 
 == Changelog ==
+
+= 2.12 =
+Colorbox works with Infinite Scroll.
+Fixed problem of grouped of Colorbox.
 
 = 2.11 =
 Fixed problem of enqueuing both scripts and styles.
@@ -191,6 +195,7 @@ Fixed problem in the display of the Pages and Posts.
 
 == Upgrade Notice ==
 
+= 2.12 =
 = 2.11 =
 = 2.10 =
 = 2.9 =

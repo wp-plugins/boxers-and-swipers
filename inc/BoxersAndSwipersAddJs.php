@@ -37,28 +37,42 @@ $boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
 <!-- BEGIN: Boxers and Swipers -->
 <script type="text/javascript">
 jQuery(function(){
-	jQuery("a.boxersandswipers").colorbox({
+    jQuery(".boxersandswipers").colorbox({
 
 BOXERSANDSWIPERS1;
 
+			$colorbox_set = NULL;
 			foreach( $colorbox_tbl as $key => $value ) {
 				if ( is_string($value) && $value <> 'true' && $value<> 'false' ) {
-					$boxersandswipers_add_js .= str_repeat(' ', 8).$key.': "'.$value.'",'."\n";
+					$colorbox_set .= $key.': "'.$value.'",';
 				} else {
-					$boxersandswipers_add_js .= str_repeat(' ', 8).$key.': '.$value.','."\n";
+					$colorbox_set .= $key.': '.$value.',';
 				}
 			}
-			$boxersandswipers_add_js = rtrim($boxersandswipers_add_js);
-			$boxersandswipers_add_js = rtrim($boxersandswipers_add_js, ",");
+			$colorbox_set = rtrim($colorbox_set);
+			$colorbox_set = rtrim($colorbox_set, ",");
+			$boxersandswipers_add_js .= $colorbox_set;
 
 $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 
-	});
+    }).live("click",function(){
+        jQuery(this).colorbox({
+            href: jQuery(this).closest("a").attr("href"),
+
+BOXERSANDSWIPERS2;
+
+			$boxersandswipers_add_js .= $colorbox_set;
+
+$boxersandswipers_add_js .= <<<BOXERSANDSWIPERS3
+
+        });
+        return false;
+    });
 });
 </script>
 <!-- END: Boxers and Swipers -->
 
-BOXERSANDSWIPERS2;
+BOXERSANDSWIPERS3;
 		} else if ( $this->effect === 'slimbox' ) {
 			$slimbox_tbl = get_option('boxersandswipers_slimbox');
 // JS

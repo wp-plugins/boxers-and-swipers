@@ -1199,10 +1199,10 @@ class BoxersAndSwipersAdmin {
 			case 2:
 				if ( !empty($_POST['Default']) ) {
 					$colorbox_tbl = array(
+										'rel' => 'boxersandswipers',
 										'transition' => 'elastic',
 										'speed' => 350,
 										'title' => 'false',
-										'rel' => 'grouped',
 										'scalePhotos' => 'true',
 										'scrolling' => 'true',
 										'opacity' => 0.85,
@@ -1244,10 +1244,10 @@ class BoxersAndSwipersAdmin {
 									);
 				} else {
 					$colorbox_tbl = array(
+									'rel' => 'boxersandswipers',
 									'transition' => $_POST['boxersandswipers_colorbox_transition'],
 									'speed' => intval($_POST['boxersandswipers_colorbox_speed']),
 									'title' => $_POST['boxersandswipers_colorbox_title'],
-									'rel' => 'grouped',
 									'scalePhotos' => $_POST['boxersandswipers_colorbox_scalePhotos'],
 									'scrolling' => $_POST['boxersandswipers_colorbox_scrolling'],
 									'opacity' => floatval($_POST['boxersandswipers_colorbox_opacity']),
