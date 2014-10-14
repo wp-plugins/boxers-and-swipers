@@ -56,8 +56,7 @@ BOXERSANDSWIPERS1;
 $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 
     }).live("click",function(){
-        jQuery(this).colorbox({
-            href: jQuery(this).closest("a").attr("href"),
+        jQuery(".boxersandswipers").colorbox({
 
 BOXERSANDSWIPERS2;
 
@@ -80,29 +79,42 @@ $boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
 
 <!-- BEGIN: Boxers and Swipers -->
 <script type="text/javascript">
-jQuery(document).ready(function() {
-	jQuery('a[rel*=boxersandswipers]').slimbox({
+jQuery(function() {
+    jQuery("a[rel*=boxersandswipers]").slimbox({
 
 BOXERSANDSWIPERS1;
 
+			$slimbox_set = NULL;
 			foreach( $slimbox_tbl as $key => $value ) {
 				if ( is_string($value) && $value <> 'true' && $value<> 'false' ) {
-					$boxersandswipers_add_js .= str_repeat(' ', 8).$key.': "'.$value.'",'."\n";
+					$slimbox_set .= $key.': "'.$value.'",';
 				} else {
-					$boxersandswipers_add_js .= str_repeat(' ', 8).$key.': '.$value.','."\n";
+					$slimbox_set .= $key.': '.$value.',';
 				}
 			}
-			$boxersandswipers_add_js = rtrim($boxersandswipers_add_js);
-			$boxersandswipers_add_js = rtrim($boxersandswipers_add_js, ",");
+			$slimbox_set = rtrim($slimbox_set);
+			$slimbox_set = rtrim($slimbox_set, ",");
+			$boxersandswipers_add_js .= $slimbox_set;
 
 $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 
-	});
+    }).live("click",function(){
+        jQuery("a[rel*=boxersandswipers]").slimbox({
+
+BOXERSANDSWIPERS2;
+
+			$boxersandswipers_add_js .= $slimbox_set;
+
+$boxersandswipers_add_js .= <<<BOXERSANDSWIPERS3
+
+        });
+        return false;
+    });
 });
 </script>
 <!-- END: Boxers and Swipers -->
 
-BOXERSANDSWIPERS2;
+BOXERSANDSWIPERS3;
 		} else if ( $this->effect === 'nivolightbox' ) {
 			$nivolightbox_tbl = get_option('boxersandswipers_nivolightbox');
 // JS
@@ -110,29 +122,42 @@ $boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
 
 <!-- BEGIN: Boxers and Swipers -->
 <script type="text/javascript">
-jQuery(document).ready(function() {
+jQuery(function() {
 	jQuery('a[data-lightbox-gallery*="boxersandswipers"]').nivoLightbox({
 
 BOXERSANDSWIPERS1;
 
+			$nivolightbox_set = NULL;
 			foreach( $nivolightbox_tbl as $key => $value ) {
 				if ( is_string($value) && $value <> 'true' && $value<> 'false' ) {
-					$boxersandswipers_add_js .= str_repeat(' ', 8).$key.': "'.$value.'",'."\n";
+					$nivolightbox_set .= $key.': "'.$value.'",';
 				} else {
-					$boxersandswipers_add_js .= str_repeat(' ', 8).$key.': '.$value.','."\n";
+					$nivolightbox_set .= $key.': '.$value.',';
 				}
 			}
-			$boxersandswipers_add_js = rtrim($boxersandswipers_add_js);
-			$boxersandswipers_add_js = rtrim($boxersandswipers_add_js, ",");
+			$nivolightbox_set = rtrim($nivolightbox_set);
+			$nivolightbox_set = rtrim($nivolightbox_set, ",");
+			$boxersandswipers_add_js .= $nivolightbox_set;
 
 $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 
+    }).live("click",function(){
+        jQuery('a[data-lightbox-gallery*="boxersandswipers"]').nivoLightbox({
+
+BOXERSANDSWIPERS2;
+
+			$boxersandswipers_add_js .= $nivolightbox_set;
+
+$boxersandswipers_add_js .= <<<BOXERSANDSWIPERS3
+
+        });
+        return false;
 	});
 });
 </script>
 <!-- END: Boxers and Swipers -->
 
-BOXERSANDSWIPERS2;
+BOXERSANDSWIPERS3;
 		} else if ( $this->effect === 'imagelightbox' ) {
 			$imagelightbox_tbl = get_option('boxersandswipers_imagelightbox');
 // JS
@@ -202,22 +227,23 @@ $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 BOXERSANDSWIPERS2;
 		} else if ( $this->effect === 'photoswipe' ) {
 			$photoswipe_tbl = get_option('boxersandswipers_photoswipe');
+
 // JS
 $boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
 
 <!-- BEGIN: Boxers and Swipers -->
 <script type="text/javascript">
-	document.addEventListener('DOMContentLoaded', function(){
-		Code.photoSwipe('a.boxersandswipers');
-		Code.PhotoSwipe.Current.setOptions({
+document.addEventListener('DOMContentLoaded', function(){
+    Code.photoSwipe('a.boxersandswipers');
+    Code.PhotoSwipe.Current.setOptions({
 
 BOXERSANDSWIPERS1;
 
 			foreach( $photoswipe_tbl as $key => $value ) {
 				if ( is_string($value) && $value <> 'true' && $value<> 'false' ) {
-					$boxersandswipers_add_js .= str_repeat(' ', 8).$key.': "'.$value.'",'."\n";
+					$boxersandswipers_add_js .= $key.': "'.$value.'",';
 				} else {
-					$boxersandswipers_add_js .= str_repeat(' ', 8).$key.': '.$value.','."\n";
+					$boxersandswipers_add_js .= $key.': '.$value.',';
 				}
 			}
 			$boxersandswipers_add_js = rtrim($boxersandswipers_add_js);
@@ -225,8 +251,8 @@ BOXERSANDSWIPERS1;
 
 $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 
-		});
-	}, false);
+    });
+}, false);
 </script>
 <!-- END: Boxers and Swipers -->
 
@@ -239,23 +265,25 @@ $boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
 <!-- BEGIN: Boxers and Swipers -->
 <script type="text/javascript">
 jQuery(function() {
-	jQuery(".boxersandswipers").swipebox({
+    jQuery(".boxersandswipers").swipebox({
 
 BOXERSANDSWIPERS1;
 
+			$swipebox_set = NULL;
 			foreach( $swipebox_tbl as $key => $value ) {
 				if ( is_string($value) && $value <> 'true' && $value<> 'false' ) {
-					$boxersandswipers_add_js .= str_repeat(' ', 8).$key.': "'.$value.'",'."\n";
+					$swipebox_set .= $key.': "'.$value.'",';
 				} else {
-					$boxersandswipers_add_js .= str_repeat(' ', 8).$key.': '.$value.','."\n";
+					$swipebox_set .= $key.': '.$value.',';
 				}
 			}
-			$boxersandswipers_add_js = rtrim($boxersandswipers_add_js);
-			$boxersandswipers_add_js = rtrim($boxersandswipers_add_js, ",");
+			$swipebox_set = rtrim($swipebox_set);
+			$swipebox_set = rtrim($swipebox_set, ",");
+			$boxersandswipers_add_js .= $swipebox_set;
 
 $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 
-	});
+    });
 });
 </script>
 <!-- END: Boxers and Swipers -->
