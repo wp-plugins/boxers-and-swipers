@@ -248,8 +248,8 @@ class BoxersAndSwipers {
 			// for PhotoSwipe
 			wp_enqueue_style( 'photoswipe',  BOXERSANDSWIPERS_PLUGIN_URL.'/photoswipe/photoswipe.css' );
 			wp_enqueue_script('jquery');
-			wp_enqueue_script( 'sji' , BOXERSANDSWIPERS_PLUGIN_URL.'/photoswipe/lib/simple-inheritance.min.js', null );
-			wp_enqueue_script( 'photoswipe' , BOXERSANDSWIPERS_PLUGIN_URL.'/photoswipe/code-photoswipe-1.0.11.min.js', null, '1.0.11' );
+			wp_enqueue_script( 'klass' , BOXERSANDSWIPERS_PLUGIN_URL.'/photoswipe/klass.min.js', null );
+			wp_enqueue_script( 'photoswipe' , BOXERSANDSWIPERS_PLUGIN_URL.'/photoswipe/code.photoswipe.jquery-3.0.5.min.js', null, '3.0.5' );
 		} else if ($this->effect === 'swipebox'){
 			// for Swipebox
 			wp_enqueue_style( 'swipebox',  BOXERSANDSWIPERS_PLUGIN_URL.'/swipebox/css/swipebox.min.css' );

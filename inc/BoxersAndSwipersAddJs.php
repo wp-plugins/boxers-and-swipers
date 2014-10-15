@@ -166,65 +166,75 @@ $boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
 <!-- BEGIN: Boxers and Swipers -->
 <script type="text/javascript">
 jQuery(function() {
-	var activityIndicatorOn = function()
-	{
-		jQuery( '<div id="imagelightbox-loading"><div></div></div>' ).appendTo( 'body' );
-	},
-	activityIndicatorOff = function()
-	{
-		jQuery( '#imagelightbox-loading' ).remove();
-	},
-	overlayOn = function()
-	{
-		jQuery( '<div id="imagelightbox-overlay"></div>' ).appendTo( 'body' );
-	},
-	overlayOff = function()
-	{
-		jQuery( '#imagelightbox-overlay' ).remove();
-	},
-	closeButtonOn = function( instance )
-	{
-		jQuery( '<a href="#" id="imagelightbox-close">Close</a>' ).appendTo( 'body' ).on( 'click touchend', function(){ jQuery( this ).remove(); instance.quitImageLightbox(); return false; });
-	},
-	closeButtonOff = function()
-	{
-		jQuery( '#imagelightbox-close' ).remove();
-	},
-	captionOn = function()
-	{
-		var description = jQuery( 'a[href="' + jQuery( '#imagelightbox' ).attr( 'src' ) + '"] img' ).attr( 'alt' );
-		if( description.length > 0 )
-			jQuery( '<div id="imagelightbox-caption">' + description + '</div>' ).appendTo( 'body' );
-	},
-	captionOff = function()
-	{
-		jQuery( '#imagelightbox-caption' ).remove();
-	};
-	var instanceBoxersAndSwipers = jQuery( 'a[data-imagelightbox="boxersandswipers"]' ).imageLightbox({
+    var activityIndicatorOn = function()
+    {
+        jQuery( '<div id="imagelightbox-loading"><div></div></div>' ).appendTo( 'body' );
+    },
+    activityIndicatorOff = function()
+    {
+        jQuery( '#imagelightbox-loading' ).remove();
+    },
+    overlayOn = function()
+    {
+        jQuery( '<div id="imagelightbox-overlay"></div>' ).appendTo( 'body' );
+    },
+    overlayOff = function()
+    {
+        jQuery( '#imagelightbox-overlay' ).remove();
+    },
+    closeButtonOn = function( instance )
+    {
+        jQuery( '<a href="#" id="imagelightbox-close">Close</a>' ).appendTo( 'body' ).on( 'click touchend', function(){ jQuery( this ).remove(); instance.quitImageLightbox(); return false; });
+    },
+    closeButtonOff = function()
+    {
+        jQuery( '#imagelightbox-close' ).remove();
+    },
+    captionOn = function()
+    {
+        var description = jQuery( 'a[href="' + jQuery( '#imagelightbox' ).attr( 'src' ) + '"] img' ).attr( 'alt' );
+        if( description.length > 0 )
+            jQuery( '<div id="imagelightbox-caption">' + description + '</div>' ).appendTo( 'body' );
+    },
+    captionOff = function()
+    {
+        jQuery( '#imagelightbox-caption' ).remove();
+    };
+
+    var instanceBoxersAndSwipers = jQuery( 'a[data-imagelightbox="boxersandswipers"]' ).imageLightbox({
 
 BOXERSANDSWIPERS1;
 
+			$imagelightbox_set = NULL;
 			foreach( $imagelightbox_tbl as $key => $value ) {
 				if ( is_string($value) && $value <> 'true' && $value<> 'false' ) {
-					$boxersandswipers_add_js .= str_repeat(' ', 8).$key.': "'.$value.'",'."\n";
+					$imagelightbox_set .= $key.': "'.$value.'",';
 				} else {
-					$boxersandswipers_add_js .= str_repeat(' ', 8).$key.': '.$value.','."\n";
+					$imagelightbox_set .= $key.': '.$value.',';
 				}
 			}
-			$boxersandswipers_add_js = rtrim($boxersandswipers_add_js);
+			$imagelightbox_set = rtrim($imagelightbox_set);
+			$boxersandswipers_add_js .= $imagelightbox_set;
 
 $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
+onStart: function() { overlayOn(); closeButtonOn( instanceBoxersAndSwipers );},onEnd: function() { overlayOff(); captionOff(); closeButtonOff(); activityIndicatorOff(); },onLoadStart: function() { captionOff(); activityIndicatorOn(); },onLoadEnd: function() { captionOn(); activityIndicatorOff(); }
+    }).live("click",function(){
+        var instanceBoxersAndSwipers = jQuery( 'a[data-imagelightbox="boxersandswipers"]' ).imageLightbox({
 
-		onStart:	 function() { overlayOn(); closeButtonOn( instanceBoxersAndSwipers );},
-		onEnd:		 function() { overlayOff(); captionOff(); closeButtonOff(); activityIndicatorOff(); },
-		onLoadStart: function() { captionOff(); activityIndicatorOn(); },
-		onLoadEnd:	 function() { captionOn(); activityIndicatorOff(); }
-	});
+BOXERSANDSWIPERS2;
+
+			$boxersandswipers_add_js .= $imagelightbox_set;
+
+$boxersandswipers_add_js .= <<<BOXERSANDSWIPERS3
+onStart: function() { overlayOn(); closeButtonOn( instanceBoxersAndSwipers );},onEnd: function() { overlayOff(); captionOff(); closeButtonOff(); activityIndicatorOff(); },onLoadStart: function() { captionOff(); activityIndicatorOn(); },onLoadEnd: function() { captionOn(); activityIndicatorOff(); }
+        });
+        return false;
+    });
 });
 </script>
 <!-- END: Boxers and Swipers -->
 
-BOXERSANDSWIPERS2;
+BOXERSANDSWIPERS3;
 		} else if ( $this->effect === 'photoswipe' ) {
 			$photoswipe_tbl = get_option('boxersandswipers_photoswipe');
 
@@ -233,26 +243,27 @@ $boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
 
 <!-- BEGIN: Boxers and Swipers -->
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function(){
-    Code.photoSwipe('a.boxersandswipers');
-    Code.PhotoSwipe.Current.setOptions({
+jQuery(function() {
+    jQuery(".boxersandswipers").photoSwipe({
 
 BOXERSANDSWIPERS1;
 
+			$photoswipe_set = NULL;
 			foreach( $photoswipe_tbl as $key => $value ) {
 				if ( is_string($value) && $value <> 'true' && $value<> 'false' ) {
-					$boxersandswipers_add_js .= $key.': "'.$value.'",';
+					$photoswipe_set .= $key.': "'.$value.'",';
 				} else {
-					$boxersandswipers_add_js .= $key.': '.$value.',';
+					$photoswipe_set .= $key.': '.$value.',';
 				}
 			}
-			$boxersandswipers_add_js = rtrim($boxersandswipers_add_js);
-			$boxersandswipers_add_js = rtrim($boxersandswipers_add_js, ",");
+			$photoswipe_set = rtrim($photoswipe_set);
+			$photoswipe_set = rtrim($photoswipe_set, ",");
+			$boxersandswipers_add_js .= $photoswipe_set;
 
 $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 
     });
-}, false);
+});
 </script>
 <!-- END: Boxers and Swipers -->
 
