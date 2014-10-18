@@ -37,7 +37,9 @@ $boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
 <!-- BEGIN: Boxers and Swipers -->
 <script type="text/javascript">
 jQuery(function(){
-    jQuery(".boxersandswipers").colorbox({
+    jQuery(".boxersandswipers").live('click', function(e){
+        e.preventDefault();
+        jQuery(".boxersandswipers").colorbox({
 
 BOXERSANDSWIPERS1;
 
@@ -55,23 +57,13 @@ BOXERSANDSWIPERS1;
 
 $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 
-    }).live("click",function(){
-        jQuery(".boxersandswipers").colorbox({
-
-BOXERSANDSWIPERS2;
-
-			$boxersandswipers_add_js .= $colorbox_set;
-
-$boxersandswipers_add_js .= <<<BOXERSANDSWIPERS3
-
         });
-        return false;
     });
 });
 </script>
 <!-- END: Boxers and Swipers -->
 
-BOXERSANDSWIPERS3;
+BOXERSANDSWIPERS2;
 		} else if ( $this->effect === 'slimbox' ) {
 			$slimbox_tbl = get_option('boxersandswipers_slimbox');
 // JS
@@ -80,7 +72,9 @@ $boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
 <!-- BEGIN: Boxers and Swipers -->
 <script type="text/javascript">
 jQuery(function() {
-    jQuery("a[rel*=boxersandswipers]").slimbox({
+    jQuery("a[rel*=boxersandswipers]").live('click', function(e){
+        e.preventDefault();
+        jQuery("a[rel*=boxersandswipers]").slimbox({
 
 BOXERSANDSWIPERS1;
 
@@ -98,23 +92,13 @@ BOXERSANDSWIPERS1;
 
 $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 
-    }).live("click",function(){
-        jQuery("a[rel*=boxersandswipers]").slimbox({
-
-BOXERSANDSWIPERS2;
-
-			$boxersandswipers_add_js .= $slimbox_set;
-
-$boxersandswipers_add_js .= <<<BOXERSANDSWIPERS3
-
         });
-        return false;
     });
 });
 </script>
 <!-- END: Boxers and Swipers -->
 
-BOXERSANDSWIPERS3;
+BOXERSANDSWIPERS2;
 		} else if ( $this->effect === 'nivolightbox' ) {
 			$nivolightbox_tbl = get_option('boxersandswipers_nivolightbox');
 // JS
@@ -123,7 +107,9 @@ $boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
 <!-- BEGIN: Boxers and Swipers -->
 <script type="text/javascript">
 jQuery(function() {
-	jQuery('a[data-lightbox-gallery*="boxersandswipers"]').nivoLightbox({
+    jQuery('a[data-lightbox-gallery*="boxersandswipers"]').live('click', function(e){
+        e.preventDefault();
+        jQuery('a[data-lightbox-gallery*="boxersandswipers"]').nivoLightbox({
 
 BOXERSANDSWIPERS1;
 
@@ -141,23 +127,13 @@ BOXERSANDSWIPERS1;
 
 $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 
-    }).live("click",function(){
-        jQuery('a[data-lightbox-gallery*="boxersandswipers"]').nivoLightbox({
-
-BOXERSANDSWIPERS2;
-
-			$boxersandswipers_add_js .= $nivolightbox_set;
-
-$boxersandswipers_add_js .= <<<BOXERSANDSWIPERS3
-
         });
-        return false;
 	});
 });
 </script>
 <!-- END: Boxers and Swipers -->
 
-BOXERSANDSWIPERS3;
+BOXERSANDSWIPERS2;
 		} else if ( $this->effect === 'imagelightbox' ) {
 			$imagelightbox_tbl = get_option('boxersandswipers_imagelightbox');
 // JS
@@ -201,7 +177,9 @@ jQuery(function() {
         jQuery( '#imagelightbox-caption' ).remove();
     };
 
-    var instanceBoxersAndSwipers = jQuery( 'a[data-imagelightbox="boxersandswipers"]' ).imageLightbox({
+    jQuery('a[data-imagelightbox="boxersandswipers"]').live('click', function(e){
+        e.preventDefault();
+        var instanceBoxersAndSwipers = jQuery('a[data-imagelightbox="boxersandswipers"]').imageLightbox({
 
 BOXERSANDSWIPERS1;
 
@@ -218,23 +196,13 @@ BOXERSANDSWIPERS1;
 
 $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 onStart: function() { overlayOn(); closeButtonOn( instanceBoxersAndSwipers );},onEnd: function() { overlayOff(); captionOff(); closeButtonOff(); activityIndicatorOff(); },onLoadStart: function() { captionOff(); activityIndicatorOn(); },onLoadEnd: function() { captionOn(); activityIndicatorOff(); }
-    }).live("click",function(){
-        var instanceBoxersAndSwipers = jQuery( 'a[data-imagelightbox="boxersandswipers"]' ).imageLightbox({
-
-BOXERSANDSWIPERS2;
-
-			$boxersandswipers_add_js .= $imagelightbox_set;
-
-$boxersandswipers_add_js .= <<<BOXERSANDSWIPERS3
-onStart: function() { overlayOn(); closeButtonOn( instanceBoxersAndSwipers );},onEnd: function() { overlayOff(); captionOff(); closeButtonOff(); activityIndicatorOff(); },onLoadStart: function() { captionOff(); activityIndicatorOn(); },onLoadEnd: function() { captionOn(); activityIndicatorOff(); }
         });
-        return false;
     });
 });
 </script>
 <!-- END: Boxers and Swipers -->
 
-BOXERSANDSWIPERS3;
+BOXERSANDSWIPERS2;
 		} else if ( $this->effect === 'photoswipe' ) {
 			$photoswipe_tbl = get_option('boxersandswipers_photoswipe');
 
@@ -244,7 +212,9 @@ $boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
 <!-- BEGIN: Boxers and Swipers -->
 <script type="text/javascript">
 jQuery(function() {
-    jQuery(".boxersandswipers").photoSwipe({
+    jQuery(".boxersandswipers").live('click', function(e){
+        e.preventDefault();
+        jQuery(".boxersandswipers").photoSwipe({
 
 BOXERSANDSWIPERS1;
 
@@ -262,6 +232,7 @@ BOXERSANDSWIPERS1;
 
 $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 
+        });
     });
 });
 </script>
@@ -276,7 +247,9 @@ $boxersandswipers_add_js = <<<BOXERSANDSWIPERS1
 <!-- BEGIN: Boxers and Swipers -->
 <script type="text/javascript">
 jQuery(function() {
-    jQuery(".boxersandswipers").swipebox({
+    jQuery(".boxersandswipers").live('click', function(e){
+        e.preventDefault();
+        jQuery(".boxersandswipers").swipebox({
 
 BOXERSANDSWIPERS1;
 
@@ -294,6 +267,7 @@ BOXERSANDSWIPERS1;
 
 $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 
+        });
     });
 });
 </script>
