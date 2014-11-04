@@ -4,7 +4,7 @@ Donate link: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
 Tags: colorbox, slimbox, lightbox, nivolightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: 2.16
+Stable tag: 2.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,9 @@ none
 
 
 == Changelog ==
+
+= 2.17 =
+Fixed problem that does not show audio control when using Swipebox & Photoswipe.
 
 = 2.16 =
 Fixed problem of two taps (or clicks) on an image.
@@ -212,6 +215,7 @@ Fixed problem in the display of the Pages and Posts.
 
 == Upgrade Notice ==
 
+= 2.17 =
 = 2.16 =
 = 2.15 =
 = 2.14 =

@@ -263,7 +263,8 @@ BOXERSANDSWIPERS1;
 
 $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 
-    }).live('click', function(e){
+    });
+    jQuery(".boxersandswipers").live('click', function(e){
         e.preventDefault();
         jQuery(".boxersandswipers").photoSwipe({
 
@@ -306,7 +307,8 @@ BOXERSANDSWIPERS1;
 
 $boxersandswipers_add_js .= <<<BOXERSANDSWIPERS2
 
-    }).live('click', function(e){
+    });
+    jQuery(".boxersandswipers").live('click', function(e){
         e.preventDefault();
         jQuery(".boxersandswipers").swipebox({
 
