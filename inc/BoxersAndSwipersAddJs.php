@@ -86,7 +86,7 @@ BOXERSANDSWIPERS1;
 
 			$slimbox_set = NULL;
 			foreach( $slimbox_tbl as $key => $value ) {
-				if ( is_string($value) && $value <> 'true' && $value<> 'false' ) {
+				if ( is_string($value) && $value <> 'true' && $value<> 'false' && substr($value, 0, 1) <> '[' ) {
 					$slimbox_set .= $key.': "'.$value.'",';
 				} else {
 					$slimbox_set .= $key.': '.$value.',';
