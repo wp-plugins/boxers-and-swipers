@@ -3,8 +3,8 @@ Contributors: Katsushi Kawamori
 Donate link: http://gallerylink.nyanko.org/medialink/boxers-and-swipers/
 Tags: colorbox, slimbox, lightbox, nivolightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
 Requires at least: 3.0.1
-Tested up to: 4.0
-Stable tag: 2.18
+Tested up to: 4.0.1
+Stable tag: 2.19
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,9 @@ none
 
 
 == Changelog ==
+
+= 2.19 =
+Fixed of problem of error in debug mode.
 
 = 2.18 =
 Fixed problem of Slimbox navigation keys.
@@ -218,6 +221,7 @@ Fixed problem in the display of the Pages and Posts.
 
 == Upgrade Notice ==
 
+= 2.19 =
 = 2.18 =
 = 2.17 =
 = 2.16 =

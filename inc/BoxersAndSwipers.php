@@ -33,7 +33,9 @@ class BoxersAndSwipers {
 
 		$device = $this->agent_check();
 		$boxersandswipers_apply = get_option('boxersandswipers_apply');
-		$is_singular_boxersandswipers_apply = $boxersandswipers_apply[get_post_type(get_the_ID())][$device];
+		if ( !is_attachment() ) {
+			$is_singular_boxersandswipers_apply = $boxersandswipers_apply[get_post_type(get_the_ID())][$device];
+		}
 		$is_home_boxersandswipers_apply = $boxersandswipers_apply['home'][$device];
 		$is_archive_boxersandswipers_apply = $boxersandswipers_apply['archive'][$device];
 		$is_category_boxersandswipers_apply = $boxersandswipers_apply['category'][$device];
