@@ -1459,11 +1459,9 @@ $boxersandswipers_add_jscss = <<<BOXERSANDSWIPERS
 
 <!-- BEGIN: Boxers And Swipers -->
 <script type="text/javascript">
-	jQuery(document).ready(function () {
-		jQuery('#boxersandswipers_admin_tabs').responsiveTabs({
-			startCollapsed: 'accordion'
-		});
-	});
+jQuery('#boxersandswipers_admin_tabs').responsiveTabs({
+  startCollapsed: 'accordion'
+});
 </script>
 <style type="text/css">
 .container-colorbox { float:left; }
