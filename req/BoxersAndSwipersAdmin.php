@@ -107,8 +107,9 @@ class BoxersAndSwipersAdmin {
 		<li><a href="#boxersandswipers_admin_tabs-6">PhotoSwipe&nbsp<?php _e('Settings'); ?></a></li>
 		<li><a href="#boxersandswipers_admin_tabs-7">Swipebox&nbsp<?php _e('Settings'); ?></a></li>
 		<li><a href="#boxersandswipers_admin_tabs-8"><?php _e('Exclude', 'boxersandswipers'); ?></a></li>
+		<li><a href="#boxersandswipers_admin_tabs-9"><?php _e('Donate to this plugin &#187;'); ?></a></li>
 	<!--
-		<li><a href="#boxersandswipers_admin_tabs-9">FAQ</a></li>
+		<li><a href="#boxersandswipers_admin_tabs-10">FAQ</a></li>
 	 -->
 	  </ul>
 
@@ -1121,8 +1122,17 @@ class BoxersAndSwipersAdmin {
 		</div>
 	  </div>
 
+		<div id="boxersandswipers_admin_tabs-9">
+		  <div class="wrap">
+			<h3><?php _e('I need a donation. This is because, I want to continue the development and support of plugins.', 'boxersandswipers'); ?></h3>
+			<div align="right">Katsushi Kawamori</div>
+			<h3 style="float: left;"><?php _e('Donate to this plugin &#187;'); ?></h3>
+<a href='https://pledgie.com/campaigns/28307' target="_blank"><img alt='Click here to lend your support to: Various Plugins for WordPress and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/28307.png?skin_name=chrome' border='0' ></a>
+		  </div>
+		</div>
+
 	<!--
-	  <div id="boxersandswipers_admin_tabs-9">
+	  <div id="boxersandswipers_admin_tabs-10">
 		<div class="wrap">
 		<h2>FAQ</h2>
 
