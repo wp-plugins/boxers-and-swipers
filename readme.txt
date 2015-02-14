@@ -4,7 +4,7 @@ Donate link: http://pledgie.com/campaigns/28307
 Tags: colorbox, slimbox, lightbox, nivolightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
 Requires at least: 3.0.1
 Tested up to: 4.1
-Stable tag: 2.21
+Stable tag: 2.22
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,10 @@ none
 
 
 == Changelog ==
+
+= 2.22 =
+Swipebox upgraded to 1.3.0.2 from 1.3.0.1.
+Display of messages in the management screen.
 
 = 2.21 =
 Add screen of donate.
@@ -230,6 +234,7 @@ Fixed problem in the display of the Pages and Posts.
 
 == Upgrade Notice ==
 
+= 2.22 =
 = 2.21 =
 = 2.20 =
 = 2.19 =

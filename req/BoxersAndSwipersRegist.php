@@ -168,9 +168,20 @@ class BoxersAndSwipersRegist {
 
 		if ( !get_option('boxersandswipers_swipebox') ) {
 			$swipebox_tbl = array(
-								'hideBarsDelay' => 3000
+								'hideBarsDelay' => 3000,
+								'loopAtEnd' => false
 							);
 			update_option( 'boxersandswipers_swipebox', $swipebox_tbl );
+		} else {
+			$boxersandswipers_swipebox = get_option('boxersandswipers_swipebox');
+			$search_array = array('first' => 1, 'second' => 4);
+			if (!array_key_exists('loopAtEnd', $boxersandswipers_swipebox)) {
+				$swipebox_tbl = array(
+									'hideBarsDelay' => $boxersandswipers_swipebox['hideBarsDelay'],
+									'loopAtEnd' => 'false'
+								);
+				update_option( 'boxersandswipers_swipebox', $swipebox_tbl );
+			}
 		}
 
 	}

@@ -1095,6 +1095,17 @@ class BoxersAndSwipersAdmin {
 						<input type="text" id="boxersandswipers_swipebox_hideBarsDelay" name="boxersandswipers_swipebox_hideBarsDelay" value="<?php echo $boxersandswipers_swipebox['hideBarsDelay'] ?>" />
 					</div>
 				</div>
+				<div class="item-boxersandswipers-settings" style="border:#CCC 2px solid;">
+					<div>loopAtEnd</div>
+					<div><?php _e('Default') ?>&nbsp(false)</div>
+					<div>
+					<?php $target_swipebox_loopAtEnd = $boxersandswipers_swipebox['loopAtEnd']; ?>
+					<select id="boxersandswipers_swipebox_loopAtEnd" name="boxersandswipers_swipebox_loopAtEnd">
+						<option <?php if ('true' == $target_swipebox_loopAtEnd)echo 'selected="selected"'; ?>>true</option>
+						<option <?php if ('false' == $target_swipebox_loopAtEnd)echo 'selected="selected"'; ?>>false</option>
+					</select>
+					</div>
+				</div>
 
 			</div>
 			<div style="clear:both"></div>
@@ -1419,11 +1430,13 @@ class BoxersAndSwipersAdmin {
 			case 7:
 				if ( !empty($_POST['Default']) ) {
 					$swipebox_tbl = array(
-										'hideBarsDelay' => 3000
+									'hideBarsDelay' => 3000,
+									'loopAtEnd' => false
 									);
 				} else {
 					$swipebox_tbl = array(
-									'hideBarsDelay' => intval($_POST['boxersandswipers_swipebox_hideBarsDelay'])
+									'hideBarsDelay' => intval($_POST['boxersandswipers_swipebox_hideBarsDelay']),
+									'loopAtEnd' => $_POST['boxersandswipers_swipebox_loopAtEnd']
 									);
 				}
 				update_option( 'boxersandswipers_swipebox', $swipebox_tbl );
@@ -1620,6 +1633,44 @@ BOXERSANDSWIPERS;
 				_e('Apply');
 			}
 	    }
+	}
+
+	/* ==================================================
+	 * Admin notices
+	 * @since	2.22
+	 */
+	function notices(){
+
+		if( !empty($_POST) ) {
+			$tabs = intval($_POST['boxersandswipers_admin_tabs']);
+			switch ($tabs) {
+				case 1:
+					$message = __('Device Settings', 'boxersandswipers');
+					break;
+				case 2:
+					$message = 'Colorbox';
+					break;
+				case 3:
+					$message = 'Slimbox';
+					break;
+				case 4:
+					$message = 'Nivo Lightbox';
+					break;
+				case 5:
+					$message = 'Image Lightbox';
+					break;
+				case 6:
+					$message = 'PhotoSwipe';
+					break;
+				case 7:
+					$message = 'Swipebox';
+					break;
+			}
+
+			$updated = '<div class="updated"><ul><li>'.$message.' --> '.__('Settings saved.').'</li></ul></div>';
+			echo $updated;
+		}
+
 	}
 
 }
