@@ -1641,7 +1641,7 @@ BOXERSANDSWIPERS;
 	 */
 	function notices(){
 
-		if( !empty($_POST) ) {
+		if( !empty($_POST) && strstr(admin_url('options-general.php?page=boxersandswipers'), $_SERVER['REQUEST_URI']) ) {
 			$tabs = intval($_POST['boxersandswipers_admin_tabs']);
 			switch ($tabs) {
 				case 1:
