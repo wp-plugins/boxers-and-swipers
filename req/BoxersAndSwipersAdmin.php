@@ -1216,6 +1216,7 @@ class BoxersAndSwipersAdmin {
 				update_option( 'boxersandswipers_apply', $apply_tbl );
 				update_option( 'boxersandswipers_effect', $effect_tbl );
 				update_option( 'boxersandswipers_useragent', $useragent_tbl );
+				echo '<div class="updated"><ul><li>'.__('Device Settings', 'boxersandswipers').' --> '.__('Settings saved.').'</li></ul></div>';
 				break;
 			case 2:
 				if ( !empty($_POST['Default']) ) {
@@ -1310,6 +1311,7 @@ class BoxersAndSwipersAdmin {
 									);
 				}
 				update_option( 'boxersandswipers_colorbox', $colorbox_tbl );
+				echo '<div class="updated"><ul><li>'.'Colorbox'.' --> '.__('Settings saved.').'</li></ul></div>';
 				break;
 			case 3:
 				if ( !empty($_POST['Default']) ) {
@@ -1346,6 +1348,7 @@ class BoxersAndSwipersAdmin {
 									);
 				}
 				update_option( 'boxersandswipers_slimbox', $slimbox_tbl );
+				echo '<div class="updated"><ul><li>'.'Slimbox'.' --> '.__('Settings saved.').'</li></ul></div>';
 				break;
 			case 4:
 				if ( !empty($_POST['Default']) ) {
@@ -1362,6 +1365,7 @@ class BoxersAndSwipersAdmin {
 									);
 				}
 				update_option( 'boxersandswipers_nivolightbox', $nivolightbox_tbl );
+				echo '<div class="updated"><ul><li>'.'Nivo Lightbox'.' --> '.__('Settings saved.').'</li></ul></div>';
 				break;
 			case 5:
 				if ( !empty($_POST['Default']) ) {
@@ -1384,6 +1388,7 @@ class BoxersAndSwipersAdmin {
 									);
 				}
 				update_option( 'boxersandswipers_imagelightbox', $imagelightbox_tbl );
+				echo '<div class="updated"><ul><li>'.'Image Lightbox'.' --> '.__('Settings saved.').'</li></ul></div>';
 				break;
 			case 6:
 				if ( !empty($_POST['Default']) ) {
@@ -1426,6 +1431,7 @@ class BoxersAndSwipersAdmin {
 									);
 				}
 				update_option( 'boxersandswipers_photoswipe', $photoswipe_tbl );
+				echo '<div class="updated"><ul><li>'.'PhotoSwipe'.' --> '.__('Settings saved.').'</li></ul></div>';
 				break;
 			case 7:
 				if ( !empty($_POST['Default']) ) {
@@ -1440,6 +1446,7 @@ class BoxersAndSwipersAdmin {
 									);
 				}
 				update_option( 'boxersandswipers_swipebox', $swipebox_tbl );
+				echo '<div class="updated"><ul><li>'.'Swipebox'.' --> '.__('Settings saved.').'</li></ul></div>';
 				break;
 		}
 
@@ -1633,44 +1640,6 @@ BOXERSANDSWIPERS;
 				_e('Apply');
 			}
 	    }
-	}
-
-	/* ==================================================
-	 * Admin notices
-	 * @since	2.22
-	 */
-	function notices(){
-
-		if( !empty($_POST) && strstr(admin_url('options-general.php?page=boxersandswipers'), $_SERVER['REQUEST_URI']) ) {
-			$tabs = intval($_POST['boxersandswipers_admin_tabs']);
-			switch ($tabs) {
-				case 1:
-					$message = __('Device Settings', 'boxersandswipers');
-					break;
-				case 2:
-					$message = 'Colorbox';
-					break;
-				case 3:
-					$message = 'Slimbox';
-					break;
-				case 4:
-					$message = 'Nivo Lightbox';
-					break;
-				case 5:
-					$message = 'Image Lightbox';
-					break;
-				case 6:
-					$message = 'PhotoSwipe';
-					break;
-				case 7:
-					$message = 'Swipebox';
-					break;
-			}
-
-			$updated = '<div class="updated"><ul><li>'.$message.' --> '.__('Settings saved.').'</li></ul></div>';
-			echo $updated;
-		}
-
 	}
 
 }
