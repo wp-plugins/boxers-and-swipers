@@ -11,6 +11,13 @@ msgstr ""
 "X-Generator: Poedit 1.6.7\n"
 "Language: ja\n"
 
+msgid ""
+"Integrates Colorbox, Slimbox, Nivo Lightbox, Image Lightbox, Photoswipe and "
+"Swipebox into WordPress."
+msgstr ""
+"ワードプレスに、Colorbox, Slimbox, Nivo Lightbox, Image Lightbox, "
+"Photoswipe, Swipebox の機能をユーザーエージェント毎に付加します。"
+
 msgid "Device Settings"
 msgstr "端末毎の設定"
 
@@ -43,7 +50,7 @@ msgstr ""
 "項目&gt;Boxers And Swipers のチェックボックスをチェックします。"
 
 msgid ""
-"I need a donation. This is because, I want to continue the development and "
-"support of plugins."
+"Please make a donation if you like my work or would like to further the "
+"development of this plugin."
 msgstr ""
 "私はプラグインの開発とサポートを継続させるために寄付を必要としています。"

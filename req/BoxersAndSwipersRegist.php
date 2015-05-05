@@ -27,6 +27,9 @@ class BoxersAndSwipersRegist {
 	 */
 	function register_settings(){
 
+		$plugin_datas = get_file_data( BOXERSANDSWIPERS_PLUGIN_BASE_DIR.'/boxersandswipers.php', array('version' => 'Version') );
+		$plugin_version = floatval($plugin_datas['version']);
+
 		if ( !get_option('boxersandswipers_apply') ) {
 			$posttypes = BoxersAndSwipersAdmin::search_posttype();
 			$apply_tbl = array();
@@ -169,16 +172,20 @@ class BoxersAndSwipersRegist {
 		if ( !get_option('boxersandswipers_swipebox') ) {
 			$swipebox_tbl = array(
 								'hideBarsDelay' => 3000,
-								'loopAtEnd' => false
+								'loopAtEnd' => 'false'
 							);
 			update_option( 'boxersandswipers_swipebox', $swipebox_tbl );
 		} else {
 			$boxersandswipers_swipebox = get_option('boxersandswipers_swipebox');
-			$search_array = array('first' => 1, 'second' => 4);
-			if (!array_key_exists('loopAtEnd', $boxersandswipers_swipebox)) {
+			if ( $plugin_version >= 2.22 ) {
+				if ( array_key_exists( "loopAtEnd", $boxersandswipers_swipebox ) ) {
+					$loopatend = $boxersandswipers_swipebox['loopAtEnd'];
+				} else {
+					$loopatend = 'false';
+				}
 				$swipebox_tbl = array(
 									'hideBarsDelay' => $boxersandswipers_swipebox['hideBarsDelay'],
-									'loopAtEnd' => 'false'
+									'loopAtEnd' => $loopatend
 								);
 				update_option( 'boxersandswipers_swipebox', $swipebox_tbl );
 			}

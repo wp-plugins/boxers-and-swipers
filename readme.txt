@@ -3,8 +3,8 @@ Contributors: Katsushi Kawamori
 Donate link: http://pledgie.com/campaigns/28307
 Tags: colorbox, slimbox, lightbox, nivolightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
 Requires at least: 3.0.1
-Tested up to: 4.1
-Stable tag: 2.24
+Tested up to: 4.2
+Stable tag: 2.25
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,10 +20,6 @@ Integrates Colorbox, Slimbox, Nivo Lightbox, Image Lightbox, Photoswipe and Swip
 * Can set the exclusion in each page or post or custom post.
 
 * Works with Infinite Scroll.
-* Works with [Simple Masonry Gallery](http://wordpress.org/plugins/simple-masonry-gallery/).
-* Works with [MediaLibrary Feeder](http://wordpress.org/plugins/medialibrary-feeder/).
-* Works with [GalleryLink](http://wordpress.org/plugins/gallerylink/).
-* Works with [MediaLink](http://wordpress.org/plugins/medialink/).
 
 *   Japanese (ja) - [Katsushi Kawamori](http://riverforest-wp.info/)
 *   English  (en) - [Glen Charles Rowell](http://a4jp.com/)
@@ -53,8 +49,12 @@ none
 12. Settings of photoswipe
 13. Settings of swipebox
 
-
 == Changelog ==
+
+= 2.25 =
+Fixed problem of Swipebox settings.
+Change readme.txt.
+Change /languages.
 
 = 2.24 =
 Fixed of problem of display of messages in the management screen.
@@ -240,6 +240,7 @@ Fixed problem in the display of the Pages and Posts.
 
 == Upgrade Notice ==
 
+= 2.25 =
 = 2.24 =
 = 2.23 =
 = 2.22 =

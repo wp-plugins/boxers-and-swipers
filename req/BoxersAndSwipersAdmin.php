@@ -1135,7 +1135,7 @@ class BoxersAndSwipersAdmin {
 
 		<div id="boxersandswipers_admin_tabs-9">
 		  <div class="wrap">
-			<h3><?php _e('I need a donation. This is because, I want to continue the development and support of plugins.', 'boxersandswipers'); ?></h3>
+			<h3><?php _e('Please make a donation if you like my work or would like to further the development of this plugin.', 'boxersandswipers'); ?></h3>
 			<div align="right">Katsushi Kawamori</div>
 			<h3 style="float: left;"><?php _e('Donate to this plugin &#187;'); ?></h3>
 <a href='https://pledgie.com/campaigns/28307' target="_blank"><img alt='Click here to lend your support to: Various Plugins for WordPress and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/28307.png?skin_name=chrome' border='0' ></a>
@@ -1437,7 +1437,7 @@ class BoxersAndSwipersAdmin {
 				if ( !empty($_POST['Default']) ) {
 					$swipebox_tbl = array(
 									'hideBarsDelay' => 3000,
-									'loopAtEnd' => false
+									'loopAtEnd' => 'false'
 									);
 				} else {
 					$swipebox_tbl = array(
