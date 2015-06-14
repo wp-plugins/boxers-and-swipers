@@ -187,32 +187,41 @@ class BoxersAndSwipers {
 	*/
 	function add_anchor_tag_gallery($link, $id, $size, $permalink, $icon, $text) {
 
-		$titlename = ' title="'.get_the_title($id).'"';
-		if ( $this->effect === 'colorbox' ) {
-			// colorbox
-			$class_name = 'class="boxersandswipers"';
-		    $link = str_replace( '<a', '<a '.$class_name.$titlename, $link );
-		} else if ( $this->effect === 'slimbox' ) {
-			//slimbox
-			$rel_name = 'rel="boxersandswipers"';
-		    $link = str_replace( '<a', '<a '.$rel_name.$titlename, $link );
-		} else if ( $this->effect === 'nivolightbox' ) {
-			//nivolightbox
-			$rel_name = 'data-lightbox-gallery="boxersandswipers"';
-		    $link = str_replace( '<a', '<a '.$rel_name.$titlename, $link );
-		} else if ( $this->effect === 'imagelightbox' ) {
-			//imagelightbox
-			$rel_name = 'data-imagelightbox="boxersandswipers"';
-		    $link = str_replace( '<a', '<a '.$rel_name.$titlename, $link );
-		} else if ( $this->effect === 'photoswipe' ) {
-			//photoswipe
-			$class_name = 'class="boxersandswipers" ';
-		    $link = str_replace( '<a', '<a '.$class_name, $link );
-		} else if ( $this->effect === 'swipebox' ) {
-			//swipebox
-			$rel_name = 'rel="boxers-and-swipers"';
-			$class_name = ' class="boxersandswipers"';
-		    $link = str_replace( '<a', '<a '.$rel_name.$class_name.$titlename, $link );
+		if(preg_match_all("/\s+href\s*=\s*([\"\']?)([^\s\"\'>]+)(\\1)/ims", $link, $result) !== false){
+	    	foreach ($result[0] as $value){
+				$exts = explode('.', substr($value, 0, -1));
+				$ext = end($exts);
+				$ext2type = wp_ext2type($ext);
+				if ( $ext2type === 'image' ) {
+					$titlename = ' title="'.get_the_title($id).'"';
+					if ( $this->effect === 'colorbox' ) {
+						// colorbox
+						$class_name = 'class="boxersandswipers"';
+					    $link = str_replace( '<a', '<a '.$class_name.$titlename, $link );
+					} else if ( $this->effect === 'slimbox' ) {
+						//slimbox
+						$rel_name = 'rel="boxersandswipers"';
+					    $link = str_replace( '<a', '<a '.$rel_name.$titlename, $link );
+					} else if ( $this->effect === 'nivolightbox' ) {
+						//nivolightbox
+						$rel_name = 'data-lightbox-gallery="boxersandswipers"';
+					    $link = str_replace( '<a', '<a '.$rel_name.$titlename, $link );
+					} else if ( $this->effect === 'imagelightbox' ) {
+						//imagelightbox
+						$rel_name = 'data-imagelightbox="boxersandswipers"';
+					    $link = str_replace( '<a', '<a '.$rel_name.$titlename, $link );
+					} else if ( $this->effect === 'photoswipe' ) {
+						//photoswipe
+						$class_name = 'class="boxersandswipers" ';
+					    $link = str_replace( '<a', '<a '.$class_name, $link );
+					} else if ( $this->effect === 'swipebox' ) {
+						//swipebox
+						$rel_name = 'rel="boxers-and-swipers"';
+						$class_name = ' class="boxersandswipers"';
+					    $link = str_replace( '<a', '<a '.$rel_name.$class_name.$titlename, $link );
+					}
+				}
+			}
 		}
 
 		return $link;

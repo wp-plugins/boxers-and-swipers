@@ -2,7 +2,7 @@
 /*
 Plugin Name: Boxers and Swipers
 Plugin URI: http://wordpress.org/plugins/boxers-and-swipers/
-Version: 2.25
+Version: 2.26
 Description: Integrates Colorbox, Slimbox, Nivo Lightbox, Image Lightbox, Photoswipe and Swipebox into WordPress.
 Author: Katsushi Kawamori
 Author URI: http://riverforest-wp.info/
