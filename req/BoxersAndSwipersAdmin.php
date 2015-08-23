@@ -1134,12 +1134,22 @@ class BoxersAndSwipersAdmin {
 	  </div>
 
 		<div id="boxersandswipers_admin_tabs-9">
-		  <div class="wrap">
-			<h3><?php _e('Please make a donation if you like my work or would like to further the development of this plugin.', 'boxersandswipers'); ?></h3>
-			<div align="right">Katsushi Kawamori</div>
-			<h3 style="float: left;"><?php _e('Donate to this plugin &#187;'); ?></h3>
-<a href='https://pledgie.com/campaigns/28307' target="_blank"><img alt='Click here to lend your support to: Various Plugins for WordPress and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/28307.png?skin_name=chrome' border='0' ></a>
-		  </div>
+			<div class="wrap">
+				<?php
+				$plugin_datas = get_file_data( BOXERSANDSWIPERS_PLUGIN_BASE_DIR.'/boxersandswipers.php', array('version' => 'Version') );
+				$plugin_version = __('Version:').' '.$plugin_datas['version'];
+				?>
+				<h4 style="margin: 5px; padding: 5px;">
+				<?php echo $plugin_version; ?> |
+				<a style="text-decoration: none;" href="https://wordpress.org/support/plugin/boxers-and-swipers" target="_blank"><?php _e('Support Forums') ?></a> |
+				<a style="text-decoration: none;" href="https://wordpress.org/support/view/plugin-reviews/boxers-and-swipers" target="_blank"><?php _e('Reviews', 'boxersandswipers') ?></a>
+				</h4>
+				<div style="width: 250px; height: 170px; margin: 5px; padding: 5px; border: #CCC 2px solid;">
+				<h3><?php _e('Please make a donation if you like my work or would like to further the development of this plugin.', 'boxersandswipers'); ?></h3>
+				<div style="text-align: right; margin: 5px; padding: 5px;"><span style="padding: 3px; color: #ffffff; background-color: #008000">Plugin Author</span> <span style="font-weight: bold;">Katsushi Kawamori</span></div>
+		<a style="margin: 5px; padding: 5px;" href='https://pledgie.com/campaigns/28307' target="_blank"><img alt='Click here to lend your support to: Various Plugins for WordPress and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/28307.png?skin_name=chrome' border='0' ></a>
+				</div>
+			</div>
 		</div>
 
 	<!--

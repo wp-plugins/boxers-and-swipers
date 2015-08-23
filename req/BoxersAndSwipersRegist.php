@@ -31,7 +31,10 @@ class BoxersAndSwipersRegist {
 		$plugin_version = floatval($plugin_datas['version']);
 
 		if ( !get_option('boxersandswipers_apply') ) {
-			$posttypes = BoxersAndSwipersAdmin::search_posttype();
+			include_once( BOXERSANDSWIPERS_PLUGIN_BASE_DIR.'/req/BoxersAndSwipersAdmin.php' );
+			$boxersandswipersadmin = new BoxersAndSwipersAdmin();
+			$posttypes = $boxersandswipersadmin->search_posttype();
+			unset($boxersandswipersadmin);
 			$apply_tbl = array();
 			foreach ( $posttypes as $key => $value ) {
 				$apply_tbl[$key]['pc'] = 'true';

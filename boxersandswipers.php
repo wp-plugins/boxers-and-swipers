@@ -2,7 +2,7 @@
 /*
 Plugin Name: Boxers and Swipers
 Plugin URI: http://wordpress.org/plugins/boxers-and-swipers/
-Version: 2.26
+Version: 2.27
 Description: Integrates Colorbox, Slimbox, Nivo Lightbox, Image Lightbox, Photoswipe and Swipebox into WordPress.
 Author: Katsushi Kawamori
 Author URI: http://riverforest-wp.info/
@@ -31,12 +31,12 @@ Domain Path: /languages
 	define("BOXERSANDSWIPERS_PLUGIN_BASE_DIR", dirname(__FILE__));
 	define("BOXERSANDSWIPERS_PLUGIN_URL", plugins_url($path='boxers-and-swipers',$scheme=null));
 
-	require_once( dirname( __FILE__ ) . '/req/BoxersAndSwipersRegist.php' );
+	require_once( BOXERSANDSWIPERS_PLUGIN_BASE_DIR . '/req/BoxersAndSwipersRegist.php' );
 	$boxersandswipersregistandheader = new BoxersAndSwipersRegist();
 	add_action('admin_init', array($boxersandswipersregistandheader, 'register_settings'));
 	unset($boxersandswipersregistandheader);
 
-	require_once( dirname( __FILE__ ) . '/req/BoxersAndSwipersAdmin.php' );
+	require_once( BOXERSANDSWIPERS_PLUGIN_BASE_DIR . '/req/BoxersAndSwipersAdmin.php' );
 	$boxersandswipersadmin = new BoxersAndSwipersAdmin();
 	add_action( 'admin_menu', array($boxersandswipersadmin, 'plugin_menu'));
 	add_action( 'admin_menu', array($boxersandswipersadmin, 'add_exclude_boxersandswipers_custom_box'));

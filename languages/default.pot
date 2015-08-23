@@ -37,3 +37,6 @@ msgstr ""
 
 msgid "Please make a donation if you like my work or would like to further the development of this plugin."
 msgstr ""
+
+msgid "Reviews"
+msgstr ""
