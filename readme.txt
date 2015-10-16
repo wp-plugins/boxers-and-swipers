@@ -4,7 +4,7 @@ Donate link: http://pledgie.com/campaigns/28307
 Tags: colorbox, slimbox, lightbox, nivolightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
 Requires at least: 3.0.1
 Tested up to: 4.3
-Stable tag: 2.27
+Stable tag: 2.28
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,9 @@ none
 13. Settings of swipebox
 
 == Changelog ==
+
+= 2.28 =
+Javascript and CSS will be loaded only to the required page.
 
 = 2.27 =
 Fixed problem of initial setting for multisite.
@@ -248,6 +251,7 @@ Fixed problem in the display of the Pages and Posts.
 
 == Upgrade Notice ==
 
+= 2.28 =
 = 2.27 =
 = 2.26 =
 = 2.25 =
