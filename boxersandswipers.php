@@ -2,7 +2,7 @@
 /*
 Plugin Name: Boxers and Swipers
 Plugin URI: http://wordpress.org/plugins/boxers-and-swipers/
-Version: 2.28
+Version: 2.29
 Description: Integrates Colorbox, Slimbox, Nivo Lightbox, Image Lightbox, Photoswipe and Swipebox into WordPress.
 Author: Katsushi Kawamori
 Author URI: http://riverforest-wp.info/
@@ -58,24 +58,30 @@ Domain Path: /languages
 	$boxersandswipers_apply = get_option('boxersandswipers_apply');
 
 	$boxersandswipers->effect = $boxersandswipers_effect[$device];
-	$boxersandswipers_attachment_args = array(
-		'post_type' => 'attachment',
-		'post_mime_type' => 'image',
-		'numberposts' => -1
-		);
-	$boxersandswipers->attachments = get_posts($boxersandswipers_attachment_args);
+	global $wpdb;
+	$boxersandswipers->attachments = $wpdb->get_results(
+					"
+					SELECT	post_title, ID
+					FROM	$wpdb->posts
+					WHERE	post_type = 'attachment'
+							AND post_mime_type = 'image/jpeg'
+							OR post_mime_type = 'image/gif'
+							OR post_mime_type = 'image/png'
+							OR post_mime_type = 'image/bmp'
+							OR post_mime_type = 'image/tiff'
+							OR post_mime_type = 'image/x-icon'
+					"
+	);
 	$boxersandswipers->foot_count = 0;
 
 	add_filter( 'the_content', array($boxersandswipers, 'add_anchor_tag'));
 
-	// for MediaLibrary Feeder http://wordpress.org/plugins/medialibrary-feeder/
-	add_filter( 'post_medialibraryfeed', array($boxersandswipers, 'gallery_filter') );
 	// for GalleryLink http://wordpress.org/plugins/gallerylink/
 	add_filter( 'post_gallerylink', array($boxersandswipers, 'add_anchor_tag') );
 	// for MediaLink http://wordpress.org/plugins/medialink/
 	add_filter( 'post_medialink', array($boxersandswipers, 'add_anchor_tag') );
 
-	add_filter( 'the_content', array($boxersandswipers, 'add_footer'));
+	add_filter( 'the_content', array($boxersandswipers, 'add_footer'), 15 );
 
 	unset($boxersandswipers);
 

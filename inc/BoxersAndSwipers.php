@@ -99,7 +99,7 @@ class BoxersAndSwipers {
 						$class_name = ' class="boxersandswipers"';
 						$titlename = NULL;
 						foreach ( $this->attachments as $attachment ) {
-							if( strpos($value, $attachment->guid) ){
+							if( strpos($value, get_post_meta( $attachment->ID, '_wp_attached_file', true )) ){
 								$titlename = ' title="'.$attachment->post_title.'"';
 							}
 						}
@@ -109,7 +109,7 @@ class BoxersAndSwipers {
 						$rel_name = ' rel="boxersandswipers"';
 						$titlename = NULL;
 						foreach ( $this->attachments as $attachment ) {
-							if( strpos($value, $attachment->guid) ){
+							if( strpos($value, get_post_meta( $attachment->ID, '_wp_attached_file', true )) ){
 								$titlename = ' title="'.$attachment->post_title.'"';
 							}
 						}
@@ -119,7 +119,7 @@ class BoxersAndSwipers {
 						$rel_name = ' data-lightbox-gallery="boxersandswipers"';
 						$titlename = NULL;
 						foreach ( $this->attachments as $attachment ) {
-							if( strpos($value, $attachment->guid) ){
+							if( strpos($value, get_post_meta( $attachment->ID, '_wp_attached_file', true )) ){
 								$titlename = ' title="'.$attachment->post_title.'"';
 							}
 						}
@@ -129,7 +129,7 @@ class BoxersAndSwipers {
 						$rel_name = ' data-imagelightbox="boxersandswipers"';
 						$titlename = NULL;
 						foreach ( $this->attachments as $attachment ) {
-							if( strpos($value, $attachment->guid) ){
+							if( strpos($value, get_post_meta( $attachment->ID, '_wp_attached_file', true )) ){
 								$titlename = ' title="'.$attachment->post_title.'"';
 							}
 						}
@@ -144,7 +144,7 @@ class BoxersAndSwipers {
 						$class_name = ' class="boxersandswipers"';
 						$titlename = NULL;
 						foreach ( $this->attachments as $attachment ) {
-							if( strpos($value, $attachment->guid) ){
+							if( strpos($value, get_post_meta( $attachment->ID, '_wp_attached_file', true )) ){
 								$titlename = ' title="'.$attachment->post_title.'"';
 							}
 						}

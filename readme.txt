@@ -4,7 +4,7 @@ Donate link: http://pledgie.com/campaigns/28307
 Tags: colorbox, slimbox, lightbox, nivolightbox, photoswipe, swipebox, jquery, gallery, image, images, photo, photos, picture, pictures, useragent, tablet, smartphone
 Requires at least: 3.0.1
 Tested up to: 4.3
-Stable tag: 2.28
+Stable tag: 2.29
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,11 @@ none
 13. Settings of swipebox
 
 == Changelog ==
+
+= 2.29 =
+Changed the method of get to title.
+In the filter, slow down the timing of the script to the footer.
+Fixed the problem of with Gallerylink and Medialink.
 
 = 2.28 =
 Javascript and CSS will be loaded only to the required page.
@@ -251,6 +256,7 @@ Fixed problem in the display of the Pages and Posts.
 
 == Upgrade Notice ==
 
+= 2.29 =
 = 2.28 =
 = 2.27 =
 = 2.26 =
